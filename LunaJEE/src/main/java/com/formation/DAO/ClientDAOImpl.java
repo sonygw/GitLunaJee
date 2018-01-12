@@ -16,16 +16,16 @@ import com.formation.model.Commande;
  * @author SDJ09
  *
  */
-public class ClientDAOSQL implements ClientDAO {
+public class ClientDAOImpl implements ClientDAO {
 
 	Connection conn = null;
 	Statement state = null;
 
-	public ClientDAOSQL() {
+	public ClientDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClientDAOSQL(Connection conn) {
+	public ClientDAOImpl(Connection conn) {
 		super();
 		this.conn = conn;
 	}

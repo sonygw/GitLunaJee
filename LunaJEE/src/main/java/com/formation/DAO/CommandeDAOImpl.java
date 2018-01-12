@@ -7,16 +7,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import com.formation.model.Commande;
 
-public class CommandeDAOSQL implements CommandeDAO {
+public class CommandeDAOImpl implements CommandeDAO {
 
 	private Connection conn;
 	private Statement state;
 
-	public CommandeDAOSQL() {
+	public CommandeDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CommandeDAOSQL(Connection conn) {
+	public CommandeDAOImpl(Connection conn) {
 		super();
 		this.conn = conn;
 	}

@@ -7,17 +7,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import com.formation.model.User;
 
-public class UserDAOSQL implements UserDAO {
+public class UserDAOImpl implements UserDAO {
 	
 	private Connection conn;
 
 
-public UserDAOSQL() {
+public UserDAOImpl() {
 	// TODO Auto-generated constructor stub
 }
 
 
-	public UserDAOSQL(Connection conn) {
+	public UserDAOImpl(Connection conn) {
 	super();
 	this.conn = conn;
 }

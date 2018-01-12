@@ -1,7 +1,5 @@
 package com.formation.model;
 
-import java.util.Date;
-
 public class Commande {
 
 	private int idCommande;
@@ -20,7 +18,7 @@ public class Commande {
 	}
 
 	/**
-	 * Contructeur avec paramètres
+	 * Contructeur avec paramï¿½tres
 	 * @param idCommande 
 	 * @param ref
 	 * @param prixHT

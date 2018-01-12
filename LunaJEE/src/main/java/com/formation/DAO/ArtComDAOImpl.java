@@ -13,7 +13,7 @@ import com.formation.model.ArtCom;
  * @author Lou
  *
  */
-public class ArtComDAOSQL implements ArtComDAO {
+public class ArtComDAOImpl implements ArtComDAO {
 
 	Connection conn = null;
 	Statement state = null;
@@ -21,7 +21,7 @@ public class ArtComDAOSQL implements ArtComDAO {
 	/**
 	 * constructeur vide
 	 */
-	public ArtComDAOSQL() {
+	public ArtComDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,7 +31,7 @@ public class ArtComDAOSQL implements ArtComDAO {
 	 * @param conn
 	 *            connexionJDBC
 	 */
-	public ArtComDAOSQL(Connection conn) {
+	public ArtComDAOImpl(Connection conn) {
 		super();
 		this.conn = conn;
 	}

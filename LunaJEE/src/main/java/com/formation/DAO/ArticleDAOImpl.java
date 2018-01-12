@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import com.formation.model.Article;
 import com.formation.model.Client;
 
-public class ArticleDAOSQL implements ArticleDAO {
+public class ArticleDAOImpl implements ArticleDAO {
 
 	Connection conn = null;
 	Statement state = null;
 
-	public ArticleDAOSQL() {
+	public ArticleDAOImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArticleDAOSQL(Connection conn) {
+	public ArticleDAOImpl(Connection conn) {
 		super();
 		this.conn = conn;
 	}
