@@ -1,13 +1,13 @@
 package com.formation.DAO;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.formation.model.Article;
-import com.formation.model.Client;
 
 public class ArticleDAOImpl implements ArticleDAO {
 
