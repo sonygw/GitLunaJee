@@ -1,11 +1,23 @@
 package com.formation.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Commande {
 
+	@Id
+	@GeneratedValue
 	private int idCommande;
 	private String ref;
 	private double prixHT;
 	private String adresse;
+	
+	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private int idClient;
 	private String reglement;
 	private String date;
