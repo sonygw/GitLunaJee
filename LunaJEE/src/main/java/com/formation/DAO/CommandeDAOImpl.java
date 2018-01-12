@@ -1,181 +1,77 @@
 package com.formation.DAO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.formation.model.Commande;
 
 public class CommandeDAOImpl implements CommandeDAO {
 
-	private Connection conn;
-	private Statement state;
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	public CommandeDAOImpl() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public CommandeDAOImpl(Connection conn) {
-		super();
-		this.conn = conn;
-	}
 
 	@Override
 	public ArrayList<Commande> SelectAllCommandes() {
 
-		ArrayList<Commande> commandes = new ArrayList<Commande>();
-		Commande commande = null;
+		@SuppressWarnings("unchecked")
+		ArrayList<Commande> commandes = (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande").getResultList();
 
-		ResultSet result = null;
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("SELECT * FROM commande");
-
-			while (result.next()) {
-				commande = new Commande(result.getInt("idCommande"), result.getString("ref"),
-						result.getDouble("prixHT"), result.getString("adresse"), result.getInt("idClient"),
-						result.getString("date"), result.getString("reglement"));
-				commandes.add(commande);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		return commandes;
 	}
 
 	@Override
 	public ArrayList<Commande> SelectCommandesClient(int idclient) {
-		ResultSet result = null;
-		Commande commande = null;
-		ArrayList<Commande> resultats = new ArrayList<Commande>();
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("SELECT * FROM commande WHERE idClient=" + idclient);
-			while (result.next()) {
-				commande = new Commande(result.getInt("idCommande"), result.getString("ref"),
-						result.getDouble("prixHT"), result.getString("adresse"), result.getInt("idClient"),
-						result.getString("date"), result.getString("reglement"));
-				resultats.add(commande);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<Commande> resultats =(ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande WHERE idClient=" + idclient).getResultList();
+			
 		return resultats;
 	}
 
 	@Override
 	public Commande SelectCommande(int id) {
-		ResultSet result = null;
-		Commande commande = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("SELECT * FROM commande WHERE idCommande=" + id);
-			result.next();
-			commande = new Commande(result.getInt("idCommande"), result.getString("ref"), result.getDouble("prixHT"),
-					result.getString("adresse"), result.getInt("idClient"), result.getString("date"),
-					result.getString("reglement"));
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
+		Commande commande = (Commande) sessionFactory.getCurrentSession().createQuery("FROM commande WHERE idCommande=" + id);
+		
 		return commande;
 	}
 
 	@Override
 	public ArrayList<Commande> SelectCommandesArticles(int id) {
-		ResultSet result = null;
-		Commande commande = null;
-		ArrayList<Commande> resultats = new ArrayList<Commande>();
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery(
-					"SELECT * FROM commande c, artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id);
-			while (result.next()) {
-				commande = new Commande(result.getInt("idCommande"), result.getString("ref"),
-						result.getDouble("prixHT"), result.getString("adresse"), result.getInt("idClient"),
-						result.getString("date"), result.getString("reglement"));
-				resultats.add(commande);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande c, artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id).getResultList();
+			
 		return resultats;
 	}
 
 	@Override
 	public boolean CreateCommande(Commande commande) {
-		boolean result = false;
-
-		try {
-			state = conn.createStatement();
-			String req = "INSERT INTO commande values (null,'" + commande.getRef() + "'," + commande.getPrixHT() + ",'"
-					+ commande.getAdresse() + "'," + commande.getIdClient() + ",'" + commande.getDate() + "','"
-					+ commande.getReglement() + "');";
-			state.executeUpdate(req);
-
-			result = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
+		sessionFactory.getCurrentSession().save(commande);
+		return true;
 	}
 
 	@Override
 	public boolean UpdateCommande(Commande commande, int id) {
-		boolean result = false;
-
-		try {
-			state = conn.createStatement();
-			String str = "UPDATE commande SET ref = '" + commande.getRef() + "',prixHT =" + commande.getPrixHT()
-					+ ", adresse='" + commande.getAdresse() + "', idClient= " + commande.getIdClient() + ", date= '"
-					+ commande.getDate() + "', reglement= '" + commande.getReglement() + "' WHERE idCommande=" + id
-					+ ";";
-			state.executeUpdate(str);
-			result = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
+		sessionFactory.getCurrentSession().saveOrUpdate(commande);
+		return true;
 	}
 
 	@Override
-	public boolean DeleteCommande(int id) {
-		boolean result = false;
-
-		try {
-			state = conn.createStatement();
-			state.executeUpdate("DELETE FROM commande WHERE idCommande=" + id);
-			result = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
+	public boolean DeleteCommande(Commande commande) {
+		sessionFactory.getCurrentSession().delete(commande);
+		return true;
 	}
 
 	@Override
 	public Commande SelectLastCommande() {
-		ResultSet result = null;
-		Commande commande = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("SELECT * FROM commande ORDER BY idCommande DESC LIMIT 1 ");
-			if (result.next())
-				commande = new Commande(result.getInt("idCommande"), result.getString("ref"),
-						result.getDouble("prixHT"), result.getString("adresse"), result.getInt("idClient"),
-						result.getString("date"), result.getString("reglement"));
-			else {
-				commande = new Commande();
-				commande.setIdCommande(0);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-
-		}
+	
+		Commande commande = (Commande) sessionFactory.getCurrentSession().createQuery("SELECT * FROM commande ORDER BY idCommande DESC LIMIT 1 ");
+			
 		return commande;
 	}
 

@@ -9,7 +9,7 @@ public interface UserDAO {
 	/**
 	 * Selectionne un User en fonction de l'ID du User
 	 * @param id ID du User
-	 * @return un User qui correspond à l'ID
+	 * @return un User qui correspond ï¿½ l'ID
 	 */
 	public User SelectUser(int id);
 	/**
@@ -21,20 +21,21 @@ public interface UserDAO {
 	 * Update un User en fonction de l'ID
 	 * @param user Objet User 
 	 * @param id Identifiant de l'User qu'on veux update
-	 * @return un bool de vérif. true = reussi
+	 * @return un bool de vï¿½rif. true = reussi
 	 */
-	public boolean UpdateUser(User user, int id);
+	public boolean UpdateUser(User user);
 	/**
-	 * Créer un User en fonction d'un objet User
+	 * Crï¿½er un User en fonction d'un objet User
 	 * @param user Objet User
-	 * @return un bool de vérif. true = reussi
+	 * @return un bool de vï¿½rif. true = reussi
 	 */
 	public boolean CreateUser(User user);
 	/**
-	 * Delete un User grâce à son ID
+	 * Delete un User grï¿½ce ï¿½ son ID
 	 * @param id Identifiant de l'utilisateur
-	 * @returnun bool de vérif. true = reussi
+	 * @returnun bool de vï¿½rif. true = reussi
 	 */
-	public boolean DeleteUser(int id);
+	
+	public boolean DeleteUser(User user);
 	
 }

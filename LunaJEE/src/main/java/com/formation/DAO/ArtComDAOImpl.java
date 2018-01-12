@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.formation.model.ArtCom;
 
 /**
@@ -15,8 +18,8 @@ import com.formation.model.ArtCom;
  */
 public class ArtComDAOImpl implements ArtComDAO {
 
-	Connection conn = null;
-	Statement state = null;
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	/**
 	 * constructeur vide

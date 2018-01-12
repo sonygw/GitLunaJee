@@ -24,34 +24,35 @@ public interface CommandeDAO {
 	 */
 	public ArrayList<Commande> SelectCommandesArticles(int id);
 	/**
-	 * selectionne une commande grâce à son ID
+	 * selectionne une commande grï¿½ce ï¿½ son ID
 	 * @param id id de la commande
 	 * @return un objet Commande
 	 */
 	public Commande SelectCommande(int id);
 	/**
-	 * Selectionne la dernière commande
+	 * Selectionne la derniï¿½re commande
 	 * @return un objet commande
 	 */
 	public Commande SelectLastCommande();
 	/**
-	 * Créer une commande 
-	 * @param commande Objet commande à créer
-	 * @return un bool de vérif. vrai = reussi
+	 * Crï¿½er une commande 
+	 * @param commande Objet commande ï¿½ crï¿½er
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
 	public boolean CreateCommande(Commande commande);
 	/**
-	 * Update une commande grâce à son ID
+	 * Update une commande grï¿½ce ï¿½ son ID
 	 * @param commande objet commande a inserer
-	 * @param id id de la commande à modifier
-	 * @return un bool de vérif. vrai = reussi
+	 * @param id id de la commande ï¿½ modifier
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
 	public boolean UpdateCommande(Commande commande, int id);
 	/**
 	 * Supprime la commande
-	 * @param id id de la commande à supprimer
-	 * @return un bool de vérif. vrai = reussi
+	 * @param id id de la commande ï¿½ supprimer
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
-	public boolean DeleteCommande(int id);
+	
+	public boolean DeleteCommande(Commande commande);
 	
 }

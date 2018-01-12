@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.formation.model.Client;
 
 /**
@@ -18,8 +21,8 @@ import com.formation.model.Client;
  */
 public class ClientDAOImpl implements ClientDAO {
 
-	Connection conn = null;
-	Statement state = null;
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	public ClientDAOImpl() {
 		// TODO Auto-generated constructor stub

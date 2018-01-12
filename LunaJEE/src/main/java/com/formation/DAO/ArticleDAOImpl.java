@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.formation.model.Article;
 
 public class ArticleDAOImpl implements ArticleDAO {
 
-	Connection conn = null;
-	Statement state = null;
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	public ArticleDAOImpl() {
 		// TODO Auto-generated constructor stub
