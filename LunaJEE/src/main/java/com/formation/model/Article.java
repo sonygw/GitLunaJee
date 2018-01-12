@@ -1,8 +1,14 @@
 package com.formation.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Article {
 
-	
+	@Id
+	@GeneratedValue
 	private int idArticle;
 	private String code;
 	private String description;

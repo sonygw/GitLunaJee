@@ -1,9 +1,23 @@
 package com.formation.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class ArtCom {
 	
+	@Id
+	@GeneratedValue
 	private int idArtCom;
+	
+	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private int idCommande;
+	
+	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private int idArticle;
 	private int quantite;
 	
