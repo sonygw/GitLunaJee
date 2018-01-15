@@ -23,7 +23,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public ArrayList<Article> SelectAllArticles() {
 
 		@SuppressWarnings("unchecked")
-		TypedQuery<Article> result = sessionFactory.getCurrentSession().createQuery("Select * from article");
+		TypedQuery<Article> result = sessionFactory.getCurrentSession().createQuery("from article");
 		return (ArrayList<Article>) result.getResultList();
 	}
 
@@ -36,12 +36,10 @@ public class ArticleDAOImpl implements ArticleDAO {
 		return (Article) result.getResultList();
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public boolean DeleteArticle(int id) {
+	public boolean DeleteArticle(Article art) {
 
-		Query query = sessionFactory.getCurrentSession().createQuery("Delete from article where idArticle =" + id);
-		query.executeUpdate();
+		sessionFactory.getCurrentSession().delete(art);;
 		return true;
 	}
 

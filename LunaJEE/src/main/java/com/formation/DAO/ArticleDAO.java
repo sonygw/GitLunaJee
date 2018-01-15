@@ -19,35 +19,36 @@ public interface ArticleDAO {
 	public Article SelectArticleById(int id);
 	/**
 	 * Supprimer l'article en fonction de l'id
-	 * @param id id de l'article a supprimer
-	 * @return un bool de vérif. vrai = reussi
+	 * @param article a supprimer
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
-	public boolean DeleteArticle(int id);
+	boolean DeleteArticle(Article art);
 	/**
 	 * Update un article en fonction d'un Objet Article 
 	 * @param obj Obj a inserer en base
-	 * @param id id de l'objet à update
-	 * @return un bool de vérif. vrai = reussi
+	 * @param id id de l'objet ï¿½ update
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
 	public boolean UpdateArticle(Article obj, int id);
 	/**
-	 * Créer un article 
-	 * @param obj Objet à ajouter en base
-	 * @return un bool de vérif. vrai = reussi
+	 * Crï¿½er un article 
+	 * @param obj Objet ï¿½ ajouter en base
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
 	public boolean CreateArticle(Article obj);
 	/**
 	 * Selectionne le dernier article
-	 * @return un bool de vérif. vrai = reussi
+	 * @return un bool de vï¿½rif. vrai = reussi
 	 */
 	public Article SelectLastArticle();
 	
 	/**
-	 * Selectionne les Article qui contiennent la chaine de caractère passée en paramètre
+	 * Selectionne les Article qui contiennent la chaine de caractï¿½re passï¿½e en paramï¿½tre
 	 * @param design chaine de recherche
 	 * @return ArrayList d'article
 	 */
 	public ArrayList<Article> SelectArticleByDesign(String design);
+	
 	
 	
 }

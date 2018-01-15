@@ -14,40 +14,43 @@ public class CommandeDAOImpl implements CommandeDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-
-
 	@Override
 	public ArrayList<Commande> SelectAllCommandes() {
 
 		@SuppressWarnings("unchecked")
-		ArrayList<Commande> commandes = (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande").getResultList();
+		ArrayList<Commande> commandes = (ArrayList<Commande>) sessionFactory.getCurrentSession()
+				.createQuery("FROM commande").getResultList();
 
 		return commandes;
 	}
 
 	@Override
 	public ArrayList<Commande> SelectCommandesClient(int idclient) {
-		
+
 		@SuppressWarnings("unchecked")
-		ArrayList<Commande> resultats =(ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande WHERE idClient=" + idclient).getResultList();
-			
+		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
+				.createQuery("FROM commande WHERE idClient=" + idclient).getResultList();
+
 		return resultats;
 	}
 
 	@Override
 	public Commande SelectCommande(int id) {
-		
-		Commande commande = (Commande) sessionFactory.getCurrentSession().createQuery("FROM commande WHERE idCommande=" + id);
-		
+
+		Commande commande = (Commande) sessionFactory.getCurrentSession()
+				.createQuery("FROM commande WHERE idCommande=" + id);
+
 		return commande;
 	}
 
 	@Override
 	public ArrayList<Commande> SelectCommandesArticles(int id) {
-		
+
 		@SuppressWarnings("unchecked")
-		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("FROM commande c, artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id).getResultList();
-			
+		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
+				.createQuery("FROM commande c, artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id)
+				.getResultList();
+
 		return resultats;
 	}
 
@@ -71,9 +74,10 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 	@Override
 	public Commande SelectLastCommande() {
-	
-		Commande commande = (Commande) sessionFactory.getCurrentSession().createQuery("SELECT * FROM commande ORDER BY idCommande DESC LIMIT 1 ");
-			
+
+		Commande commande = (Commande) sessionFactory.getCurrentSession()
+				.createQuery("FROM commande ORDER BY idCommande DESC LIMIT 1 ");
+
 		return commande;
 	}
 
