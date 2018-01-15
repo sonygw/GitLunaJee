@@ -43,16 +43,10 @@ public class ArticleDAOImpl implements ArticleDAO {
 		return true;
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public boolean UpdateArticle(Article obj, int id) {
+	public boolean UpdateArticle(Article obj) {
 
-		Query query = sessionFactory.getCurrentSession()
-				.createQuery("Update article SET code = '" + obj.getCode() + "', description = '" + obj.getDescription()
-						+ "', prixHT = " + obj.getPrixHT() + ", quantite = " + obj.getQuantite() + ", categorie = '"
-						+ obj.getCategorie() + "' where idArticle = " + id);
-
-		query.executeUpdate();
+		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 		return true;
 	}
 
@@ -67,7 +61,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public Article SelectLastArticle() {
 
 		Query query = sessionFactory.getCurrentSession()
-				.createQuery("SELECT * FROM article ORDER BY idArticle DESC LIMIT 1 ");
+				.createQuery("FROM article ORDER BY idArticle DESC LIMIT 1 ");
 		query.executeUpdate();
 		return (Article) query.getResultList();
 	}

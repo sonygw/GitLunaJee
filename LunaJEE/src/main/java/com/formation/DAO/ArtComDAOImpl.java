@@ -61,13 +61,10 @@ public class ArtComDAOImpl implements ArtComDAO {
 		return true;
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean CreateArtComFromCommande(ArtCom obj) {
 
-		Query query = sessionFactory.getCurrentSession().createQuery("insert into artCom values (null, " + obj.getIdCommande() + "," + obj.getIdArticle()
-		+ "," + obj.getQuantite() + ")");
-			query.executeUpdate();
+		sessionFactory.getCurrentSession().save(obj);
 
 		return true;
 	}

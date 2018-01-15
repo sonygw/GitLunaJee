@@ -40,7 +40,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public ArrayList<Client> SelectAllClients() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("Select * from client") ;
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from client") ;
 		return (ArrayList<Client>) result.getResultList();
 	}
 
@@ -50,16 +50,12 @@ public class ClientDAOImpl implements ClientDAO {
 		return true;
 	}
 
-	@SuppressWarnings("rawtypes")
+
 	@Override
-	public boolean UpdateClient(Client obj, int id) {
+	public boolean UpdateClient(Client obj) {
 		
 
-		Query query = sessionFactory.getCurrentSession().createQuery("Update client SET code = '" + obj.getCode() + "' ,nom = '" + obj.getNom() + "', prenom = '" + obj.getPrenom()
-			+ "', mail = '" + obj.getEmail() + "', adresse = '" + obj.getAdresse() + "', carteFidel = "
-			+ obj.isCarteFidelite() + ", remarques = '" + obj.getRemarques() + "', telephone = '"
-			+ obj.getNumeroTelephone() + "', dateCrea = '" + obj.getDate() + "' where idClient = " + id + ";");
-		query.executeUpdate();
+		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 
 		return true;
 	}
@@ -76,7 +72,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
 		
-		Query query = sessionFactory.getCurrentSession().createQuery("Select * from client where nom like '" + nom + "%'");
+		Query query = sessionFactory.getCurrentSession().createQuery("from client where nom like '" + nom + "%'");
 		query.executeUpdate();
 		 return (ArrayList<Client>) query.getResultList();
 		
@@ -86,7 +82,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public Client SelectLastClient() {
 		
-		Query query = sessionFactory.getCurrentSession().createQuery("SELECT * FROM client ORDER BY idClient DESC LIMIT 1 ");
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM client ORDER BY idClient DESC LIMIT 1 ");
 		query.executeUpdate();
 		return (Client) query.getResultList();
 		

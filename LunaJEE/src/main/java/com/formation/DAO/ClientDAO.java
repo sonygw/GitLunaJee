@@ -7,52 +7,52 @@ import com.formation.model.Client;
 public interface ClientDAO {
 
 	/**
-	 * Sélection d'un client en fonction de son id.
+	 * Sï¿½lection d'un client en fonction de son id.
 	 * @param id du client
 	 * @return un client suivant son id
 	 */
 	public Client SelectClient(int id);
 
 	/**
-	 * Sélection de tous les clients de la base de données sous forme d'ArrayList.
+	 * Sï¿½lection de tous les clients de la base de donnï¿½es sous forme d'ArrayList.
 	 * @return Arraylist de tous les clients.
 	 */
 	public ArrayList<Client> SelectAllClients();
 	/**
-	 *  Sélection de tous les clients de la base de données avec tri par nom. 
+	 *  Sï¿½lection de tous les clients de la base de donnï¿½es avec tri par nom. 
 	 * @param nom du client
-	 * @return Arraylist de tous les clients triés par leur nom.
+	 * @return Arraylist de tous les clients triï¿½s par leur nom.
 	 */
 	public ArrayList<Client> SelectAllClientsByName(String nom);
 	
 	/**
 	 * Suppression d'un objet Client.
 	 * @param obj client
-	 * @return booléen de vérification : vrai si réussi
+	 * @return boolï¿½en de vï¿½rification : vrai si rï¿½ussi
 	 */
 	public boolean DeleteClient(Client obj);
 	
 
 	/**
-	 * Modification d'un objet Client dans la base de données.
+	 * Modification d'un objet Client dans la base de donnï¿½es.
 	 * @param obj client
 	 * @param id du client
-	 * @return booléen de vérification : vrai si réussi
+	 * @return boolï¿½en de vï¿½rification : vrai si rï¿½ussi
 	 */
-	public boolean UpdateClient(Client obj, int id);
+	public boolean UpdateClient(Client obj);
 	
 
 	/**
-	 * Création d'un objet client dans la base de données.
+	 * Crï¿½ation d'un objet client dans la base de donnï¿½es.
 	 * @param obj client
-	 * @return booléen de vérification : vrai si reussi
+	 * @return boolï¿½en de vï¿½rification : vrai si reussi
 	 */
 	public boolean CreateClient(Client obj);
 	
 	
 	/**
-	 * Sélection du dernier client de la base de données.
-	 * @return le dernier client de la base de données
+	 * Sï¿½lection du dernier client de la base de donnï¿½es.
+	 * @return le dernier client de la base de donnï¿½es
 	 */
 	public Client SelectLastClient();
 

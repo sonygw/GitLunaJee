@@ -29,7 +29,7 @@ public interface ArticleDAO {
 	 * @param id id de l'objet � update
 	 * @return un bool de v�rif. vrai = reussi
 	 */
-	public boolean UpdateArticle(Article obj, int id);
+	public boolean UpdateArticle(Article obj);
 	/**
 	 * Cr�er un article 
 	 * @param obj Objet � ajouter en base
