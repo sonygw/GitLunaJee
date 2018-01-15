@@ -3,15 +3,14 @@
  */
 package com.formation.DAO;
 
-import java.sql.Connection;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.formation.model.Client;
 
@@ -19,6 +18,7 @@ import com.formation.model.Client;
  * @author SDJ09
  *
  */
+@Repository
 public class ClientDAOImpl implements ClientDAO {
 
 	@Autowired
@@ -28,162 +28,68 @@ public class ClientDAOImpl implements ClientDAO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClientDAOImpl(Connection conn) {
-		super();
-		this.conn = conn;
-	}
-
 	@Override
 	public Client SelectClient(int id) {
 
-		ResultSet result = null;
+		@SuppressWarnings("unchecked")
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client where idClient =" +id);
+		return (Client) result.getResultList();
 
-		Client resultat = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("Select * from client where idClient = " + id);
-			result.next();
-			resultat = new Client(result.getInt("idClient"), result.getString("nom"), result.getString("prenom"),
-					result.getString("mail"), result.getString("adresse"), result.getBoolean("carteFidel"),
-				 result.getString("telephone"),result.getString("remarques"), result.getString("dateCrea"), result.getString("code"));
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return resultat;
 	}
 
 	@Override
 	public ArrayList<Client> SelectAllClients() {
-		ResultSet result = null;
-		ArrayList<Client> clients = new ArrayList<Client>();
-
-		Client resultat = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("Select * from client");
-
-			while (result.next()) {
-				resultat = new Client(result.getInt("idClient"), result.getString("nom"), result.getString("prenom"),
-						result.getString("mail"), result.getString("adresse"), result.getBoolean("carteFidel"),
-						result.getString("remarques"), result.getString("telephone"), result.getString("dateCrea"), result.getString("code"));
-				clients.add(resultat);
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return clients;
+		@SuppressWarnings("unchecked")
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("Select * from client") ;
+		return (ArrayList<Client>) result.getResultList();
 	}
 
 	@Override
 	public boolean DeleteClient(Client obj) {
-		boolean result = false;
-		try {
-			state = conn.createStatement();
-			state.executeUpdate("Delete from client where idClient =" + obj.getIdClient());
-			result = true;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return result;
+		sessionFactory.getCurrentSession().delete(obj);
+		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean UpdateClient(Client obj, int id) {
-		boolean result = false;
+		
 
-		try {
-			state = conn.createStatement();
-			
-			String str = "Update client SET code = '" + obj.getCode() + "' ,nom = '" + obj.getNom() + "', prenom = '" + obj.getPrenom()
+		Query query = sessionFactory.getCurrentSession().createQuery("Update client SET code = '" + obj.getCode() + "' ,nom = '" + obj.getNom() + "', prenom = '" + obj.getPrenom()
 			+ "', mail = '" + obj.getEmail() + "', adresse = '" + obj.getAdresse() + "', carteFidel = "
 			+ obj.isCarteFidelite() + ", remarques = '" + obj.getRemarques() + "', telephone = '"
-			+ obj.getNumeroTelephone() + "', dateCrea = '" + obj.getDate() + "' where idClient = " + id + ";";
-			
-			state.executeUpdate(str);
-			result = true;
+			+ obj.getNumeroTelephone() + "', dateCrea = '" + obj.getDate() + "' where idClient = " + id + ";");
+		query.executeUpdate();
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return result;
+		return true;
 	}
 
 	@Override
 	public boolean CreateClient(Client obj) {
-		boolean result = false;
+		
+		sessionFactory.getCurrentSession().save(obj);
 
-		try {
-			state = conn.createStatement();
-			state.executeUpdate("insert into client values (null, '" + obj.getCode() + "','" + obj.getNom() + "','" + obj.getPrenom() + "','"
-					+ obj.getEmail() + "','" + obj.getAdresse() + "'," + obj.isCarteFidelite() + ",'"
-					+ obj.getRemarques() + "','" + obj.getNumeroTelephone() + "','" + obj.getDate() + "');");
-
-			result = true;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return result;
+		return true;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
-		ResultSet result = null;
-		ArrayList<Client> clients = new ArrayList<Client>();
-
-		Client resultat = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("Select * from client where nom like '" + nom + "%'");
-
-			while (result.next()) {
-				resultat = new Client(result.getInt("idClient"), result.getString("nom"), result.getString("prenom"),
-						result.getString("mail"), result.getString("adresse"), result.getBoolean("carteFidel"),
-						result.getString("remarques"), result.getString("telephone"), result.getString("dateCrea"), result.getString("code"));
-				clients.add(resultat);
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return clients;
+		
+		Query query = sessionFactory.getCurrentSession().createQuery("Select * from client where nom like '" + nom + "%'");
+		query.executeUpdate();
+		 return (ArrayList<Client>) query.getResultList();
+		
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Client SelectLastClient() {
-		ResultSet result = null;
-		Client client = null;
-
-		try {
-			state = conn.createStatement();
-			result = state.executeQuery("SELECT * FROM client ORDER BY idClient DESC LIMIT 1 ");
-			result.next();
-			client = new Client(result.getInt("idClient"), result.getString("nom"), result.getString("prenom"),
-					result.getString("mail"), result.getString("adresse"), result.getBoolean("carteFidel"),
-					result.getString("remarques"), result.getString("telephone"), result.getString("dateCrea"), result.getString("code"));
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return client;
+		
+		Query query = sessionFactory.getCurrentSession().createQuery("SELECT * FROM client ORDER BY idClient DESC LIMIT 1 ");
+		query.executeUpdate();
+		return (Client) query.getResultList();
+		
 	}
 
 }
