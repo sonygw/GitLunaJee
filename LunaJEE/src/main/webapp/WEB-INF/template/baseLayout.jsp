@@ -11,20 +11,20 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body>
-	<table border="1" cellpadding="2" cellspacing="2" align="center">
+	<table border="0" cellpadding="2" cellspacing="2" >
 		<tr>
 
-			<td height="30" colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<td colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td height="250"><tiles:insertAttribute name="menu"></tiles:insertAttribute>
+			<td ><tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</td>
-			<td width="350"><tiles:insertAttribute name="body"></tiles:insertAttribute>
+			<td ><tiles:insertAttribute name="body"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td height="30" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
+			<td colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
 			</td>
 		</tr>
 	</table>

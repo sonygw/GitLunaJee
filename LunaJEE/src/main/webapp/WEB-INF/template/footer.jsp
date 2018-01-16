@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">&copy; doum.com</div>
+<div align="center">Louis Zybura et Daniel Arenas</div>
 </body>
 </html>
