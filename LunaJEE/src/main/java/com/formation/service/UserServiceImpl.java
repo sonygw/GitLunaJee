@@ -3,13 +3,16 @@ package com.formation.service;
 import java.util.ArrayList;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.DAO.UserDAO;
 import com.formation.model.User;
 
-@Repository
+@Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
 	@Autowired

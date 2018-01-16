@@ -3,13 +3,16 @@ package com.formation.service;
 import java.util.ArrayList;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.DAO.CommandeDAO;
 import com.formation.model.Commande;
 
-@Repository
+@Service
+@Transactional
 public class CommandeServiceImpl implements CommandeService {
 
 	@Autowired
