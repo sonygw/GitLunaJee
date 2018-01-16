@@ -9,7 +9,7 @@ public class Article {
 
 	@Id
 	@GeneratedValue
-	private int idArticle;
+	private long idArticle;
 	private String code;
 	private String description;
 	private double prixHT;
@@ -39,7 +39,7 @@ public class Article {
 		this.visible = visible;
 	}
 
-	public int getIdArticle() {
+	public long getIdArticle() {
 		return idArticle;
 	}
 

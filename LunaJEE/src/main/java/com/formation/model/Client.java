@@ -10,7 +10,7 @@ public class Client {
 
 	@Id
 	@GeneratedValue
-	private int idClient;
+	private long idClient;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -56,7 +56,7 @@ public class Client {
 		this.code = code;
 	}
 
-	public int getIdClient() {
+	public long getIdClient() {
 		return idClient;
 	}
 

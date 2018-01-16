@@ -9,7 +9,7 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	private int idUser;
+	private long idUser;
 	private String nom;
 	private String login;
 	private String motDePasse;
@@ -29,7 +29,7 @@ public class User {
 		
 	}
 
-	public int getIdUser() {
+	public long getIdUser() {
 		return idUser;
 	}
 

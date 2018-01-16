@@ -12,13 +12,13 @@ public class Commande {
 
 	@Id
 	@GeneratedValue
-	private int idCommande;
+	private long idCommande;
 	private String ref;
 	private double prixHT;
 	private String adresse;
 	
 	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	private int idClient;
+	private long idClient;
 	private String reglement;
 	private String date;
 
@@ -67,7 +67,7 @@ public class Commande {
 		this.reglement = reglement;
 	}
 
-	public int getIdCommande() {
+	public long getIdCommande() {
 		return idCommande;
 	}
 
@@ -91,7 +91,7 @@ public class Commande {
 		this.adresse = adresse;
 	}
 
-	public int getIdClient() {
+	public long getIdClient() {
 		return idClient;
 	}
 

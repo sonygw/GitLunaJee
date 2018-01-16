@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -12,13 +13,13 @@ public class ArtCom {
 	
 	@Id
 	@GeneratedValue
-	private int idArtCom;
+	private long idArtCom;
 	
 	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
-	private int idCommande;
+	private long idCommande;
 	
 	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
-	private int idArticle;
+	private long idArticle;
 	private int quantite;
 	
 	public ArtCom() {
@@ -33,7 +34,7 @@ public class ArtCom {
 		this.quantite = quantite;
 	}
 
-	public int getIdArtCom() {
+	public long getIdArtCom() {
 		return idArtCom;
 	}
 
@@ -41,7 +42,7 @@ public class ArtCom {
 		this.idArtCom = idArtCom;
 	}
 
-	public int getIdCommande() {
+	public long getIdCommande() {
 		return idCommande;
 	}
 
@@ -49,7 +50,7 @@ public class ArtCom {
 		this.idCommande = idCommande;
 	}
 
-	public int getIdArticle() {
+	public long getIdArticle() {
 		return idArticle;
 	}
 

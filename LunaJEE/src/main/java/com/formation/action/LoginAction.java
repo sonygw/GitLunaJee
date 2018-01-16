@@ -4,9 +4,9 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.formation.context.ConteneurSpring;
 import com.formation.model.User;
 import com.formation.service.UserService;
-import com.formation.context.ConteneurSpring;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
