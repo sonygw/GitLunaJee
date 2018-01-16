@@ -6,6 +6,7 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter;
+import org.apache.tiles.extras.complete.CompleteAutoloadTilesListener;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -28,7 +29,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		FilterRegistration.Dynamic filter = servletContext.addFilter("StrutsDispatcher",
 				new StrutsPrepareAndExecuteFilter());
 		filter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, "/*");
-
+		
+		CompleteAutoloadTilesListener listener = new CompleteAutoloadTilesListener();
+		servletContext.addListener(listener);
 
 	}
 	

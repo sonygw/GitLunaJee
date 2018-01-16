@@ -5,18 +5,19 @@
 
 <tiles-definitions>
 
-	<definition name="baseLayout" template="/baseLayout.jsp">
+	<definition name="baseLayout" template="/template/baseLayout.jsp">
 		<put-attribute name="title" value="Template"></put-attribute>
-		<put-attribute name="header" value="/header.jsp"></put-attribute>
-		<put-attribute name="menu" value="/menu.jsp"></put-attribute>
-		<put-attribute name="body" value="/body.jsp"></put-attribute>
-		<put-attribute name="footer" value="/footer.jsp"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/template/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
-	<definition name="testtiles" extends = "baseLayout">
-	<put-attribute name="title" value="TEST"></put-attribute>
-	<put-attribute name="body" value="/testtiles.jsp"></put-attribute>
 	
+	<definition name="test" extends="baseLayout">
+		<put-attribute name="title" value="Test"></put-attribute>
+		<put-attribute name="body" value="/testtiles.jsp"></put-attribute>
 	</definition>
+</tiles-definitions>
 <!-- 	<definition name="welcome" extends="baseLayout"> -->
 <!-- 		<put-attribute name="title" value="Welcome"></put-attribute> -->
 <!-- 		<put-attribute name="body" value="/welcome.jsp"></put-attribute> -->
@@ -29,4 +30,3 @@
 <!-- 		<put-attribute name="title" value="Office"></put-attribute> -->
 <!-- 		<put-attribute name="body" value="/office.jsp"></put-attribute> -->
 <!-- 	</definition> -->
-</tiles-definitions>
