@@ -39,16 +39,16 @@ public class ArtComServiceImpl implements ArtComService {
 	}
 
 	@Override
-	public boolean DeleteArtComFromCommande(ArtCom obj) {
+	public boolean DeleteArtCom(ArtCom obj) {
 
-		return artComDao.DeleteArtComFromCommande(obj);
+		return artComDao.DeleteArtCom(obj);
 
 	}
 
 	@Override
-	public boolean UpdateArtComFromCommande(ArtCom obj, int idArtCom) {
+	public boolean UpdateArtCom(ArtCom obj) {
 
-		return artComDao.UpdateArtComFromCommande(obj, idArtCom);
+		return artComDao.UpdateArtCom(obj);
 	}
 
 	@Override
@@ -57,18 +57,8 @@ public class ArtComServiceImpl implements ArtComService {
 		return artComDao.CreateArtComFromCommande(obj);
 	}
 
-	@Override
-	public boolean DeleteArtComFromIdCommande(int id) {
-
-		return artComDao.DeleteArtComFromIdCommande(id);
-
-	}
+	
 
 
-	@Override
-	public boolean DeleteArtComFromIdArticle(int id) {
-
-		return artComDao.DeleteArtComFromIdArticle(id);
-	}
 
 }

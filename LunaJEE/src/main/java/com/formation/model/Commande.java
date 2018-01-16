@@ -18,7 +18,9 @@ public class Commande {
 	private String adresse;
 	
 	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	private long idClient;
+	private Client client;
+	
+	
 	private String reglement;
 	private String date;
 
@@ -39,14 +41,13 @@ public class Commande {
 	 * @param date
 	 * @param reglement
 	 */
-	public Commande(int idCommande, String ref, double prixHT, String adresse, int idClient, String date,
+	public Commande(int idCommande, String ref, double prixHT, String adresse, String date,
 			String reglement) {
 		super();
 		this.idCommande = idCommande;
 		this.ref = ref;
 		this.prixHT = prixHT;
 		this.adresse = adresse;
-		this.idClient = idClient;
 		this.date = date;
 		this.reglement = reglement;
 	}
@@ -89,14 +90,6 @@ public class Commande {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
-	}
-
-	public long getIdClient() {
-		return idClient;
-	}
-
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
 	}
 
 	public String getDate() {
