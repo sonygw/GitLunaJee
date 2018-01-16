@@ -15,11 +15,11 @@
 
 <body>
 
-  <div class="cont">
+  <div class="cont" style="background-image: url(images/pleine-lune.jpg)">
   <div class="demo">
     <div class="login">
 <!--       <div class="login__check"></div> -->
-     <div style="height : 200px "></div>
+     <div style="height : 200px ; font-size: 65px ;border-style: solid; border-width: 50px; border-color: transparent;"> <center>Luna</center></div>
       <s:form action="test">
         <div class="login__row">
 
@@ -30,7 +30,9 @@
    
           <input type="password" class="login__input pass" placeholder="Password"/>
         </div>
-        <s:submit type="button" class="login__submit"  >Connexion</s:submit>>
+        <div style="align-content: right 100%;">
+        <s:submit type="button" class="login__submit"  >Connexion</s:submit>
+        </div>
        </s:form>
       </div>
     </div>
