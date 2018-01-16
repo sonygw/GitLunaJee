@@ -20,7 +20,7 @@
     <div class="login">
 <!--       <div class="login__check"></div> -->
      <div style="height : 200px "></div>
-      <s:form action="login">
+      <s:form action="test">
         <div class="login__row">
 
  
@@ -30,7 +30,7 @@
    
           <input type="password" class="login__input pass" placeholder="Password"/>
         </div>
-        <s:submit type="button" class="login__submit" >Connexion</s:submit>>
+        <s:submit type="button" class="login__submit"  >Connexion</s:submit>>
        </s:form>
       </div>
     </div>
