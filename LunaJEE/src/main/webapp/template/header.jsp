@@ -8,9 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body class="monheader">
-	<div align="center" style="font-weight: bold">Actif'Solution</div>
-	<img src="images/logo64.ico" align="right">
-	
-	
+	<div>
+	<img src="images/logo64.ico" align="right" align="top">
+	</div>
+	<div>
+		<s:submit value="Client" type="image"
+			src="images/accueil/people_128reduit.ico" theme="simple"></s:submit>
+		<s:submit value="Articles" type="image"
+			src="images/accueil/product_128reduit.ico" theme="simple"></s:submit>
+		<s:submit value="Commandes" type="image"
+			src="images/accueil/shopping_bag_128reduit.ico" theme="simple"></s:submit>
+	</div>
+
+
+
+	<%-- 			<s:submit value="Accueil" src=""></s:submit> --%>
+
+
+
+
 </body>
 </html>

@@ -18,7 +18,7 @@
 	<table border="0" cellpadding="2" cellspacing="2" width="100%" height="100%">
 		<tr>
 
-			<td class="monheader" height="15%"colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<td class="monheader" height="15%" colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr >

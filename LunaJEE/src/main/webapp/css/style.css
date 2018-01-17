@@ -16,6 +16,10 @@ html, body {
 .monheader{
 	font-size : 1.7rem;
 	background-color : silver;
+	text-align : center;
+
+	
+
 }
 
 .monfooter{
