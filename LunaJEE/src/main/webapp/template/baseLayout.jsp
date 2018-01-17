@@ -13,17 +13,17 @@
 	<table border="0" cellpadding="2" cellspacing="2" >
 		<tr>
 
-			<td colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<td height="30" colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td ><tiles:insertAttribute name="menu"></tiles:insertAttribute>
+			<td height="250" ><tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</td>
-			<td ><tiles:insertAttribute name="body"></tiles:insertAttribute>
+			<td width="350" ><tiles:insertAttribute name="body"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
+			<td height="30" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
 			</td>
 		</tr>
 	</table>

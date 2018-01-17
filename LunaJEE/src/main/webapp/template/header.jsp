@@ -8,6 +8,6 @@
 </head>
 <body>
 <div align="center" style="font-weight:bold">Actif'Solution</div>
-<img src="images/logo-actif.png">
+<img src="images/logo64.ico">
 </body>
 </html>

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+ 
 <p>sample body content</p>
+
 </body>
 </html>
