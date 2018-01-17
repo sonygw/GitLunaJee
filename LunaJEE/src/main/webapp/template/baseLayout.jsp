@@ -8,22 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
+<link rel='stylesheet prefetch'
+	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-	<table border="0" cellpadding="2" cellspacing="2" >
+	<table class="matable" border="2" cellpadding="2" cellspacing="2" width="100%" height="100%">
 		<tr>
 
-			<td height="30" colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<td height="15%"colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			</td>
+		</tr>
+		<tr >
+			<td width="10%" style="min-width:75px"><tiles:insertAttribute name="menu"></tiles:insertAttribute>
+			</td>
+			<td  height="70%" width="90%"><tiles:insertAttribute name="body"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td height="250" ><tiles:insertAttribute name="menu"></tiles:insertAttribute>
-			</td>
-			<td width="350" ><tiles:insertAttribute name="body"></tiles:insertAttribute>
-			</td>
-		</tr>
-		<tr>
-			<td height="30" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
+			<td height="15%" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
 			</td>
 		</tr>
 	</table>
