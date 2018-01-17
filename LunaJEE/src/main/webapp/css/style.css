@@ -13,7 +13,25 @@ html, body {
 
 }
 
+.monheader{
+	font-size : 1.7rem;
+	background-color : silver;
+}
 
+.monfooter{
+	font-size : 1.4rem;
+	background-color : red;
+}
+
+.monbody{
+	font-size : 1.6rem;
+	background-color : blue;
+}
+
+.monmenu{
+	font-size : 1.6rem;
+	background-color : orange;
+}
 input, button {
   outline: none;
   border: none;

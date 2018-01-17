@@ -14,21 +14,21 @@
 <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
-	<table class="matable" border="2" cellpadding="2" cellspacing="2" width="100%" height="100%">
+<body  >
+	<table border="0" cellpadding="2" cellspacing="2" width="100%" height="100%">
 		<tr>
 
-			<td height="15%"colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<td class="monheader" height="15%"colspan="2"><tiles:insertAttribute name="header"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr >
-			<td width="10%" style="min-width:75px"><tiles:insertAttribute name="menu"></tiles:insertAttribute>
+			<td class = "monmenu" width="10%" style="min-width:75px"><tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</td>
-			<td  height="70%" width="90%"><tiles:insertAttribute name="body"></tiles:insertAttribute>
+			<td class="monbody"  height="80%" width="90%"><tiles:insertAttribute name="body"></tiles:insertAttribute>
 			</td>
 		</tr>
 		<tr>
-			<td height="15%" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
+			<td class="monfooter" height="5%" colspan="2"><tiles:insertAttribute name="footer"></tiles:insertAttribute>
 			</td>
 		</tr>
 	</table>
