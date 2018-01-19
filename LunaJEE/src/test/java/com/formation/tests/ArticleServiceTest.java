@@ -34,7 +34,7 @@ public class ArticleServiceTest {
 		art.setQuantite(150);
 		art.setCategorie("cat 3");
 
-		assertTrue(AS.CreateArticle(art));
+		assertTrue(AS.SaveOrUpdateArticle(art));
 	}
 
 }
