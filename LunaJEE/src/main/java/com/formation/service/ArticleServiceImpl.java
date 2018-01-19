@@ -35,7 +35,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public boolean DeleteArticle(Article obj) {
 
-		if (obj.getIdArticle() != 0)
+		if (articleDao.DeleteArticle(obj).getIdArticle() != 0)
 			return false;
 		else
 			return true;
@@ -44,7 +44,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public boolean SaveOrUpdateArticle(Article obj) {
 
-		if (obj.getIdArticle() != 0)
+		if (articleDao.SaveOrUpdateArticle(obj).getIdArticle() != 0)
 			return true;
 		else
 			return false;

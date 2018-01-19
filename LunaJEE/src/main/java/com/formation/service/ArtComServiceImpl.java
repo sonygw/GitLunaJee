@@ -41,18 +41,19 @@ public class ArtComServiceImpl implements ArtComService {
 	@Override
 	public boolean DeleteArtCom(ArtCom obj) {
 
-		if(obj.getIdArtCom()!=0)
+		if (artComDao.DeleteArtCom(obj).getIdArtCom() != 0)
 			return false;
-			else return true;
+		else
+			return true;
 	}
 
 	@Override
 	public boolean SaveOrUpdateArtCom(ArtCom obj) {
 
-		if(obj.getIdArtCom()!=0)
+		if (artComDao.SaveOrUpdateArtCom(obj).getIdArtCom() != 0)
 			return true;
-			else return false;
+		else
+			return false;
 	}
-
 
 }

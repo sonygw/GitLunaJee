@@ -24,27 +24,41 @@ public class ArtComServiceTest {
 
 	@Autowired
 	private ArtComService artComService;
+	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
 	@Test
 	@Transactional
 	@Rollback(true)
-	public void testCreateArtCom() {
-		
-		@SuppressWarnings("resource")
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
-		
+	public void testSaveOrUpdateArtCom() {
+
 		artComService = context.getBean(ArtComService.class);
-	
+
 		Article article = new Article();
 		article.setIdArticle(500);
-		
+
 		Commande commande = new Commande();
 		commande.setIdCommande(500);
-	
 		
-		
-		
-
+		ArtCom artCom = new ArtCom(3, article, commande);
+		assertTrue(artComService.SaveOrUpdateArtCom(artCom));
 	}
+	
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testDeleteArtCom() {
+
+		artComService = context.getBean(ArtComService.class);
+
+		Article article = new Article();
+		article.setIdArticle(500);
+
+		Commande commande = new Commande();
+		commande.setIdCommande(500);
+		
+		ArtCom artCom = new ArtCom(3, article, commande);
+		assertTrue(artComService.DeleteArtCom(artCom));
+	}
+	
 
 }
