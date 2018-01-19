@@ -1,5 +1,6 @@
 package com.formation.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import javax.transaction.Transactional;
@@ -28,7 +29,7 @@ public class ArtComServiceTest {
 
 	@Test
 	@Transactional
-	@Rollback(true)
+	@Rollback(false)
 	public void testSaveOrUpdateArtCom() {
 
 		artComService = context.getBean(ArtComService.class);
@@ -38,11 +39,29 @@ public class ArtComServiceTest {
 
 		Commande commande = new Commande();
 		commande.setIdCommande(500);
-		
+
 		ArtCom artCom = new ArtCom(3, article, commande);
 		assertTrue(artComService.SaveOrUpdateArtCom(artCom));
 	}
-	
+
+	@Test
+	@Transactional
+	@Rollback(false)
+	public void testSelectAllArtCom() {
+
+		artComService = context.getBean(ArtComService.class);
+
+		Article article = new Article();
+		article.setIdArticle(500);
+
+		Commande commande = new Commande();
+		commande.setIdCommande(500);
+
+		@SuppressWarnings("unused")
+		ArtCom artCom = new ArtCom(3, article, commande);
+		assertEquals(0, artComService.SelectAllArtComFromCommande(500).size());
+	}
+
 	@Test
 	@Transactional
 	@Rollback(true)
@@ -55,26 +74,8 @@ public class ArtComServiceTest {
 
 		Commande commande = new Commande();
 		commande.setIdCommande(500);
-		
+
 		ArtCom artCom = new ArtCom(3, article, commande);
 		assertTrue(artComService.DeleteArtCom(artCom));
 	}
-	
-	@Test
-	@Transactional
-	@Rollback(true)
-	public void testSelectAllArtCom() {
-
-		artComService = context.getBean(ArtComService.class);
-
-		Article article = new Article();
-		article.setIdArticle(500);
-
-		Commande commande = new Commande();
-		commande.setIdCommande(500);
-		
-		ArtCom artCom = new ArtCom(3, article, commande);
-		assertTrue(artComService.DeleteArtCom(artCom));
-	}
-
 }

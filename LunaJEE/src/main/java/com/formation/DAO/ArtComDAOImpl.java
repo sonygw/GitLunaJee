@@ -36,7 +36,7 @@ public class ArtComDAOImpl implements ArtComDAO {
 	public ArrayList<ArtCom> SelectAllArtComFromCommande(int idCommande) {
 		
 		@SuppressWarnings("unchecked")
-		TypedQuery<ArtCom> result = sessionFactory.getCurrentSession().createQuery("from ArtCom where idCommande =" +idCommande);
+		TypedQuery<ArtCom> result = sessionFactory.getCurrentSession().createQuery("from ArtCom where commande_idCommande =" +idCommande);
 		return (ArrayList<ArtCom>) result.getResultList();
 
 	}
