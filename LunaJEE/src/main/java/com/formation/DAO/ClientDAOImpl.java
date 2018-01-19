@@ -32,15 +32,15 @@ public class ClientDAOImpl implements ClientDAO {
 	public Client SelectClient(int id) {
 
 		@SuppressWarnings("unchecked")
-		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client where idClient =" +id);
-		return (Client) result.getResultList();
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client where idClient =" + id);
+		return (Client) result.getSingleResult();
 
 	}
 
 	@Override
 	public ArrayList<Client> SelectAllClients() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client") ;
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client");
 		return (ArrayList<Client>) result.getResultList();
 	}
 
@@ -50,36 +50,32 @@ public class ClientDAOImpl implements ClientDAO {
 		return obj;
 	}
 
-
 	@Override
 	public Client SaveOrUpdateClient(Client obj) {
-		
 
 		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 
 		return obj;
 	}
 
-
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
-		
-		Query query = sessionFactory.getCurrentSession().createQuery("from Client where nom like '" + nom + "%'");
-		query.executeUpdate();
-		 return (ArrayList<Client>) query.getResultList();
-		
+
+		Query query = sessionFactory.getCurrentSession().createQuery("from Client where nom like:searchName");
+		query.setParameter("searchName", "%" + nom + "%");
+		return (ArrayList<Client>) query.getResultList();
+
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Client SelectLastClient() {
-		
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM Client ORDER BY idClient DESC LIMIT 1 ");
-		query.executeUpdate();
-		return (Client) query.getResultList();
-		
+
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM Client ORDER BY idClient DESC");
+		query.setMaxResults(1);
+		return (Client) query.uniqueResult();
+
 	}
 
 }

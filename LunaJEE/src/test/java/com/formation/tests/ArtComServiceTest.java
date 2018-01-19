@@ -1,6 +1,6 @@
 package com.formation.tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.transaction.Transactional;
@@ -59,7 +59,7 @@ public class ArtComServiceTest {
 
 		@SuppressWarnings("unused")
 		ArtCom artCom = new ArtCom(3, article, commande);
-		assertEquals(0, artComService.SelectAllArtComFromCommande(500).size());
+		assertNotNull(artComService.SelectAllArtComFromCommande(500));
 	}
 
 	@Test

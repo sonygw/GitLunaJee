@@ -64,9 +64,13 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Client SelectLastClient() {
+	public boolean SelectLastClient() {
 
-		return clientDao.SelectLastClient();
+		if (clientDao.SelectLastClient().getIdClient() != 0)
+			return true;
+		else
+			return false;
+
 
 	}
 
