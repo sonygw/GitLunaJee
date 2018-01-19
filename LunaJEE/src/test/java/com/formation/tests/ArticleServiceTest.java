@@ -1,28 +1,40 @@
 package com.formation.tests;
 
-import org.hibernate.SessionFactory;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.formation.context.ConteneurSpring;
+import com.formation.model.Article;
 import com.formation.service.ArticleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= { ConteneurSpring.class})
+@ContextConfiguration(classes = { ConteneurSpring.class })
+@Rollback(true)
 public class ArticleServiceTest {
 
 	@Autowired
-	ArticleService AS;
+	private ArticleService AS;
 	
-	@Autowired
-	SessionFactory sF;
-	
+	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
+
+	@Test
 	public void CreateArticleTest() {
-		
-		
-		
+
+		Article art = context.getBean(Article.class);
+
+		art.setDescription("ok");
+		art.setPrixHT(50);
+		art.setQuantite(150);
+		art.setCategorie("cat 3");
+
+		assertTrue(AS.CreateArticle(art));
 	}
-	
+
 }

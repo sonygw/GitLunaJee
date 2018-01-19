@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Service;
+
 
 @Entity
+@Service
 public class Client {
 
 	@Id
