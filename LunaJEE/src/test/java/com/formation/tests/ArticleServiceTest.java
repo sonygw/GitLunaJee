@@ -1,5 +1,6 @@
 package com.formation.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -16,7 +17,6 @@ import com.formation.service.ArticleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ConteneurSpring.class })
-@Rollback(true)
 public class ArticleServiceTest {
 
 	@Autowired
@@ -36,5 +36,17 @@ public class ArticleServiceTest {
 
 		assertTrue(AS.SaveOrUpdateArticle(art));
 	}
+	
+	@Test
+	public void SelectArticleTest() {
+
+		Article art = context.getBean(Article.class);
+
+		art = AS.SelectArticleById(1);
+		assertEquals(1L, art.getIdArticle());
+	}
+	
+	
+	
 
 }
