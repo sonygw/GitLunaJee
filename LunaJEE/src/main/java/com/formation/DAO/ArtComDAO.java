@@ -26,9 +26,8 @@ public interface ArtComDAO {
 	 *            objet commande
 	 * @return bool�en de verif
 	 */
-	public boolean CreateArtComFromCommande(ArtCom obj);
 
-	boolean UpdateArtCom(ArtCom obj);
+	ArtCom SaveOrUpdateArtCom(ArtCom obj);
 
-	boolean DeleteArtCom(ArtCom obj);
+	ArtCom DeleteArtCom(ArtCom obj);
 }

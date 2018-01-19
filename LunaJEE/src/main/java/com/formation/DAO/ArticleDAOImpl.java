@@ -39,24 +39,19 @@ public class ArticleDAOImpl implements ArticleDAO {
 	}
 
 	@Override
-	public boolean DeleteArticle(Article art) {
+	public Article DeleteArticle(Article obj) {
 
-		sessionFactory.getCurrentSession().delete(art);;
-		return true;
+		sessionFactory.getCurrentSession().delete(obj);;
+		return obj;
 	}
 
 	@Override
-	public boolean UpdateArticle(Article obj) {
+	public Article SaveOrUpdateArticle(Article obj) {
 
 		sessionFactory.getCurrentSession().saveOrUpdate(obj);
-		return true;
+		return obj;
 	}
 
-	@Override
-	public boolean CreateArticle(Article obj) {
-		sessionFactory.getCurrentSession().save(obj);
-		return true;
-	}
 
 	@SuppressWarnings("rawtypes")
 	@Override

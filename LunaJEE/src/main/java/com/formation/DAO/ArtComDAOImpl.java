@@ -43,26 +43,18 @@ public class ArtComDAOImpl implements ArtComDAO {
 
 
 	@Override
-	public boolean UpdateArtCom(ArtCom obj) {
+	public ArtCom SaveOrUpdateArtCom(ArtCom obj) {
 
 		sessionFactory.getCurrentSession().saveOrUpdate(obj);	
-		return true;
-	}
-
-	@Override
-	public boolean CreateArtComFromCommande(ArtCom obj) {
-
-		sessionFactory.getCurrentSession().save(obj);
-
-		return true;
+		return obj;
 	}
 
 
 	@Override
-	public boolean DeleteArtCom(ArtCom obj) {
+	public ArtCom DeleteArtCom(ArtCom obj) {
 		
 		sessionFactory.getCurrentSession().delete(obj);
-		return true;
+		return obj;
 	}
 
 }

@@ -22,20 +22,15 @@ public interface ArticleService {
 	 * @param article a supprimer
 	 * @return un bool de v�rif. vrai = reussi
 	 */
-	boolean DeleteArticle(Article art);
+	boolean DeleteArticle(Article obj);
 	/**
 	 * Update un article en fonction d'un Objet Article 
 	 * @param obj Obj a inserer en base
 	 * @param id id de l'objet � update
 	 * @return un bool de v�rif. vrai = reussi
 	 */
-	public boolean UpdateArticle(Article obj);
-	/**
-	 * Cr�er un article 
-	 * @param obj Objet � ajouter en base
-	 * @return un bool de v�rif. vrai = reussi
-	 */
-	public boolean CreateArticle(Article obj);
+	public boolean SaveOrUpdateArticle(Article obj);
+	
 	/**
 	 * Selectionne le dernier article
 	 * @return un bool de v�rif. vrai = reussi

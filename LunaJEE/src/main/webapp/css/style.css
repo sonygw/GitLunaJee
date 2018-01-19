@@ -16,15 +16,14 @@ html, body {
 .monheader{
 	font-size : 1.7rem;
 	background-color : silver;
-	text-align : center;
-
+	text-align : left;
 	
-
 }
 
 .monfooter{
 	font-size : 1.4rem;
 	background-color : red;
+
 }
 
 .monbody{

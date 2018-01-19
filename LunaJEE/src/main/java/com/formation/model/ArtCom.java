@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Service;
+
+@Service
 @Entity
 public class ArtCom {
 	

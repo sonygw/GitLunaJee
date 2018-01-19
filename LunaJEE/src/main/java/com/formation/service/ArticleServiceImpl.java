@@ -2,7 +2,6 @@ package com.formation.service;
 
 import java.util.ArrayList;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,29 +33,29 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public boolean DeleteArticle(Article art) {
+	public boolean DeleteArticle(Article obj) {
 
-		return articleDao.DeleteArticle(art);
+		if (obj.getIdArticle() != 0)
+			return false;
+		else
+			return true;
 	}
 
 	@Override
-	public boolean UpdateArticle(Article obj) {
+	public boolean SaveOrUpdateArticle(Article obj) {
 
-		return articleDao.UpdateArticle(obj);
+		if (obj.getIdArticle() != 0)
+			return true;
+		else
+			return false;
+
 	}
-
-	@Override
-	public boolean CreateArticle(Article obj) {
-		return articleDao.CreateArticle(obj);
-	}
-
 
 	@Override
 	public Article SelectLastArticle() {
 
 		return articleDao.SelectLastArticle();
 	}
-
 
 	@Override
 	public ArrayList<Article> SelectArticleByDesign(String design) {
