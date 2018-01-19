@@ -39,15 +39,10 @@ public interface ClientService {
 	 * @param id du client
 	 * @return bool�en de v�rification : vrai si r�ussi
 	 */
-	public boolean UpdateClient(Client obj);
+	public boolean SaveOrUpdateClient(Client obj);
 	
 
-	/**
-	 * Cr�ation d'un objet client dans la base de donn�es.
-	 * @param obj client
-	 * @return bool�en de v�rification : vrai si reussi
-	 */
-	public boolean CreateClient(Client obj);
+
 	
 	
 	/**
@@ -55,5 +50,7 @@ public interface ClientService {
 	 * @return le dernier client de la base de donn�es
 	 */
 	public Client SelectLastClient();
+
+	
 
 }

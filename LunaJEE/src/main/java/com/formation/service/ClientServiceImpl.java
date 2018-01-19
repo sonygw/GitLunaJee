@@ -5,8 +5,6 @@ package com.formation.service;
 
 import java.util.ArrayList;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,28 +41,27 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public boolean DeleteClient(Client obj) {
-		return clientDao.DeleteClient(obj);
+
+		if (clientDao.DeleteClient(obj).getIdClient() != 0)
+			return false;
+		else
+			return true;
 	}
 
 	@Override
-	public boolean UpdateClient(Client obj) {
+	public boolean SaveOrUpdateClient(Client obj) {
 
-		return clientDao.UpdateClient(obj);
+		if (clientDao.SaveOrUpdateClient(obj).getIdClient() != 0)
+			return true;
+		else
+			return false;
 	}
-
-	@Override
-	public boolean CreateClient(Client obj) {
-
-		return clientDao.CreateClient(obj);
-	}
-
 
 	@Override
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
 
 		return clientDao.SelectAllClientsByName(nom);
 	}
-
 
 	@Override
 	public Client SelectLastClient() {

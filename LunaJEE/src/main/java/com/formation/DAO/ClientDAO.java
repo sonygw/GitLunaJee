@@ -30,7 +30,7 @@ public interface ClientDAO {
 	 * @param obj client
 	 * @return bool�en de v�rification : vrai si r�ussi
 	 */
-	public boolean DeleteClient(Client obj);
+	public Client DeleteClient(Client obj);
 	
 
 	/**
@@ -39,15 +39,9 @@ public interface ClientDAO {
 	 * @param id du client
 	 * @return bool�en de v�rification : vrai si r�ussi
 	 */
-	public boolean UpdateClient(Client obj);
+	public Client SaveOrUpdateClient(Client obj);
 	
 
-	/**
-	 * Cr�ation d'un objet client dans la base de donn�es.
-	 * @param obj client
-	 * @return bool�en de v�rification : vrai si reussi
-	 */
-	public boolean CreateClient(Client obj);
 	
 	
 	/**

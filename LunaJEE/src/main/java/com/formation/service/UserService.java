@@ -23,13 +23,9 @@ public interface UserService {
 	 * @param id Identifiant de l'User qu'on veux update
 	 * @return un bool de v�rif. true = reussi
 	 */
-	public boolean UpdateUser(User user);
-	/**
-	 * Cr�er un User en fonction d'un objet User
-	 * @param user Objet User
-	 * @return un bool de v�rif. true = reussi
-	 */
-	public boolean CreateUser(User user);
+	public boolean SaveOrUpdateUser(User user);
+
+	
 	/**
 	 * Delete un User gr�ce � son ID
 	 * @param id Identifiant de l'utilisateur

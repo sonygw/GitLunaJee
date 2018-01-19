@@ -28,24 +28,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean UpdateUser(User user) {
+	public User SaveOrUpdateUser(User user) {
 
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
-		return true;
+		return user;
 	}
 
-	@Override
-	public boolean CreateUser(User user) {
-
-		sessionFactory.getCurrentSession().save(user);
-		return true;
-	}
+	
 
 	@Override
-	public boolean DeleteUser(User user) {
+	public User DeleteUser(User user) {
 
 		sessionFactory.getCurrentSession().delete(user);
-		return true;
+		return user;
 	}
 
 	@Override

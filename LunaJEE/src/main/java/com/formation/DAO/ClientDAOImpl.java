@@ -45,28 +45,22 @@ public class ClientDAOImpl implements ClientDAO {
 	}
 
 	@Override
-	public boolean DeleteClient(Client obj) {
+	public Client DeleteClient(Client obj) {
 		sessionFactory.getCurrentSession().delete(obj);
-		return true;
+		return obj;
 	}
 
 
 	@Override
-	public boolean UpdateClient(Client obj) {
+	public Client SaveOrUpdateClient(Client obj) {
 		
 
 		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 
-		return true;
+		return obj;
 	}
 
-	@Override
-	public boolean CreateClient(Client obj) {
-		
-		sessionFactory.getCurrentSession().save(obj);
 
-		return true;
-	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override

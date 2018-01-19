@@ -54,22 +54,18 @@ public class CommandeDAOImpl implements CommandeDAO {
 		return resultats;
 	}
 
-	@Override
-	public boolean CreateCommande(Commande commande) {
-		sessionFactory.getCurrentSession().save(commande);
-		return true;
-	}
+	
 
 	@Override
-	public boolean UpdateCommande(Commande commande, int id) {
+	public Commande SaveOrUpdateCommande(Commande commande, int id) {
 		sessionFactory.getCurrentSession().saveOrUpdate(commande);
-		return true;
+		return commande;
 	}
 
 	@Override
-	public boolean DeleteCommande(Commande commande) {
+	public Commande DeleteCommande(Commande commande) {
 		sessionFactory.getCurrentSession().delete(commande);
-		return true;
+		return commande;
 	}
 
 	@Override

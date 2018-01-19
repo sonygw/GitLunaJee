@@ -2,8 +2,6 @@ package com.formation.service;
 
 import java.util.ArrayList;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,18 +41,19 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public boolean CreateCommande(Commande commande) {
-		return commandeDao.CreateCommande(commande);
-	}
-
-	@Override
-	public boolean UpdateCommande(Commande commande, int id) {
-		return commandeDao.UpdateCommande(commande, id);
+	public boolean SaveOrUpdateCommande(Commande commande, int id) {
+		if (commandeDao.SaveOrUpdateCommande(commande, id).getIdCommande() != 0)
+			return true;
+		else
+			return false;
 	}
 
 	@Override
 	public boolean DeleteCommande(Commande commande) {
-		return commandeDao.DeleteCommande(commande);
+		if (commandeDao.DeleteCommande(commande).getIdCommande() != 0)
+			return false;
+		else
+			return true;
 	}
 
 	@Override

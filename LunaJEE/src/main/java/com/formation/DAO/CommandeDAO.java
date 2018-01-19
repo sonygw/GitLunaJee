@@ -39,20 +39,14 @@ public interface CommandeDAO {
 	 * @param commande Objet commande � cr�er
 	 * @return un bool de v�rif. vrai = reussi
 	 */
-	public boolean CreateCommande(Commande commande);
-	/**
-	 * Update une commande gr�ce � son ID
-	 * @param commande objet commande a inserer
-	 * @param id id de la commande � modifier
-	 * @return un bool de v�rif. vrai = reussi
-	 */
-	public boolean UpdateCommande(Commande commande, int id);
+	
+	public Commande SaveOrUpdateCommande(Commande commande, int id);
 	/**
 	 * Supprime la commande
 	 * @param id id de la commande � supprimer
 	 * @return un bool de v�rif. vrai = reussi
 	 */
 	
-	public boolean DeleteCommande(Commande commande);
+	public Commande DeleteCommande(Commande commande);
 	
 }

@@ -29,21 +29,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean UpdateUser(User user) {
+	public boolean SaveOrUpdateUser(User user) {
 
-		return userDao.UpdateUser(user);
+		if (userDao.SaveOrUpdateUser(user).getIdUser() != 0)
+			return true;
+		else
+			return false;
+
+	
 	}
 
-	@Override
-	public boolean CreateUser(User user) {
-
-		return userDao.CreateUser(user);
-	}
+	
 
 	@Override
 	public boolean DeleteUser(User user) {
 
-		return userDao.DeleteUser(user);
+		if (userDao.DeleteUser(user).getIdUser() != 0)
+			return false;
+		else
+			return true;
 	}
 
 	@Override
