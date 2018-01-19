@@ -46,6 +46,6 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User SelectUser(int id) {
 
-		return (User) sessionFactory.getCurrentSession().createQuery("FROM user WHERE idUser=" + id);
+		return (User) sessionFactory.getCurrentSession().createQuery("FROM User WHERE idUser=" + id);
 	}
 }

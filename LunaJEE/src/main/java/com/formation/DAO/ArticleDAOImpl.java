@@ -25,7 +25,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public ArrayList<Article> SelectAllArticles() {
 
 		@SuppressWarnings("unchecked")
-		TypedQuery<Article> result = sessionFactory.getCurrentSession().createQuery("from article");
+		TypedQuery<Article> result = sessionFactory.getCurrentSession().createQuery("from Article");
 		return (ArrayList<Article>) result.getResultList();
 	}
 
@@ -34,7 +34,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
 		@SuppressWarnings("unchecked")
 		TypedQuery<Article> result = sessionFactory.getCurrentSession()
-				.createQuery("from article where idArticle =" + id);
+				.createQuery("from Article where idArticle =" + id);
 		return (Article) result.getResultList();
 	}
 
@@ -58,7 +58,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public Article SelectLastArticle() {
 
 		Query query = sessionFactory.getCurrentSession()
-				.createQuery("FROM article ORDER BY idArticle DESC LIMIT 1 ");
+				.createQuery("FROM Article ORDER BY idArticle DESC LIMIT 1 ");
 		query.executeUpdate();
 		return (Article) query.getResultList();
 	}
@@ -68,7 +68,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public ArrayList<Article> SelectArticleByDesign(String design) {
 
 		Query query = sessionFactory.getCurrentSession()
-				.createQuery("Select * from article where description like '%" + design + "%'");
+				.createQuery("Select * from Article where description like '%" + design + "%'");
 		query.executeUpdate();
 		return (ArrayList<Article>) query.getResultList();
 

@@ -60,5 +60,21 @@ public class ArtComServiceTest {
 		assertTrue(artComService.DeleteArtCom(artCom));
 	}
 	
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testSelectAllArtCom() {
+
+		artComService = context.getBean(ArtComService.class);
+
+		Article article = new Article();
+		article.setIdArticle(500);
+
+		Commande commande = new Commande();
+		commande.setIdCommande(500);
+		
+		ArtCom artCom = new ArtCom(3, article, commande);
+		assertTrue(artComService.DeleteArtCom(artCom));
+	}
 
 }

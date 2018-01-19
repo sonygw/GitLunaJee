@@ -40,7 +40,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public ArrayList<Client> SelectAllClients() {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from client") ;
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client") ;
 		return (ArrayList<Client>) result.getResultList();
 	}
 
@@ -66,7 +66,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
 		
-		Query query = sessionFactory.getCurrentSession().createQuery("from client where nom like '" + nom + "%'");
+		Query query = sessionFactory.getCurrentSession().createQuery("from Client where nom like '" + nom + "%'");
 		query.executeUpdate();
 		 return (ArrayList<Client>) query.getResultList();
 		
@@ -76,7 +76,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public Client SelectLastClient() {
 		
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM client ORDER BY idClient DESC LIMIT 1 ");
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM Client ORDER BY idClient DESC LIMIT 1 ");
 		query.executeUpdate();
 		return (Client) query.getResultList();
 		

@@ -19,7 +19,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 		@SuppressWarnings("unchecked")
 		ArrayList<Commande> commandes = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM commande").getResultList();
+				.createQuery("FROM Commande").getResultList();
 
 		return commandes;
 	}
@@ -29,7 +29,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 		@SuppressWarnings("unchecked")
 		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM commande WHERE idClient=" + idclient).getResultList();
+				.createQuery("FROM Commande WHERE idClient=" + idclient).getResultList();
 
 		return resultats;
 	}
@@ -38,7 +38,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 	public Commande SelectCommande(int id) {
 
 		Commande commande = (Commande) sessionFactory.getCurrentSession()
-				.createQuery("FROM commande WHERE idCommande=" + id);
+				.createQuery("FROM Commande WHERE idCommande=" + id);
 
 		return commande;
 	}
@@ -48,7 +48,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 		@SuppressWarnings("unchecked")
 		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM commande c, artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id)
+				.createQuery("FROM Commande c, Artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id)
 				.getResultList();
 
 		return resultats;
@@ -72,7 +72,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 	public Commande SelectLastCommande() {
 
 		Commande commande = (Commande) sessionFactory.getCurrentSession()
-				.createQuery("FROM commande ORDER BY idCommande DESC LIMIT 1 ");
+				.createQuery("FROM Commande ORDER BY idCommande DESC LIMIT 1 ");
 
 		return commande;
 	}
