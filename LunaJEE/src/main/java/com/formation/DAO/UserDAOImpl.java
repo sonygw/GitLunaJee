@@ -2,7 +2,9 @@ package com.formation.DAO;
 
 import java.util.ArrayList;
 
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,6 +48,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User SelectUser(int id) {
 
-		return (User) sessionFactory.getCurrentSession().createQuery("FROM User WHERE idUser=" + id);
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE idUser=" + id);
+		
+		return (User) query.uniqueResult();
 	}
 }

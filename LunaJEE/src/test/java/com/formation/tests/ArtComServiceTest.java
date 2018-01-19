@@ -1,6 +1,7 @@
 package com.formation.tests;
 
 import static org.junit.Assert.assertNotNull;
+
 import static org.junit.Assert.assertTrue;
 
 import javax.transaction.Transactional;
@@ -31,7 +32,6 @@ public class ArtComServiceTest {
 	@Transactional
 	@Rollback(false)
 	public void testSaveOrUpdateArtCom() {
-
 		artComService = context.getBean(ArtComService.class);
 
 		Article article = new Article();
@@ -49,8 +49,6 @@ public class ArtComServiceTest {
 	@Rollback(false)
 	public void testSelectAllArtCom() {
 
-		artComService = context.getBean(ArtComService.class);
-
 		Article article = new Article();
 		article.setIdArticle(500);
 
@@ -66,8 +64,6 @@ public class ArtComServiceTest {
 	@Transactional
 	@Rollback(true)
 	public void testDeleteArtCom() {
-
-		artComService = context.getBean(ArtComService.class);
 
 		Article article = new Article();
 		article.setIdArticle(500);

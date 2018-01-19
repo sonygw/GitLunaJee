@@ -2,8 +2,6 @@ package com.formation.service;
 
 import java.util.ArrayList;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,10 +34,7 @@ public class UserServiceImpl implements UserService {
 		else
 			return false;
 
-	
 	}
-
-	
 
 	@Override
 	public boolean DeleteUser(User user) {

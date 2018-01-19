@@ -1,5 +1,6 @@
 package com.formation.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -31,7 +32,7 @@ public class ClientServiceTest {
 		clientService = context.getBean(ClientService.class);
 		
 		Client client = new Client();
-		client.setNom("Arenas");
+		client.setNom("Daniel");
 		assertTrue(clientService.SaveOrUpdateClient(client));
 	}
 	
@@ -50,15 +51,14 @@ public class ClientServiceTest {
 	@Test
 	@Transactional
 	public void testSelectClientById() {
-		assertNotNull(clientService.SelectClient(2));
+		assertEquals(2, clientService.SelectClient(2).getIdClient());
 	}
 	
 	@Test
 	@Transactional
 	public void testSelectClientByName() {
-		assertNotNull(clientService.SelectAllClientsByName("Arenas"));
+		assertNotNull(clientService.SelectAllClientsByName("Daniel"));
 	}
-	
 	
 	
 	@Test
