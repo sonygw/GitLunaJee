@@ -3,7 +3,7 @@
 <%@ taglib prefix ="s" uri="/struts-tags" %>
 <head>
   <meta charset="UTF-8">
-  <title>Projet Luna Jee</title>
+  <title>Projet Luna Jee - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
