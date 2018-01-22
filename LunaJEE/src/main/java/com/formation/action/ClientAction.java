@@ -21,7 +21,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Autowired
 	private ClientService clientService;
 
-	private Map<String, Object> session;
+	
 
 	private static final long serialVersionUID = 1L;
 
