@@ -45,7 +45,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		return models;
 	}
 	
-	@Action(value = "affTab", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
+	@Action(value = "affTab", results = { @Result(name = "success", location = "clientAccueil" type="tiles" ) })
 	public String AffichTable() {
 		
 		setModels();
