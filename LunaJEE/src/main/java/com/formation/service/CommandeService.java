@@ -33,14 +33,14 @@ public interface CommandeService {
 	 * Selectionne la derni�re commande
 	 * @return un objet commande
 	 */
-	public Commande SelectLastCommande();
+	public boolean SelectLastCommande();
 	/**
 	 * Cr�er une commande 
 	 * @param commande Objet commande � cr�er
 	 * @return un bool de v�rif. vrai = reussi
 	 */
 
-	public boolean SaveOrUpdateCommande(Commande commande, int id);
+	public boolean SaveOrUpdateCommande(Commande commande);
 	/**
 	 * Supprime la commande
 	 * @param id id de la commande � supprimer

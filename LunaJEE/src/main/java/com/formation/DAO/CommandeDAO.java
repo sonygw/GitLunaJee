@@ -40,7 +40,7 @@ public interface CommandeDAO {
 	 * @return un bool de v�rif. vrai = reussi
 	 */
 	
-	public Commande SaveOrUpdateCommande(Commande commande, int id);
+	public Commande SaveOrUpdateCommande(Commande commande);
 	/**
 	 * Supprime la commande
 	 * @param id id de la commande � supprimer

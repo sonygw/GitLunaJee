@@ -41,8 +41,8 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public boolean SaveOrUpdateCommande(Commande commande, int id) {
-		if (commandeDao.SaveOrUpdateCommande(commande, id).getIdCommande() != 0)
+	public boolean SaveOrUpdateCommande(Commande commande) {
+		if (commandeDao.SaveOrUpdateCommande(commande).getIdCommande() != 0)
 			return true;
 		else
 			return false;
@@ -57,9 +57,12 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public Commande SelectLastCommande() {
+	public boolean SelectLastCommande() {
 
-		return commandeDao.SelectLastCommande();
+ 	if (commandeDao.SelectLastCommande().getIdCommande() != 0)
+			return true;
+		else
+			return false;
 	}
 
 }

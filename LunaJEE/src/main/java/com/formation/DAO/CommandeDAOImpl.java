@@ -2,6 +2,8 @@ package com.formation.DAO;
 
 import java.util.ArrayList;
 
+import javax.persistence.Query;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,10 +39,10 @@ public class CommandeDAOImpl implements CommandeDAO {
 	@Override
 	public Commande SelectCommande(int id) {
 
-		Commande commande = (Commande) sessionFactory.getCurrentSession()
+		
+		Query query = sessionFactory.getCurrentSession()
 				.createQuery("FROM Commande WHERE idCommande=" + id);
-
-		return commande;
+		return (Commande) query.getSingleResult();
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 	
 
 	@Override
-	public Commande SaveOrUpdateCommande(Commande commande, int id) {
+	public Commande SaveOrUpdateCommande(Commande commande) {
 		sessionFactory.getCurrentSession().saveOrUpdate(commande);
 		return commande;
 	}
@@ -71,10 +73,12 @@ public class CommandeDAOImpl implements CommandeDAO {
 	@Override
 	public Commande SelectLastCommande() {
 
-		Commande commande = (Commande) sessionFactory.getCurrentSession()
-				.createQuery("FROM Commande ORDER BY idCommande DESC LIMIT 1 ");
+		
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM Commande ORDER BY idCommande DESC");
+		query.setMaxResults(1);
+		return (Commande) query.getSingleResult();
 
-		return commande;
+	
 	}
 
 }
