@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Création d'un Client</title>
 </head>
 <body>
 
 <fieldset>
-		<legend>Ajout</legend>
+		<legend>Ajout d'un client</legend>
 		<s:form method="post" action="createCli">
 			<div>
 				<s:textfield label="Nom" name="nom"
-					labelposition="left" />
+					required="true" labelposition="left" />
 				<s:textfield label="Prenom" name="prenom"
 					required="true" labelposition="left" />
 

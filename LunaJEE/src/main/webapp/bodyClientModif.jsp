@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Modification d'un client</title>
 </head>
 <body>
 	<fieldset>
-		<legend>Modification</legend>
+		<legend>Modification d'un Client</legend>
 		<s:form method="post" action="updateCli2">
 			<div>
 				<s:textfield label="Nom" name="clientUpdate.nom"

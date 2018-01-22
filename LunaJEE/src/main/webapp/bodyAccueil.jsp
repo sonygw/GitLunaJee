@@ -9,21 +9,25 @@
 </head>
 <body>
 
-<div style="height: 200px"></div>	
+	<div style="height: 200px"></div>
 
-<s:form action="affTab">
-	<s:submit  value="Client" type="image" src="images/accueil/customer.ico"
-		theme="simple" style="margin-left:50%">Clients</s:submit>
-</s:form>
+	<s:form action="affTabCli">
+		<s:submit value="Client" type="image"
+			src="images/accueil/customer.ico" theme="simple"
+			style="margin-left:50%">Clients</s:submit>
+	</s:form>
 
 
 	<br>
-	<s:submit value="Articles" type="image"
-		src="images/accueil/commandes.ico" theme="simple"
-		style="margin-left:50%">Articles</s:submit>
+	<s:form action="affTabArt">
+		<s:submit value="Articles" type="image"
+			src="images/accueil/commandes.ico" theme="simple"
+			style="margin-left:50%">Articles</s:submit>
+	</s:form>
 	<br>
-	<s:submit value="Commandes" type="image" src="images/accueil/cart.ico"
-		theme="simple" style="margin-left:50%">Commandes</s:submit>
-
+	<s:form action="affTabCom">
+		<s:submit value="Commandes" type="image" src="images/accueil/cart.ico"
+			theme="simple" style="margin-left:50%">Commandes</s:submit>
+	</s:form>
 </body>
 </html>

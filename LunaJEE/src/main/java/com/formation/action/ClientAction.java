@@ -1,7 +1,6 @@
 package com.formation.action;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;

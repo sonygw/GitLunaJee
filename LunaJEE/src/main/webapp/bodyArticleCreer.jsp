@@ -5,38 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Création d'un Article</title>
 </head>
 <body>
+
 <fieldset>
-		<legend>Ajout</legend>
-		<s:form method="post" action="updateCli2">
+		<legend>Ajout d'un article</legend>
+		<s:form method="post" action="createArt">
 			<div>
-				<s:textfield label="Nom" name="client.nom"
-					labelposition="left" />
-				<s:textfield label="Prenom" name="client.prenom"
+				<s:textfield label="Catégorie" name="categorie"
+				required="true"	labelposition="left" />
+				<s:textfield label="Description" name="description"
 					required="true" labelposition="left" />
 
-				<s:textfield label="Email" name="client.email" required="true"
+				<s:textfield label="Prix HT" name="prixHT" required="true"
 					labelposition="left" />
 					
-				<s:textfield label="remarques" name="client.remarques"
+				<s:textfield label="Quantité" name="quantite"
 					required="true" labelposition="left" />
 					
-					<s:textfield label="Telephone" name="client.numeroTelephone"
-								required="true" labelposition="left" />
-
-				<s:textfield label="Adresse" name="client.adresse" 
-					required="true" labelposition="left" />
-			</div>
-			<s:radio label="Carte de fidélité" labelposition="left"
-				id="radiobutton" name="client.carteFidelite"
-				list="#{'true' : 'oui', 'false' : 'non'}"
-				value="clientUpdate.isCarteFidelite()" />
-
-			<s:textfield type="hidden" name="codeCli">
-				<s:param name="codeCli">${codeCli}</s:param>
-			</s:textfield>
+			</div>		
 			<s:submit value="Enregistrer" label="Enregistrer" />
 		</s:form>
 	</fieldset>
