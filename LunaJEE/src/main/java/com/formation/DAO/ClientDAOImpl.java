@@ -49,6 +49,7 @@ public class ClientDAOImpl implements ClientDAO {
 	public Client DeleteClient(Client obj) {
 		sessionFactory.getCurrentSession().delete(obj);
 		return obj;
+		
 	}
 
 	@Override

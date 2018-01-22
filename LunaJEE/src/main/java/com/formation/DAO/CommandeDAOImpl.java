@@ -31,7 +31,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 		@SuppressWarnings("unchecked")
 		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM Commande WHERE idClient=" + idclient).getResultList();
+				.createQuery("FROM Commande WHERE client_idClient=" + idclient).getResultList();
 
 		return resultats;
 	}

@@ -25,7 +25,7 @@ public class CommandeServiceImpl implements CommandeService {
 	@Override
 	public ArrayList<Commande> SelectCommandesClient(int idclient) {
 
-		return commandeDao.SelectCommandesClient(idclient);
+		return commandeDao.SelectCommandesClient(idclient); 
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class CommandeServiceImpl implements CommandeService {
 	public boolean SaveOrUpdateCommande(Commande commande) {
 		if (commandeDao.SaveOrUpdateCommande(commande).getIdCommande() != 0)
 			return true;
-		else
+		else 
 			return false;
 	}
 

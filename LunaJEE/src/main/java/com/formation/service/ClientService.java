@@ -49,7 +49,7 @@ public interface ClientService {
 	 * S�lection du dernier client de la base de donn�es.
 	 * @return le dernier client de la base de donn�es
 	 */
-	public boolean SelectLastClient();
+	public Client SelectLastClient();
 
 	
 

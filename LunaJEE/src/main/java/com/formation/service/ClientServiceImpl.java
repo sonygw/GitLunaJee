@@ -46,6 +46,7 @@ public class ClientServiceImpl implements ClientService {
 			return false;
 		else
 			return true;
+	
 	}
 
 	@Override
@@ -61,16 +62,13 @@ public class ClientServiceImpl implements ClientService {
 	public ArrayList<Client> SelectAllClientsByName(String nom) {
 
 		return clientDao.SelectAllClientsByName(nom);
+		
 	}
 
 	@Override
-	public boolean SelectLastClient() {
+	public Client SelectLastClient() {
 
-		if (clientDao.SelectLastClient().getIdClient() != 0)
-			return true;
-		else
-			return false;
-
+		return clientDao.SelectLastClient();
 
 	}
 

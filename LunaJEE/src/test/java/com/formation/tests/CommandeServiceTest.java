@@ -14,7 +14,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.formation.context.ConteneurSpring;
-import com.formation.model.Client;
 import com.formation.model.Commande;
 import com.formation.service.CommandeService;
 
@@ -31,7 +30,7 @@ public class CommandeServiceTest {
 	@Transactional
 	public void testSelectAllCommandes() {
 
-		 assertNotNull(commandeService.SelectAllCommandes());
+		assertNotNull(commandeService.SelectAllCommandes());
 	}
 
 	@Test
@@ -62,19 +61,22 @@ public class CommandeServiceTest {
 
 	}
 
-//	@Test
-//	@Transactional
-//	public void testSelectCommandeClient() {
-//
-//		commandeService = context.getBean(CommandeService.class);
-//		
-//		Commande commande = new Commande();
-//		Client client = new Client();
-//		client.setIdClient(500);
-//		commandeService.SelectCommandesClient(500);
-//		
-//
-//	}
+	@Test
+	@Transactional
+	public void testSelectCommandeClient() {
+
+		assertNotNull(commandeService.SelectCommandesClient(500));
+
+	}
+
+	@Test
+	@Transactional
+	public void testSelectCommandeArticle() {
+
+		assertNotNull(commandeService.SelectCommandesArticles(500));
+
+	}
+
 	@Test
 	@Transactional
 	public void testDeleteCommande() {

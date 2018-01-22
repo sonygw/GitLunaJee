@@ -1,6 +1,7 @@
 package com.formation.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -50,8 +51,8 @@ public class UserServiceTest {
 	@Test
 	@Transactional
 	public void testDeleteUser() {
-		User user = new User();
-		assertTrue(userService.DeleteUser(user));
+		User user = userService.SelectUser(34);
+		assertFalse(userService.DeleteUser(user));
 	}
 
 }

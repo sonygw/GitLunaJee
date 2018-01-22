@@ -1,6 +1,7 @@
 package com.formation.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -45,7 +46,7 @@ public class ClientServiceTest {
 	@Test
 	@Transactional
 	public void testSelectLastClient() {
-		assertTrue(clientService.SelectLastClient());
+		assertNotNull(clientService.SelectLastClient());
 	}
 	
 	@Test
@@ -66,8 +67,8 @@ public class ClientServiceTest {
 	public void testDeleteClient() {
 		clientService = context.getBean(ClientService.class);
 		
-		Client client = new Client();
-		assertTrue(clientService.DeleteClient(client));
+		Client client = clientService.SelectLastClient();
+		assertFalse(clientService.DeleteClient(client));
 	}
 
 	
