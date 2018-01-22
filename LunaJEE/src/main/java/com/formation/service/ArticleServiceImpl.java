@@ -1,6 +1,7 @@
 package com.formation.service;
 
 import java.util.ArrayList;
+import static java.lang.Math.toIntExact;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,10 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public boolean DeleteArticle(Article obj) {
+		articleDao.DeleteArticle(obj);
 
-		if (articleDao.DeleteArticle(obj).getIdArticle() != 0)
+		
+		if (obj.getIdArticle() != 0)
 			return false;
 		else
 			return true;
@@ -60,7 +63,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public ArrayList<Article> SelectArticleByDesign(String design) {
 
-		return SelectArticleByDesign(design);
+		return articleDao.SelectArticleByDesign(design);
 
 	}
 

@@ -1,7 +1,11 @@
 package com.formation.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,29 +28,72 @@ public class ArticleServiceTest {
 	
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
+	 @Test
+	 public void CreateArticleTest() {
+	
+	 Article art = context.getBean(Article.class);
+	
+	 art.setDescription("ok");
+	 art.setPrixHT(50);
+	 art.setQuantite(150);
+	 art.setCategorie("cat 3");
+	
+	 assertTrue(AS.SaveOrUpdateArticle(art));
+	 }
+	
+	 @Test
+	 public void SelectArticleTest() {
+	
+	 Article art = context.getBean(Article.class);
+	
+	 art = AS.SelectArticleById(1);
+	 assertEquals(1, art.getIdArticle());
+	 }
+	
+	 @Test
+	 public void SelectAllArticlesTest()
+	 {
+	 //Article art = context.getBean(Article.class);
+	
+	 ArrayList<Article> list = new ArrayList<Article>();
+	
+	 list = AS.SelectAllArticles();
+	
+	 assertNotNull(list);
+	
+	 }
+	
+	 @Test
+	 public void SelectAllArticlesbyDesignTest()
+	 {
+	 //Article art = context.getBean(Article.class);
+	
+	 ArrayList<Article> list = new ArrayList<Article>();
+	
+	 list = AS.SelectArticleByDesign("ok");
+	 System.out.println(list.size());
+	 assertNotNull(list);
+	
+	 }
+	
+	 @Test
+	 public void SelectLastArticleTest() {
+	
+	 Article art = context.getBean(Article.class);
+	
+	 art = AS.SelectLastArticle();
+	 assertNotNull(art.getIdArticle());
+	 }	
+	
+
 	@Test
-	public void CreateArticleTest() {
+	public void DeleteArticleTest() {
 
 		Article art = context.getBean(Article.class);
 
-		art.setDescription("ok");
-		art.setPrixHT(50);
-		art.setQuantite(150);
-		art.setCategorie("cat 3");
-
-		assertTrue(AS.SaveOrUpdateArticle(art));
-	}
+		art = AS.SelectLastArticle();
+		
+		assertFalse(AS.DeleteArticle(art));
+	}	
 	
-	@Test
-	public void SelectArticleTest() {
-
-		Article art = context.getBean(Article.class);
-
-		art = AS.SelectArticleById(1);
-		assertEquals(1L, art.getIdArticle());
-	}
-	
-	
-	
-
 }
