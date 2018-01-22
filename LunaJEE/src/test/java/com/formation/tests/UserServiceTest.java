@@ -29,7 +29,7 @@ public class UserServiceTest {
 	@Test
 	@Transactional
 	public void testSaveOrUpdateUser() {
-		
+
 		userService = context.getBean(UserService.class);
 		User user = new User();
 		user.setNom("daniel");
@@ -39,7 +39,8 @@ public class UserServiceTest {
 	@Test
 	@Transactional
 	public void testSelectUser() {
-		assertEquals(34,userService.SelectUser(34).getIdUser());
+		assertEquals(userService.SelectAllUsers().get(1).getIdUser(),
+				userService.SelectUser((int) userService.SelectAllUsers().get(1).getIdUser()).getIdUser());
 	}
 
 	@Test
@@ -51,7 +52,7 @@ public class UserServiceTest {
 	@Test
 	@Transactional
 	public void testDeleteUser() {
-		User user = userService.SelectUser(34);
+		User user = userService.SelectUser((int) userService.SelectAllUsers().get(1).getIdUser());
 		assertFalse(userService.DeleteUser(user));
 	}
 
