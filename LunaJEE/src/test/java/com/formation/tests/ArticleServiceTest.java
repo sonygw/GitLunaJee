@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -46,8 +45,8 @@ public class ArticleServiceTest {
 	
 	 Article art = context.getBean(Article.class);
 	
-	 art = AS.SelectArticleById(1);
-	 assertEquals(1, art.getIdArticle());
+	 art = AS.SelectArticleById((int) AS.SelectAllArticles().get(1).getIdArticle());
+	 assertEquals((int) AS.SelectAllArticles().get(1).getIdArticle(), art.getIdArticle());
 	 }
 	
 	 @Test

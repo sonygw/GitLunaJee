@@ -34,11 +34,6 @@ public class CommandeServiceImpl implements CommandeService {
 		return commandeDao.SelectCommande(id);
 	}
 
-	@Override
-	public ArrayList<Commande> SelectCommandesArticles(int id) {
-
-		return commandeDao.SelectCommandesArticles(id);
-	}
 
 	@Override
 	public boolean SaveOrUpdateCommande(Commande commande) {
@@ -64,5 +59,6 @@ public class CommandeServiceImpl implements CommandeService {
 		else
 			return false;
 	}
+
 
 }

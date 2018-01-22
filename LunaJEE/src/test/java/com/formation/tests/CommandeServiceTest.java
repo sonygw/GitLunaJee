@@ -71,14 +71,6 @@ public class CommandeServiceTest {
 
 	@Test
 	@Transactional
-	public void testSelectCommandeArticle() {
-
-		assertNotNull(commandeService.SelectCommandesArticles(500));
-
-	}
-
-	@Test
-	@Transactional
 	public void testDeleteCommande() {
 
 		commandeService = context.getBean(CommandeService.class);
