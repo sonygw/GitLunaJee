@@ -34,9 +34,9 @@
 	<s:if test="getModels()!=null">
 		<table>
 			<tr>
-				<td width="10%">Id</td>
-				<td width="20%">Nom</td>
-				<td width="20%">Prenom</td>
+				<td width="20%">Id</td>
+				<td width="30%">Nom</td>
+				<td width="30%">Prenom</td>
 				<td>Supprimer</td>
 				<td>Modifier</td>
 			</tr>
@@ -44,9 +44,9 @@
 			<s:iterator value="getModels()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="10%"><s:property value="idClient" /></td>
-					<td width="20%"><s:property value="nom" /></td>
-					<td width="20%"><s:property value="prenom" /></td>
+					<td width="20%"><s:property value="idClient" /></td>
+					<td width="30%"><s:property value="nom" /></td>
+					<td width="30%"><s:property value="prenom" /></td>
 					<td><s:a action="deleteCli">
 							<img alt="DEL" src="images/delete.png" width="30px">
 							<s:param name="codeCli"><s:property value="idClient" /></s:param>

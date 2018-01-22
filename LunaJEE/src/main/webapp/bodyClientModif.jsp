@@ -26,13 +26,12 @@
 					<s:textfield label="Telephone" name="clientUpdate.numeroTelephone"
 								required="true" labelposition="left" />
 
-				<s:textfield label="Adresse" name="clientUpdate.adresse" value="clientUpdate.getAdresse()"
+				<s:textfield label="Adresse" name="clientUpdate.adresse" 
 					required="true" labelposition="left" />
 			</div>
 			<s:radio label="Carte de fidélité" labelposition="left"
 				id="radiobutton" name="clientUpdate.carteFidelite"
-				list="#{'true' : 'oui', 'false' : 'non'}"
-				value="clientUpdate.isCarteFidelite()" />
+				list="#{'true' : 'oui', 'false' : 'non'}" />
 
 			<s:textfield type="hidden" name="codeCli">
 				<s:param name="codeCli">${codeCli}</s:param>
