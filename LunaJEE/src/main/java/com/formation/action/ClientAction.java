@@ -1,6 +1,7 @@
 package com.formation.action;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -8,9 +9,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.model.Client;
-import com.formation.model.User;
 import com.formation.service.ClientService;
-import com.formation.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -20,7 +19,8 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Autowired
 	private ClientService clientService;
 
-
+	private Map<String, Object> session;
+	
 	private static final long serialVersionUID = 1L;
 
 	private Client client = new Client();
@@ -67,18 +67,26 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	}
 	
 	
-	@Action(value = "updateCli2", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
+	@Action(value = "updateCli2", results = { @Result(name = "success", location = "/affTab") })
 	public String UpdateClient()
 	{
-		System.out.println(clientUpdate);
-		System.out.println(codeCli);
+		
 		clientUpdate.setIdClient(codeCli);
 		
-		System.out.println(clientUpdate);
 		clientService.SaveOrUpdateClient(clientUpdate);
 		return SUCCESS;
 		
 	}
+	
+	@Action(value = "create", results = { @Result(name = "success", location = "bodyAccueil.jsp") })
+	public String createClient()
+	{
+		
+		clientService.SaveOrUpdateClient(client);
+		return SUCCESS;
+		
+	}
+	
 	
 	public int getCodeCli() {
 		return codeCli;
