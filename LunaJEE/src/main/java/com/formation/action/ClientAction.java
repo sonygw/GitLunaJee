@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ import com.formation.service.ClientService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+@ParentPackage("com.formation")
 @Namespace(value = "/")
 public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 
@@ -20,7 +22,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	private ClientService clientService;
 
 	private Map<String, Object> session;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private Client client = new Client();
@@ -33,9 +35,6 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		// TODO Auto-generated method stub
 		return client;
 	}
-	
-
-
 
 	public void setModels() {
 		models = clientService.SelectAllClients();
@@ -44,50 +43,44 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	public List<Client> getModels() {
 		return models;
 	}
-	
-	@Action(value = "affTab", results = { @Result(name = "success", location = "clientAccueil" type="tiles" ) })
+
+	@Action(value = "affTab", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
 	public String AffichTable() {
-		
+
 		setModels();
 		return SUCCESS;
 	}
 
-	@Action(value = "deleteCli", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
-	public String DeleteClient()
-	{
+	@Action(value = "deleteCli", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	public String DeleteClient() {
 		clientService.DeleteClient(clientService.SelectClient(codeCli));
 		return SUCCESS;
-		
+
 	}
-	
-	@Action(value = "updateCli1", results = { @Result(name = "success", location = "/bodyClientModif.jsp") })
-	public String redirectionUpdate()
-	{
-		return SUCCESS;		
+
+	@Action(value = "updateCli1", results = { @Result(name = "success", location = "clientModif", type = "tiles") })
+	public String redirectionUpdate() {
+		return SUCCESS;
 	}
-	
-	
+
 	@Action(value = "updateCli2", results = { @Result(name = "success", location = "/affTab") })
-	public String UpdateClient()
-	{
-		
+	public String UpdateClient() {
+
 		clientUpdate.setIdClient(codeCli);
-		
+
 		clientService.SaveOrUpdateClient(clientUpdate);
 		return SUCCESS;
-		
+
 	}
-	
-	@Action(value = "create", results = { @Result(name = "success", location = "bodyAccueil.jsp") })
-	public String createClient()
-	{
-		
+
+	@Action(value = "create", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	public String createClient() {
+
 		clientService.SaveOrUpdateClient(client);
 		return SUCCESS;
-		
+
 	}
-	
-	
+
 	public int getCodeCli() {
 		return codeCli;
 	}
@@ -96,15 +89,9 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		this.codeCli = codeCli;
 	}
 
-
-
-
 	public Client getClientUpdate() {
 		return clientUpdate;
 	}
-
-
-
 
 	public void setClientUpdate(Client clientUpdate) {
 		this.clientUpdate = clientUpdate;

@@ -20,7 +20,7 @@
     <div class="login">
 <!--       <div class="login__check"></div> -->
      <div style="height : 200px ; font-size: 65px ;border-style: solid; border-width: 50px; border-color: transparent;"> <center>Luna</center></div>
-      <s:form action="bodyAccueil.jsp">
+      <s:form action="accueil">
         <div class="login__row">
 
  

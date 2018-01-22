@@ -11,14 +11,14 @@
 
 	<div>
 
-		<s:submit value="Accueil" type="image" src="images/accueil/home64.ico"
-			theme="simple" style="padding-right:5rem"></s:submit>
+		<s:submit value="Accueil" type="image" src="images/accueil/home64.ico" action="accueil"
+			theme="simple" style="margin-right:5rem"></s:submit>
 		<s:submit value="Client" type="image"
 			src="images/accueil/customer.ico" theme="simple"
-			style="padding-right:3rem"></s:submit>
+			style="margin-right:3rem"></s:submit>
 		<s:submit value="Articles" type="image"
 			src="images/accueil/commandes.ico" theme="simple"
-			style="padding-right:3rem"></s:submit>
+			style="margin-right:3rem"></s:submit>
 		<s:submit value="Commandes" type="image" src="images/accueil/cart.ico"
 			theme="simple"></s:submit>
 	</div>
