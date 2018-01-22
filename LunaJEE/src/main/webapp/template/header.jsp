@@ -15,15 +15,15 @@
 <img src="images/accueil/home64.ico"> Accueil
 </s:a>
 
-<s:a action="affTab" theme="simple" style="margin-right:3rem">
+<s:a action="affTabCli" theme="simple" style="margin-right:3rem">
 <img src="images/accueil/customer.ico"> Clients
 </s:a>
 
-<s:a action="" theme="simple" style="margin-right:3rem">
+<s:a action="affTabArt" theme="simple" style="margin-right:3rem">
 <img src="images/accueil/commandes.ico"> Articles
 </s:a>
 
-<s:a action="" theme="simple" style="margin-right:3rem">
+<s:a action="affTabCom" theme="simple" style="margin-right:3rem">
 <img src="images/accueil/cart.ico"> Commandes
 </s:a>
 	</div>

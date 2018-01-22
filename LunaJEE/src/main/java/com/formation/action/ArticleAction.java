@@ -42,7 +42,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return models;
 	}
 
-	@Action(value = "affTabArt", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles") })
 	public String AffichTable() {
 
 		setModels();
@@ -56,7 +56,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
-	@Action(value = "updateArt1", results = { @Result(name = "success", location = "clientModif", type = "tiles") })
+	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles") })
 	public String redirectionUpdate() {
 		return SUCCESS;
 	}

@@ -42,7 +42,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return models;
 	}
 
-	@Action(value = "affTabCom", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	@Action(value = "affTabCom", results = { @Result(name = "success", location = "commandeAccueil", type = "tiles") })
 	public String AffichTable() {
 
 		setModels();
@@ -56,7 +56,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
-	@Action(value = "updateCom1", results = { @Result(name = "success", location = "clientModif", type = "tiles") })
+	@Action(value = "updateCom1", results = { @Result(name = "success", location = "commandeModif", type = "tiles") })
 	public String redirectionUpdate() {
 		return SUCCESS;
 	}
