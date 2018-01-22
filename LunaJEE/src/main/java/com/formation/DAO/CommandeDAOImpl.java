@@ -50,7 +50,8 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 		@SuppressWarnings("unchecked")
 		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM Commande c, Artcom a WHERE c.idCommande=a.idCommande AND a.idArticle=" + id)
+				.createQuery("FROM Commande c, Artcom a WHERE c.idCommande=a.idCommande AND a.idArticle= ?" )
+				.setParameter(0, id)
 				.getResultList();
 
 		return resultats;
