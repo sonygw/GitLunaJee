@@ -17,12 +17,7 @@ public interface CommandeService {
 	 * @return
 	 */
 	public ArrayList<Commande> SelectCommandesClient(int idclient);
-	/**
-	 * Selectionne les commandes d'un articles
-	 * @param id id de l'article
-	 * @return
-	 */
-	public ArrayList<Commande> SelectCommandesArticles(int id);
+	
 	/**
 	 * selectionne une commande gr�ce � son ID
 	 * @param id id de la commande

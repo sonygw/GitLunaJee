@@ -46,20 +46,6 @@ public class CommandeDAOImpl implements CommandeDAO {
 	}
 
 	@Override
-	public ArrayList<Commande> SelectCommandesArticles(int id) {
-
-		@SuppressWarnings("unchecked")
-		ArrayList<Commande> resultats = (ArrayList<Commande>) sessionFactory.getCurrentSession()
-				.createQuery("FROM Commande c, Artcom a WHERE c.idCommande=a.idCommande AND a.idArticle= ?" )
-				.setParameter(0, id)
-				.getResultList();
-
-		return resultats;
-	}
-
-	
-
-	@Override
 	public Commande SaveOrUpdateCommande(Commande commande) {
 		sessionFactory.getCurrentSession().saveOrUpdate(commande);
 		return commande;
