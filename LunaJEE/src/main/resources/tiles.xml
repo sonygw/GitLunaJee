@@ -39,7 +39,7 @@
 	<!-- Définitions des fenêtres -->
 
 	<definition name="accueil" extends="baseLayoutAccueil">
-		<put-attribute name="title" value="Test"></put-attribute>
+		<put-attribute name="title" value="Accueil"></put-attribute>
 		<put-attribute name="body" value="/bodyAccueil.jsp"></put-attribute>
 	</definition>
 

@@ -11,16 +11,21 @@
 
 	<div>
 
-		<s:submit value="Accueil" type="image" src="images/accueil/home64.ico" action="accueil"
-			theme="simple" style="margin-right:5rem"></s:submit>
-		<s:submit value="Client" type="image"
-			src="images/accueil/customer.ico" theme="simple"
-			style="margin-right:3rem"></s:submit>
-		<s:submit value="Articles" type="image"
-			src="images/accueil/commandes.ico" theme="simple"
-			style="margin-right:3rem"></s:submit>
-		<s:submit value="Commandes" type="image" src="images/accueil/cart.ico"
-			theme="simple"></s:submit>
+<s:a action="accueil" theme="simple" style="margin-right:5rem">
+<img src="images/accueil/home64.ico"> Accueil
+</s:a>
+
+<s:a action="affTab" theme="simple" style="margin-right:3rem">
+<img src="images/accueil/customer.ico"> Clients
+</s:a>
+
+<s:a action="" theme="simple" style="margin-right:3rem">
+<img src="images/accueil/commandes.ico"> Articles
+</s:a>
+
+<s:a action="" theme="simple" style="margin-right:3rem">
+<img src="images/accueil/cart.ico"> Commandes
+</s:a>
 	</div>
 
 

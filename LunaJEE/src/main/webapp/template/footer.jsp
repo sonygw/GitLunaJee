@@ -10,7 +10,7 @@
 
 	<div align="center">
 		Louis Zybura et Daniel Arenas <img src="images/logo32.ico"
-			align="right" align="top">
+			align="right">
 
 	</div>
 </body>

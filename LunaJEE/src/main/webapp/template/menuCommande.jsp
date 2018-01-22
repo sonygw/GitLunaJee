@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href=bodyCommandeCreer.jsp> <img src="images/add.ico"> <label>Créer</label>
+	<a href=commandeCreer> <img src="images/add.ico"> <label>Créer</label>
 	</a>
 
 	<div style="height: 6rem"></div>

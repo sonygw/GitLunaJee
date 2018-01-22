@@ -10,7 +10,7 @@
 <body>
 
 
-	<a href=bodyClientCreer.jsp> <img src="images/add.ico"> <label>Créer</label>
+	<a href=clientCreer> <img src="images/add.ico"> <label>Créer</label>
 	</a>
 
 	<div style="height: 6rem"></div>

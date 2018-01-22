@@ -29,6 +29,7 @@ html, body {
 .monbody{
 	font-size : 1.6rem;
 	background-color : blue;
+	vertical-align:middle
 }
 
 .monmenu{
