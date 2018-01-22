@@ -51,7 +51,7 @@
 							<img alt="DEL" src="images/delete.png" width="30px">
 							<s:param name="codeArt"><s:property value="idArticle" /></s:param>
 						</s:a></td>
-					<td><s:a action="updateArt">
+					<td><s:a action="updateArt1">
 							<img alt="UPD" src="images/update.png" width="30px">
 							<s:param name="codeArt"><s:property value="idArticle" /></s:param>
 						</s:a></td>

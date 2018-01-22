@@ -9,9 +9,9 @@
 <body>
 
 	<div align="center">
-		Louis Zybura et Daniel Arenas <img src="images/logo32.ico"
+		Louis Zybura et Daniel Arenas <a href="http://actif-solution.com"> <img src="images/logo32.ico"
 			align="right">
-
+</a>
 	</div>
 </body>
 </html>

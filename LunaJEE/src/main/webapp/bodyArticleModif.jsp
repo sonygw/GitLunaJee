@@ -24,6 +24,10 @@
 					required="true" labelposition="left" />
 					
 			</div>		
+			
+			<s:textfield type="hidden" name="codeArt">
+				<s:param name="codeArt">${codeArt}</s:param>
+			</s:textfield>
 			<s:submit value="Enregistrer" label="Enregistrer" />
 		</s:form>
 	</fieldset>
