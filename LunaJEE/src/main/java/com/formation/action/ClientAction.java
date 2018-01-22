@@ -20,13 +20,12 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Autowired
 	private ClientService clientService;
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private Client client = new Client();
-
+	private Client clientUpdate;
+	private int codeCli;
 	private List<Client> models = null;
 
 	@Override
@@ -34,6 +33,9 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		// TODO Auto-generated method stub
 		return client;
 	}
+	
+
+
 
 	public void setModels() {
 		models = clientService.SelectAllClients();
@@ -45,9 +47,58 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	
 	@Action(value = "affTab", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
 	public String AffichTable() {
-		//userService.add(user);
+		
 		setModels();
-		System.out.println(models);
 		return SUCCESS;
+	}
+
+	@Action(value = "deleteCli", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
+	public String DeleteClient()
+	{
+		clientService.DeleteClient(clientService.SelectClient(codeCli));
+		return SUCCESS;
+		
+	}
+	
+	@Action(value = "updateCli1", results = { @Result(name = "success", location = "/bodyClientModif.jsp") })
+	public String redirectionUpdate()
+	{
+		return SUCCESS;		
+	}
+	
+	
+	@Action(value = "updateCli2", results = { @Result(name = "success", location = "/bodyClientAccueil.jsp") })
+	public String UpdateClient()
+	{
+		System.out.println(clientUpdate);
+		System.out.println(codeCli);
+		clientUpdate.setIdClient(codeCli);
+		
+		System.out.println(clientUpdate);
+		clientService.SaveOrUpdateClient(clientUpdate);
+		return SUCCESS;
+		
+	}
+	
+	public int getCodeCli() {
+		return codeCli;
+	}
+
+	public void setCodeCli(int codeCli) {
+		this.codeCli = codeCli;
+	}
+
+
+
+
+	public Client getClientUpdate() {
+		return clientUpdate;
+	}
+
+
+
+
+	public void setClientUpdate(Client clientUpdate) {
+		this.clientUpdate = clientUpdate;
 	}
 }

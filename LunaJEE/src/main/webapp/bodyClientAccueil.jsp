@@ -47,13 +47,13 @@
 					<td width="10%"><s:property value="idClient" /></td>
 					<td width="20%"><s:property value="nom" /></td>
 					<td width="20%"><s:property value="prenom" /></td>
-					<td><s:a action="deleteClient">
-							<img alt="DEL" src="" width="30px">
-							<s:param name="codeCli">1</s:param>
+					<td><s:a action="deleteCli">
+							<img alt="DEL" src="images/delete.png" width="30px">
+							<s:param name="codeCli"><s:property value="idClient" /></s:param>
 						</s:a></td>
-					<td><s:a action="updateClientPage">
-							<img alt="UPD" src="" width="30px">
-							<s:param name="codeCli">1</s:param>
+					<td><s:a action="updateCli1">
+							<img alt="UPD" src="images/update.png" width="30px">
+							<s:param name="codeCli"><s:property value="idClient" /></s:param>
 						</s:a></td>
 				</tr>
 			</s:iterator>
