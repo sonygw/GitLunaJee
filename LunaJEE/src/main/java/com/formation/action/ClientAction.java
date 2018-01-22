@@ -51,7 +51,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		return SUCCESS;
 	}
 
-	@Action(value = "deleteCli", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	@Action(value = "deleteCli", results = { @Result(name = "success", location = "affTab", type = "redirect") })
 	public String DeleteClient() {
 		clientService.DeleteClient(clientService.SelectClient(codeCli));
 		return SUCCESS;
@@ -63,7 +63,8 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		return SUCCESS;
 	}
 
-	@Action(value = "updateCli2", results = { @Result(name = "success", location = "/affTab") })
+
+	@Action(value = "updateCli2", results = { @Result(name = "success", location = "affTab", type = "redirect") })
 	public String UpdateClient() {
 
 		clientUpdate.setIdClient(codeCli);
@@ -73,10 +74,11 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 
 	}
 
-	@Action(value = "create", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	@Action(value = "createCli", results = { @Result(name = "success", location = "affTab", type = "redirect") })
 	public String createClient() {
 
 		clientService.SaveOrUpdateClient(client);
+		
 		return SUCCESS;
 
 	}
