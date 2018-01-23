@@ -51,7 +51,7 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier> {
 
 	@Action(value = "affTabPan", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
 	public String AffichTablePanier() {
-load();
+
 		setModels();
 		return SUCCESS;
 	}
@@ -66,7 +66,7 @@ load();
 	
 	@Action(value = "deletePanFromCli", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
 	public String DeletePanierFromClient() {
-		panierService.DeletePanierFromClient(panierService.SelectPanierFromClient(client));
+		//panierService.DeletePanierFromClient(panierService.SelectPanierFromClient(client));
 		return SUCCESS;
 
 	}

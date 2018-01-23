@@ -6,7 +6,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.formation.context.ConteneurSpring;
 import com.formation.model.User;
-import com.formation.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -21,7 +20,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	private static final long serialVersionUID = 1L;
 	
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
-	UserService userService = context.getBean(UserService.class);
+	//UserService userService = context.getBean(UserService.class);
 	User user1 = context.getBean(User.class);
 
 	@Override
