@@ -30,9 +30,9 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public int SelectCountArticleFromPanier() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long SelectCountArticleFromPanier() {
+		return panierDao.SelectCountArticleFromPanier();
+		
 	}
 
 	@Override

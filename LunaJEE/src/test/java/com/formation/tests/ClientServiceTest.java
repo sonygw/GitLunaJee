@@ -52,7 +52,8 @@ public class ClientServiceTest {
 	@Test
 	@Transactional
 	public void testSelectClientById() {
-		assertEquals(2, clientService.SelectClient(2).getIdClient());
+		Client client = clientService.SelectLastClient();
+		assertEquals(client.getIdClient(), clientService.SelectClient((int)client.getIdClient()).getIdClient());
 	}
 	
 	@Test

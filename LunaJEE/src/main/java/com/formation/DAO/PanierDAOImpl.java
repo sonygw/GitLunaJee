@@ -26,16 +26,16 @@ public class PanierDAOImpl implements PanierDAO {
 	@Override
 	public  ArrayList<Panier> SelectPanierFromClient(Client client) {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("select from Panier where client=:cli");
+		Query query = sessionFactory.getCurrentSession().createQuery("from Panier where client = :cli");
 		query.setParameter("cli", client);
 		return (ArrayList<Panier>) query.getResultList();
 	}
 
 	@Override
-	public int SelectCountArticleFromPanier() {
+	public long SelectCountArticleFromPanier() {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("count(Article) from Panier");
-		return (int) query.uniqueResult();
+		Query query = sessionFactory.getCurrentSession().createQuery("select count(article) from Panier");
+		return (long) query.uniqueResult();
 	}
 
 	@Override
@@ -46,9 +46,11 @@ public class PanierDAOImpl implements PanierDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
+
 	public ArrayList<Panier> DeletePanierFromClient(Client client) {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("delete from Panier where client= "+ client);
+		Query query = sessionFactory.getCurrentSession().createQuery("delete Panier where client = :cli");
+		query.setParameter("cli", client);
 		return (ArrayList<Panier>) query.getResultList();
 		
 	}

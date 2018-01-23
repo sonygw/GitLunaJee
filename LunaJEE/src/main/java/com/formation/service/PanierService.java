@@ -9,7 +9,7 @@ public interface PanierService {
 	
 	public boolean SaveOrUpdatePanier(Panier obj);
 	public ArrayList<Panier> SelectPanierFromClient(Client client);
-	public int SelectCountArticleFromPanier();
+	public long SelectCountArticleFromPanier();
 	public boolean DeletePanier(Panier obj);
 	public ArrayList<Panier> DeletePanierFromClient(Client client);
 
