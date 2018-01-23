@@ -1,9 +1,9 @@
 package com.formation.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
 import org.springframework.stereotype.Service;
 
 @Entity
@@ -22,10 +22,11 @@ public class Client {
 	private String remarques;
 	private String date;
 	private String code;
+
+	@Column(unique = true)
 	private String login;
 	private String motDePasse;
 	private boolean admin;
-
 
 	public String getLogin() {
 		return login;
@@ -51,7 +52,6 @@ public class Client {
 		this.admin = admin;
 	}
 
-	
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}

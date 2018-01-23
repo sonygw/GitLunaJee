@@ -20,15 +20,14 @@
     <div class="login">
 <!--       <div class="login__check"></div> -->
      <div style="height : 200px ; font-size: 65px ;border-style: solid; border-width: 50px; border-color: transparent;"> <center>Luna</center></div>
-      <s:form action="accueil">
+      <s:form action="connecter">
         <div class="login__row">
 
  
-          <input type="text" class="login__input name" placeholder="Username"/>
-        </div>
-        <div class="login__row">
-   
-          <input type="password" class="login__input pass" placeholder="Password"/>
+ <s:textfield name="username" id="username" label="Identifiant"
+				labelposition="top" class="login__input name"></s:textfield>
+			<s:password name="password" id="password" label="Mot de passe"
+				labelposition="top" class="login__input pass"></s:password>
         </div>
         <div style="align-content: right 100%;">
         <s:submit type="button" class="login__submit"  >Connexion</s:submit>
