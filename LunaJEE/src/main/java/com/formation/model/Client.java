@@ -6,7 +6,6 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Service;
 
-
 @Entity
 @Service
 public class Client {
@@ -23,6 +22,34 @@ public class Client {
 	private String remarques;
 	private String date;
 	private String code;
+	private String login;
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	private String motDePasse;
+	private boolean admin;
 
 	public Client() {
 		// TODO Auto-generated constructor stub
@@ -36,10 +63,12 @@ public class Client {
 		this.prenom = prenom;
 	}
 
-	public Client(int idClient, String nom, String prenom, String email, String adresse, boolean carteFidelite,
-			String numeroTelephone, String remarques, String date, String code) {
+
+
+	public Client(String nom, String prenom, String email, String adresse, boolean carteFidelite,
+			String numeroTelephone, String remarques, String date, String code, String login, String motDePasse,
+			boolean admin) {
 		super();
-		this.idClient = idClient;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -49,6 +78,9 @@ public class Client {
 		this.remarques = remarques;
 		this.date = date;
 		this.code = code;
+		this.login = login;
+		this.motDePasse = motDePasse;
+		this.admin = admin;
 	}
 
 	public String getCode() {
@@ -124,12 +156,13 @@ public class Client {
 	}
 
 	public String fidel() {
-		String reponse ;
-		if (carteFidelite) 
+		String reponse;
+		if (carteFidelite)
 			reponse = "Oui";
-		else reponse = "Non"; 
-	return reponse;
-			
+		else
+			reponse = "Non";
+		return reponse;
+
 	}
 
 }

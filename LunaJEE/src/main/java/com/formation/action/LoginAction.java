@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
-@Action(value="insert" )
-@Result(location="/jsp/success.jsp", name="success")
+@Action(value="login" )
+@Result(location="accueil", type="redirect", name="success")
 public class LoginAction extends ActionSupport implements ModelDriven<User> {
 
 	/**
