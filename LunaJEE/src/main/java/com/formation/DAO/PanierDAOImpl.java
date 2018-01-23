@@ -32,9 +32,10 @@ public class PanierDAOImpl implements PanierDAO {
 	}
 
 	@Override
-	public long SelectCountArticleFromPanier() {
+	public long SelectCountArticleFromPanier(Client obj) {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("select count(article) from Panier");
+		Query query = sessionFactory.getCurrentSession().createQuery("select count(article) from Panier where client = ?")
+		.setParameter(0, obj);
 		return (long) query.uniqueResult();
 	}
 

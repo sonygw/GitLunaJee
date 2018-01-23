@@ -12,7 +12,7 @@ public interface ClientService {
 	 * @return un client suivant son id
 	 */
 	public Client SelectClient(int id);
-
+	public Client SelectClientByLogNPwd(String log, String mdp);
 	/**
 	 * S�lection de tous les clients de la base de donn�es sous forme d'ArrayList.
 	 * @return Arraylist de tous les clients.

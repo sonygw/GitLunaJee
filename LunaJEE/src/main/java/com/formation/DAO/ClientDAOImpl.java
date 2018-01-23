@@ -80,4 +80,14 @@ public class ClientDAOImpl implements ClientDAO {
 
 	}
 
+	@Override
+	public Client SelectClientByLogNPwd(String log, String mdp) {
+		
+
+		@SuppressWarnings("unchecked")
+		TypedQuery<Client> result = sessionFactory.getCurrentSession().createQuery("from Client where login ='" + log + "' and motDePasse = '" + mdp + "'");
+		return (Client) result.getSingleResult();
+		
+	}
+
 }

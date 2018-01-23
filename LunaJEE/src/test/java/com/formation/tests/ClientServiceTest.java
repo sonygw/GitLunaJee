@@ -31,47 +31,53 @@ public class ClientServiceTest {
 	@Transactional
 	public void testSaveOrUpdateClient() {
 		clientService = context.getBean(ClientService.class);
-		
+
 		Client client = new Client();
+		client.setLogin("lou");
+		client.setMotDePasse("lou");
 		client.setNom("Daniel");
 		assertTrue(clientService.SaveOrUpdateClient(client));
 	}
-	
+
 	@Test
 	@Transactional
 	public void testSelectAllClient() {
 		assertNotNull(clientService.SelectAllClients());
 	}
-	
+
 	@Test
 	@Transactional
 	public void testSelectLastClient() {
 		assertNotNull(clientService.SelectLastClient());
 	}
-	
+
 	@Test
 	@Transactional
 	public void testSelectClientById() {
 		Client client = clientService.SelectLastClient();
-		assertEquals(client.getIdClient(), clientService.SelectClient((int)client.getIdClient()).getIdClient());
+		assertEquals(client.getIdClient(), clientService.SelectClient((int) client.getIdClient()).getIdClient());
 	}
-	
+
 	@Test
 	@Transactional
 	public void testSelectClientByName() {
 		assertNotNull(clientService.SelectAllClientsByName("Daniel"));
 	}
-	
-	
+
+	@Test
+	@Transactional
+	public void testSelectClientByLogNPwd() {
+
+		assertNotNull(clientService.SelectClientByLogNPwd("lou", "lou"));
+	}
+
 	@Test
 	@Transactional
 	public void testDeleteClient() {
 		clientService = context.getBean(ClientService.class);
-		
+
 		Client client = clientService.SelectLastClient();
 		assertFalse(clientService.DeleteClient(client));
 	}
-
-	
 
 }

@@ -36,6 +36,9 @@ public class PanierTest {
 		panierService = context.getBean(PanierService.class);
 		
 		Panier panier = new Panier();
+		Client cli = new Client();
+		cli.setIdClient(500);
+		panier.setClient(cli);
 		assertTrue(panierService.SaveOrUpdatePanier(panier));
 	}
 	
@@ -44,16 +47,18 @@ public class PanierTest {
 	@Transactional
 	public void testSelectPanierFromClient() {
 		
-		Client client = new Client();
-		client.setIdClient(500);
-		assertNotNull(panierService.SelectPanierFromClient(client));
+		Client cli = new Client();
+		cli.setIdClient(500);
+		assertNotNull(panierService.SelectPanierFromClient(cli));
 	}
 	
 	@Test
 	@Transactional
 	public void testCountArticleFromPanier() {
 		
-		assertNotNull(panierService.SelectCountArticleFromPanier());
+		Client cli = new Client();
+		cli.setIdClient(500);
+		assertNotNull(panierService.SelectCountArticleFromPanier(cli));
 	}
 	
 
@@ -70,7 +75,7 @@ public class PanierTest {
 	@Transactional
 	public void testDeletePanierFromClient() {
 		Client client = new Client();
-		client.setIdClient(400);
+		client.setIdClient(500);
 		
 		assertNull(panierService.DeletePanierFromClient(client));
 	}

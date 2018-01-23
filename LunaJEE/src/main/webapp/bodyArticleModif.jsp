@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,21 +10,29 @@
 <body>
 	<fieldset>
 		<legend>Modification d'un Article</legend>
+<%-- 		<s:property value="article.categorie" /> --%>
+
 		<s:form method="post" action="updateArt2">
 			<div>
-				<s:textfield label="Catégorie" name="articleUpdate.categorie"
-				required="true"	labelposition="left" />
-				<s:textfield label="Description" name="articleUpdate.description"
-					required="true" labelposition="left" />
+<s:textfield label="Catégorie" name="articleUpdate.categorie"
+					required="true" labelposition="left">ggggg
+					
+					
+				</s:textfield>
+				<s:textfield label="Description" name="articleUpdate.description" value="article.description" 
+					required="true" labelposition="left">
+					</s:textfield>
 
-				<s:textfield label="Prix HT" name="articleUpdate.prixHT" required="true"
-					labelposition="left" />
-					
-				<s:textfield label="Quantité" name="articleUpdate.quantite"
-					required="true" labelposition="left" />
-					
-			</div>		
-			
+				<s:textfield label="Prix HT" name="articleUpdate.prixHT" value="article.prixHT" 
+					required="true" labelposition="left">
+					</s:textfield>
+
+				<s:textfield label="Quantité" name="articleUpdate.quantite" value="article.quantite" 
+					required="true" labelposition="left">
+					</s:textfield>
+
+			</div>
+
 			<s:textfield type="hidden" name="codeArt">
 				<s:param name="codeArt">${codeArt}</s:param>
 			</s:textfield>

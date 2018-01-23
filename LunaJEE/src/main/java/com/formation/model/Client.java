@@ -23,6 +23,9 @@ public class Client {
 	private String date;
 	private String code;
 	private String login;
+	private String motDePasse;
+	private boolean admin;
+
 
 	public String getLogin() {
 		return login;
@@ -48,9 +51,7 @@ public class Client {
 		this.admin = admin;
 	}
 
-	private String motDePasse;
-	private boolean admin;
-
+	
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
@@ -62,8 +63,6 @@ public class Client {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
-
 
 	public Client(String nom, String prenom, String email, String adresse, boolean carteFidelite,
 			String numeroTelephone, String remarques, String date, String code, String login, String motDePasse,

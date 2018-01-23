@@ -30,8 +30,8 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public long SelectCountArticleFromPanier() {
-		return panierDao.SelectCountArticleFromPanier();
+	public long SelectCountArticleFromPanier(Client obj) {
+		return panierDao.SelectCountArticleFromPanier(obj);
 		
 	}
 

@@ -72,4 +72,10 @@ public class ClientServiceImpl implements ClientService {
 
 	}
 
+	@Override
+	public Client SelectClientByLogNPwd(String log, String mdp) {
+
+		return clientDao.SelectClientByLogNPwd(log, mdp);
+	}
+
 }
