@@ -5,14 +5,14 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.formation.context.ConteneurSpring;
-import com.formation.model.User;
+import com.formation.model.Client;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
 @Action(value="login" )
 @Result(location="accueil", type="redirect", name="success")
-public class LoginAction extends ActionSupport implements ModelDriven<User> {
+public class LoginAction extends ActionSupport implements ModelDriven<Client> {
 
 	/**
 	 * 
@@ -21,13 +21,13 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 	//UserService userService = context.getBean(UserService.class);
-	User user1 = context.getBean(User.class);
+	Client client = context.getBean(Client.class);
 
 	@Override
-	public User getModel() {
+	public Client getModel() {
 		// TODO Auto-generated method stub
 
-		return user1;
+		return client;
 	}
 
 	public String execute() {
