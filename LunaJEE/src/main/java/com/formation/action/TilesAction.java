@@ -67,5 +67,10 @@ public class TilesAction extends ActionSupport {
 		return "commandeModif";
 	}
 	
+	@Action(value="panier", results = @Result(name="panier", location="panier", type="tiles"))
+	public String panier() {
+		return "panier";
+	}
+	
 	
 }

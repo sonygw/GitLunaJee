@@ -35,6 +35,13 @@
 		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
 
+	<definition name="baseLayoutPanier" template="/template/baseLayoutPanier.jsp">
+		<put-attribute name="title" value="Template"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
+	</definition>
+
 
 	<!-- Définitions des fenêtres -->
 
@@ -52,42 +59,46 @@
 		<put-attribute name="title" value="Créer Article"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleCreer.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="articleModif" extends="baseLayoutArticle">
 		<put-attribute name="title" value="Modifier Article"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleModif.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="clientAccueil" extends="baseLayoutClient">
 		<put-attribute name="title" value="Accueil Client"></put-attribute>
 		<put-attribute name="body" value="/bodyClientAccueil.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="clientCreer" extends="baseLayoutClient">
 		<put-attribute name="title" value="Créer Client"></put-attribute>
 		<put-attribute name="body" value="/bodyClientCreer.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="clientModif" extends="baseLayoutClient">
 		<put-attribute name="title" value="Modifier Client"></put-attribute>
 		<put-attribute name="body" value="/bodyClientModif.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="commandeAccueil" extends="baseLayoutCommande">
 		<put-attribute name="title" value="Accueil Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeAccueil.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="commandeCreer" extends="baseLayoutCommande">
 		<put-attribute name="title" value="Créer Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeCreer.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="commandeModif" extends="baseLayoutCommande">
 		<put-attribute name="title" value="Modifier Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeModif.jsp"></put-attribute>
 	</definition>
-	
+
+	<definition name="panier" extends="baseLayoutPanier">
+		<put-attribute name="title" value="Panier"></put-attribute>
+		<put-attribute name="body" value="/bodyPanier.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>
 
