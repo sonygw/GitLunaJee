@@ -65,11 +65,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action(value = "updateArt2", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
 	public String UpdateClient() {
 
-		System.out.println(codeArt);
+		
 		
 		articleUpdate.setIdArticle(codeArt);
 
-		System.out.println(articleUpdate.getIdArticle());
 		articleService.SaveOrUpdateArticle(articleUpdate);
 		return SUCCESS;
 
@@ -78,6 +77,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action(value = "createArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
 	public String createClient() {
 
+		article.setCode("ART" + article.getIdArticle());
+		article.setVisible(true);
+		
 		articleService.SaveOrUpdateArticle(article);
 		
 		return SUCCESS;
