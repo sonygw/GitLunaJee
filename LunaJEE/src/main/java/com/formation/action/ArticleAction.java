@@ -1,12 +1,14 @@
 package com.formation.action;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.fileupload.UploadContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.model.Article;
@@ -17,12 +19,20 @@ import com.opensymphony.xwork2.ModelDriven;
 @SuppressWarnings("unused")
 @ParentPackage("com.formation")
 @Namespace(value = "/")
-public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
+public class ArticleAction extends ActionSupport implements ModelDriven<Article>, SessionAware {
 
 	@Autowired
 	private ArticleService articleService;
 
-	
+	//------------------------------------------------------------------ VARIABLES GLOBALES A L'APPLICATION -----
+		private Map<String, Object> sessionMap;
+		
+		@Override
+		public void setSession(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			this.sessionMap = map;
+		}
+		//------------------------------------------------------------------------------------------------------------
 
 	private static final long serialVersionUID = 1L;
 
@@ -69,9 +79,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles") })
 	public String redirectionUpdate() {
-		System.out.println(" CHECK 1 !!!!!!!!!!!!!!!!!!!" + article.getCategorie() + " // " + article.getDescription() + " // " + article.getPrixHT() + " // " + article.getQuantite());
 		article = articleService.SelectArticleById(codeArt);
-		System.out.println(" CHECK 2 !!!!!!!!!!!!!!!!!!!" + article.getCategorie() + " // " + article.getDescription() + " // " + article.getPrixHT() + " // " + article.getQuantite());
 		
 		return SUCCESS;
 	}
@@ -82,9 +90,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		
 		
-		articleUpdate.setIdArticle(codeArt);
+		article.setIdArticle(codeArt);
 
-		articleService.SaveOrUpdateArticle(articleUpdate);
+		articleService.SaveOrUpdateArticle(article);
 		return SUCCESS;
 
 	}

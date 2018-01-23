@@ -10,26 +10,30 @@
 <body>
 	<fieldset>
 		<legend>Modification d'un Article</legend>
-<%-- 		<s:property value="article.categorie" /> --%>
+		<%-- 		<s:property value="article.categorie" /> --%>
+
+		<%-- <s:property value="article.description" /> --%>
 
 		<s:form method="post" action="updateArt2">
 			<div>
-<s:textfield label="Catégorie" name="articleUpdate.categorie"
-					required="true" labelposition="left">ggggg
-					
-					
+				<s:textfield label="Catégorie" name="article.categorie"
+					required="true" labelposition="left" >
 				</s:textfield>
-				<s:textfield label="Description" name="articleUpdate.description" value="article.description" 
-					required="true" labelposition="left">
-					</s:textfield>
 
-				<s:textfield label="Prix HT" name="articleUpdate.prixHT" value="article.prixHT" 
-					required="true" labelposition="left">
-					</s:textfield>
+				<s:textfield label="Description" name="article.description"
+					 required="true"
+					labelposition="left">
+				</s:textfield>
 
-				<s:textfield label="Quantité" name="articleUpdate.quantite" value="article.quantite" 
+			
+
+				<s:textfield label="Prix HT" name="article.prixHT"
+					 required="true" labelposition="left">
+				</s:textfield>
+
+				<s:textfield label="Quantité" name="article.quantite"
 					required="true" labelposition="left">
-					</s:textfield>
+				</s:textfield>
 
 			</div>
 
