@@ -9,7 +9,7 @@
 </head>
 <body class="monheader">
 
-	<div>
+	<div style="overflow:auto">
 
 <s:a action="accueil" theme="simple" style="margin-right:5rem">
 <img src="images/accueil/home64.ico"> Accueil
@@ -23,8 +23,13 @@
 <img src="images/accueil/commandes.ico"> Articles
 </s:a>
 
+
 <s:a action="affTabCom" theme="simple" style="margin-right:3rem">
 <img src="images/accueil/cart.ico"> Commandes
+</s:a>
+
+<s:a action="" theme="simple" style="float:right">
+<img src="images/panier.ico"> 
 </s:a>
 	</div>
 
