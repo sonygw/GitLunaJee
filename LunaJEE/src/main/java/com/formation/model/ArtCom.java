@@ -19,7 +19,7 @@ public class ArtCom {
 	private long idArtCom;
 	private int quantite;
 	
-	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Article article;
 	
 	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)

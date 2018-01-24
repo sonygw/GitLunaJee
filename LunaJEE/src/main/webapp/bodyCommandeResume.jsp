@@ -8,16 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-<s:form>
 
-<s:label name="commande.ref"></s:label>
-<s:label name="commande.client.prenom"></s:label>
+	<s:form> Référence Commande : <s:property value="commande.ref" />
+	</s:form>
+	<s:form> Nom Client : <s:property value="commande.client.nom" />
+	</s:form>
+	<s:form> Prénom Client : <s:property
+			value="commande.client.prenom" />
+	</s:form>
+	<s:form> Prix : <s:property value="commande.prix" />&euro;</s:form>
 
 
-</s:form>
+	<table>
 
 
+		<tr>
+			<td width="20%">Article</td>
+			<td width="30%">Quantité achetée</td>
+		</tr>
 
+<s:iterator value="getArtCom()">
+		<tr style="border-width: 1px; border-style: solid">
+			<td><s:property value="article.nom" /></td>
+			<td><s:property value="quantite" /></td>
+
+		</tr>
+</s:iterator>
+	</table>
 
 
 
