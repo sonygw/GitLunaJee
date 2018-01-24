@@ -94,6 +94,11 @@
 		<put-attribute name="title" value="Modifier Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeModif.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="commandeResume" extends="baseLayoutCommande">
+		<put-attribute name="title" value="Résumé Commande"></put-attribute>
+		<put-attribute name="body" value="/bodyCommandeResume.jsp"></put-attribute>
+	</definition>
 
 	<definition name="panier" extends="baseLayoutPanier">
 		<put-attribute name="title" value="Panier"></put-attribute>

@@ -65,6 +65,11 @@ public class TilesAction extends ActionSupport {
 	public String commandeModif() {
 		return "commandeModif";
 	}
+ 	
+	@Action(value = "commandeResume", results = @Result(name = "commandeResume", location = "commandeResume", type = "tiles"))
+	public String commandeResume() {
+		return "commandeResume";
+	}
 
 	@Action(value = "panier", results = @Result(name = "panier", location = "panier", type = "tiles"))
 	public String panier() {

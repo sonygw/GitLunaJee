@@ -20,7 +20,7 @@ public class Commande {
 	private double prixHT;
 	private String adresse;
 	
-	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private Client client;
 	
 	
@@ -53,6 +53,14 @@ public class Commande {
 		this.adresse = adresse;
 		this.date = date;
 		this.reglement = reglement;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public String getRef() {

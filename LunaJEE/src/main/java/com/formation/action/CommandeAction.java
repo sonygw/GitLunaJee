@@ -46,6 +46,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String AffichTable() {
 
 		setModels();
+		
 		return SUCCESS;
 	}
 
