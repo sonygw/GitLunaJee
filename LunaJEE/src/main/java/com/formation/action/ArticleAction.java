@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.model.Article;
 import com.formation.service.ArticleService;
+import com.formation.util.UserUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -66,9 +67,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"), @Result(name = "rate", location = "/index.jsp") })
 	public String AffichTable() {
 
-		if (sessionMap.get("client").equals(null))
-			System.out.println("rate");
-		
+//		if (UserUtil.verifUser())
+//			return "rate";
+//		else
 		setModels();
 		return SUCCESS;
 	}

@@ -9,15 +9,27 @@
 </head>
 <body>
 
-<s:form style="background-color:cyan">
-	<s:label name="article.categorie" />
+	<s:form style="background-color:white" action="">
 
-	<s:label name="article.description" />
+		Code : 
+		<s:property value="article.code" />
+<br>
+<br>	
+		Description : 
+		<s:property value="article.description" />
+<br>
+<br>
+		Catégorie : 
+		<s:property value="article.categorie" />
+<br>
+		<br>
+		Prix : 
+		<s:property value="article.prixHT" />
+&euro;	
 
-	<s:label name="article.prixHT" />
-
-	<s:label name="article.quantite" />
-</s:form>
+<br>
+<s:submit class="submitAjout" value="Ajouter au panier !" Style="align:right"></s:submit>
+	</s:form>
 
 
 </body>

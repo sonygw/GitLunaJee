@@ -41,8 +41,11 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 	private static final long serialVersionUID = 1L;
 
 	private Panier panier = new Panier();
-	private Panier panierUpdate;
 	private int codePan;
+	
+	
+
+
 	private List<Panier> models = null;
 
 	@Override
@@ -52,26 +55,37 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 	}
 
 	public void setModels() {
-		// models = panierService.SelectPanierFromClient();
+		Client cli = (Client) sessionMap.get("client");
+		 models = panierService.SelectPanierFromClient(cli);
 	}
 
 	public List<Panier> getModels() {
 		return models;
 	}
 
-	@Action(value = "affTabPan", results = { @Result(name = "success", location = "clientAccueil", type = "tiles") })
+	@Action(value = "affTabPan", results = { @Result(name = "success", location = "panier", type = "tiles") })
 	public String AffichTablePanier() {
 
+		
 		setModels();
 		return SUCCESS;
 	}
 
-	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
+	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabPan", type = "redirect") })
 	public String DeletePanier() {
+		System.out.println(codePan);
 		panier.setIdPanier(codePan);
 		panierService.DeletePanier(panier);
 		return SUCCESS;
 
+	}
+
+	public int getCodePan() {
+		return codePan;
+	}
+
+	public void setCodePan(int codePan) {
+		this.codePan = codePan;
 	}
 
 	@Action(value = "deletePanFromCli", results = {
@@ -79,21 +93,6 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 	public String DeletePanierFromClient() {
 		Client cli = (Client) sessionMap.get("client");
 		panierService.DeletePanierFromClient(cli);
-		return SUCCESS;
-
-	}
-
-	@Action(value = "updatePan1", results = { @Result(name = "success", location = "clientModif", type = "tiles") })
-	public String redirectionUpdate() {
-		return SUCCESS;
-	}
-
-	@Action(value = "updatePan2", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
-	public String UpdatePanier() {
-
-		panierUpdate.setIdPanier(codePan);
-
-		panierService.SaveOrUpdatePanier(panierUpdate);
 		return SUCCESS;
 
 	}
