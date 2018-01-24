@@ -19,8 +19,6 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Autowired
 	private CommandeService commandeService;
 
-	
-
 	private static final long serialVersionUID = 1L;
 
 	private Commande commande = new Commande();
@@ -46,7 +44,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String AffichTable() {
 
 		setModels();
-		
+
 		return SUCCESS;
 	}
 
@@ -62,7 +60,6 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return SUCCESS;
 	}
 
-
 	@Action(value = "updateCom2", results = { @Result(name = "success", location = "affTabCom", type = "redirect") })
 	public String UpdateClient() {
 
@@ -77,16 +74,27 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String createClient() {
 
 		commandeService.SaveOrUpdateCommande(commande);
-		
+
 		return SUCCESS;
 
 	}
-	
-	@Action(value="voirCom", results = @Result(name="success", location="commandeResume", type="tiles"))
+
+	@Action(value = "voirCom", results = @Result(name = "success", location = "commandeResume", type = "tiles"))
 	public String voirCom() {
+
 		
 		commande = commandeService.SelectCommande(codeCom);
+	
 		return SUCCESS;
+	}
+	
+
+	public Commande getCommande() {
+		return commande;
+	}
+
+	public void setCommande(Commande commande) {
+		this.commande = commande;
 	}
 
 	public int getCodeCom() {

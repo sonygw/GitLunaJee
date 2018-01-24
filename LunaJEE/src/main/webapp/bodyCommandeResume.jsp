@@ -8,6 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<s:form>
+
+<s:label name="commande.ref"></s:label>
+<s:label name="commande.client.prenom"></s:label>
+
+
+</s:form>
+
+
+
+
 
 
 

@@ -111,4 +111,12 @@ public class Commande {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return "Commande [idCommande=" + idCommande + ", ref=" + ref + ", prixHT=" + prixHT + ", adresse=" + adresse
+				+ ", client=" + client + ", reglement=" + reglement + ", date=" + date + "]";
+	}
+	
+	
+
 }

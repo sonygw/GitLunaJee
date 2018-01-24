@@ -39,7 +39,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			@Result(name="success", type = "redirect", location = "accueil") })
 	public String connecter() {
 
-		if (username != null && password != null) {
+		if (!username.isEmpty() && !password.isEmpty()) {
 			Client client = clientService.SelectClientByLogNPwd(username, password);
 			if (client != null) {
 				this.sessionMap.put("authentification", true);
