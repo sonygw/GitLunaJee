@@ -28,7 +28,7 @@
 <img src="images/accueil/cart.ico"> Commandes
 </s:a>
 
-<s:a action="panier" theme="simple" style="float:right">
+<s:a action="affTabPan" theme="simple" style="float:right">
 <img src="images/panier.ico"> 
 </s:a>
 	</div>
