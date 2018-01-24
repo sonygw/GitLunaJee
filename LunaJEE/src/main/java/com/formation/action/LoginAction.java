@@ -50,7 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return INPUT;
 	}
 
-	@Action(value = "deconnecter", results = @Result(name = "success", location = "index/jsp"))
+	@Action(value = "deconnecter", results = @Result(name = "success", location = "affTabCli" , type="redirect"))
 	public String deconnecter() {
 		this.sessionMap.clear();
 		return SUCCESS;

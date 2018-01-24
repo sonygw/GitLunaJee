@@ -40,7 +40,6 @@
 				<td width="30%">Qte</td>
 				<td width="30%">Prix</td>
 				<td>Supprimer</td>
-				<td>Modifier</td>
 			</tr>
 
 			<s:iterator value="getModels()" status="modelsStatus">
@@ -49,16 +48,13 @@
 					<td width="20%"><s:property value="article.idArticle" /></td>
 					<td width="30%"><s:property value="article.categorie" /></td>
 					<td width="30%"><s:property value="article.description" /></td>
-					<td width="30%"><s:property value="quatite" /></td>
+					<td width="30%"><s:property value="quantite" /></td>
 					<td width="30%"><s:property value="prixHT" /></td>
 					<td><s:a action="deletePan">
 							<img alt="DEL" src="images/delete.png" width="30px">
 							<s:param name="codePan"><s:property value="idPanier" /></s:param>
 						</s:a></td>
-					<td><s:a action="updatePan1">
-							<img alt="UPD" src="images/update.png" width="30px">
-							<s:param name="codePan"><s:property value="idPanier" /></s:param>
-						</s:a></td>
+					
 				</tr>
 			</s:iterator>
 		</table>

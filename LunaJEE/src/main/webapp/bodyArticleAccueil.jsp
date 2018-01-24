@@ -29,6 +29,10 @@
 </head>
 <body>
 
+<s:form action="deconnecter">
+<s:submit >vider</s:submit>
+</s:form>
+
 	<h1>Liste des Articles :</h1>
 
 	<s:if test="getModels()!=null">
@@ -37,6 +41,7 @@
 				<td width="20%">Id</td>
 				<td width="30%">Cat</td>
 				<td width="30%">Description</td>
+				<td>Voir Article</td>
 				<td>Supprimer</td>
 				<td>Modifier</td>
 			</tr>
@@ -47,6 +52,12 @@
 					<td width="20%"><s:property value="idArticle" /></td>
 					<td width="30%"><s:property value="categorie" /></td>
 					<td width="30%"><s:property value="description" /></td>
+					<td><s:a action="voirArt">
+							<img alt="VIEW" src="images/loupe.ico" width="30px">
+							<s:param name="codeArt">
+								<s:property value="idArticle" />
+							</s:param>
+						</s:a></td>
 					<td><s:a action="deleteArt">
 							<img alt="DEL" src="images/delete.png" width="30px">
 							<s:param name="codeArt"><s:property value="idArticle" /></s:param>

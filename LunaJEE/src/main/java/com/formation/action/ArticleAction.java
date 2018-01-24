@@ -63,9 +63,12 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return models;
 	}
 
-	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles") })
+	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"), @Result(name = "rate", location = "/index.jsp") })
 	public String AffichTable() {
 
+		if (sessionMap.get("client").equals(null))
+			System.out.println("rate");
+		
 		setModels();
 		return SUCCESS;
 	}
@@ -107,6 +110,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		
 		return SUCCESS;
 
+	}
+
+	
+	@Action(value = "voirArt", results = { @Result(name = "success", location = "articleResume", type = "tiles") })
+	public String AffichArticle() {
+
+		article = articleService.SelectArticleById(codeArt);
+		return SUCCESS;
 	}
 
 	public int getCodeArt() {
