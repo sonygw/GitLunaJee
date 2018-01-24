@@ -36,6 +36,11 @@ public class TilesAction extends ActionSupport {
 	public String articleModif() {
 		return "articleModif";
 	}
+	
+	@Action(value = "articleResume", results = @Result(name = "articleResume", location = "articleResume", type = "tiles"))
+	public String articleResume() {
+		return "articleResume";
+	}
 
 	@Action(value = "clientAccueil", results = @Result(name = "clientAccueil", location = "clientAccueil", type = "tiles"))
 	public String clientAccueil() {

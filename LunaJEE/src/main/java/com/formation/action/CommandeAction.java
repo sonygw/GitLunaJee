@@ -81,6 +81,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return SUCCESS;
 
 	}
+	
+	@Action(value="voirCom", results = @Result(name="success", location="commandeResume", type="tiles"))
+	public String voirCom() {
+		
+		commande = commandeService.SelectCommande(codeCom);
+		return SUCCESS;
+	}
 
 	public int getCodeCom() {
 		return codeCom;

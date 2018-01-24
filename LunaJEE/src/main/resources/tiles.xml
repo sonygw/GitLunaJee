@@ -64,6 +64,11 @@
 		<put-attribute name="title" value="Modifier Article"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleModif.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="articleResume" extends="baseLayoutArticle">
+		<put-attribute name="title" value="Résumé Article"></put-attribute>
+		<put-attribute name="body" value="/bodyArticleResume.jsp"></put-attribute>
+	</definition>
 
 	<definition name="clientAccueil" extends="baseLayoutClient">
 		<put-attribute name="title" value="Accueil Client"></put-attribute>
