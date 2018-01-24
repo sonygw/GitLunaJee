@@ -1,6 +1,5 @@
 package com.formation.action;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,20 +23,21 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	@Autowired
 	private CommandeService commandeService;
-	
+
 	@Autowired
 	private ArtComService artComService;
-	
-	//------------------------------------------------------------------ VARIABLES GLOBALES A L'APPLICATION -----
+
+	// ------------------------------------------------------------------ VARIABLES
+	// GLOBALES A L'APPLICATION -----
 	@SuppressWarnings("unused")
 	private Map<String, Object> sessionMap;
-	
+
 	@Override
 	public void setSession(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		this.sessionMap = map;
 	}
-	//------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------
 
 	private static final long serialVersionUID = 1L;
 
@@ -103,14 +103,11 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Action(value = "voirCom", results = @Result(name = "success", location = "commandeResume", type = "tiles"))
 	public String voirCom() {
 
-		
 		commande = commandeService.SelectCommande(codeCom);
-	artCom = artComService.SelectAllArtComFromCommande(codeCom);
+		artCom = artComService.SelectAllArtComFromCommande(codeCom);
 
-	
 		return SUCCESS;
 	}
-	
 
 	public Commande getCommande() {
 		return commande;
@@ -140,9 +137,8 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return artCom;
 	}
 
-	public void setArtCom(ArrayList<ArtCom> artCom) {
+	public void setArtCom(List<ArtCom> artCom) {
 		this.artCom = artCom;
 	}
-	
-	
+
 }

@@ -23,13 +23,15 @@
 
 
 		<tr>
-			<td width="20%">Article</td>
+			<td width="20%">Référence</td>
+			<td width="30%">Description</td>
 			<td width="30%">Quantité achetée</td>
 		</tr>
 
-<s:iterator value="getArtCom()">
+<s:iterator value="getArtCom()" status = "modelsStatus">
 		<tr style="border-width: 1px; border-style: solid">
-			<td><s:property value="article.nom" /></td>
+			<td><s:property value="article.code" /></td>
+			<td><s:property value="article.description" /></td>
 			<td><s:property value="quantite" /></td>
 
 		</tr>

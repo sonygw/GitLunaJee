@@ -43,9 +43,8 @@
 				<td width="30%">Prenom</td>
 				<td width="30%">Code Commande</td>
 				<td width="30%">Prix Commande</td>
-				<td> Voir Commande</td>
+				<td>Voir Commande</td>
 				<td>Supprimer</td>
-				<td>Modifier</td>
 			</tr>
 
 			<s:iterator value="getModels()" status="modelsStatus">
@@ -55,7 +54,7 @@
 					<td width="20%"><s:property value="client.nom" /></td>
 					<td width="20%"><s:property value="client.prenom" /></td>
 					<td width="20%"><s:property value="ref" /></td>
-					<td width="20%"><s:property value="prixHT" /> &euro; </td>
+					<td width="20%"><s:property value="prixHT" /> &euro;</td>
 					<td><s:a action="voirCom">
 							<img alt="VIEW" src="images/loupe.ico" width="30px">
 							<s:param name="codeCom">
@@ -64,12 +63,6 @@
 						</s:a></td>
 					<td><s:a action="deleteCom">
 							<img alt="DEL" src="images/delete.png" width="30px">
-							<s:param name="codeCom">
-								<s:property value="idCommande" />
-							</s:param>
-						</s:a></td>
-					<td><s:a action="updateCom1">
-							<img alt="UPD" src="images/update.png" width="30px">
 							<s:param name="codeCom">
 								<s:property value="idCommande" />
 							</s:param>

@@ -22,7 +22,7 @@ public class ArtCom {
 	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Article article;
 	
-	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Commande commande;
 	
 	public ArtCom() {

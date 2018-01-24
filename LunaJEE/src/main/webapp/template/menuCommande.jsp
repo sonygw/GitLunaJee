@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href=commandeCreer> <img src="images/add.ico"> <label>Créer</label>
-	</a>
 
 	<div style="height: 6rem"></div>
 	<a href=pasEncore.jsp> <img src="images/export.ico"> <label>Export</label>
