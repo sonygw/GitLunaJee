@@ -3,12 +3,19 @@ package com.formation.action;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.fileupload.UploadContext;
+import org.apache.struts2.components.Form;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.dispatcher.mapper.ActionMapping;
 import org.apache.struts2.interceptor.SessionAware;
+import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
+import org.hibernate.engine.spi.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -191,6 +198,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 
 	}
+	
 
 	public int getCodeArt() {
 		return codeArt;
