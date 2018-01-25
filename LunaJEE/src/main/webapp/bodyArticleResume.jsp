@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<s:form style="background-color:white" action="">
+	<s:form style="background-color:white" action="submitAjout">
 
 		Code : 
 		<s:property value="article.code" />
@@ -28,7 +28,13 @@
 &euro;	
 
 <br>
-<s:submit class="submitAjout" value="Ajouter au panier !" Style="align:right"></s:submit>
+<%-- <s:property value="codeArt" /> --%>
+<br>
+
+<s:textfield label="Quantité" name="qte"
+					required="true" labelposition="left">
+				</s:textfield>
+<s:submit class="submitAjout" value="Ajouter au panier !" Style="align:right"><s:param name="codeArt"><s:property value="idArticle" /></s:param></s:submit>
 	</s:form>
 
 

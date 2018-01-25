@@ -29,9 +29,9 @@
 </head>
 <body>
 
-<s:form action="deconnecter">
-<s:submit >vider</s:submit>
-</s:form>
+	<s:form action="deconnecter">
+		<s:submit>vider</s:submit>
+	</s:form>
 
 	<h1>Liste des Articles :</h1>
 
@@ -60,11 +60,15 @@
 						</s:a></td>
 					<td><s:a action="deleteArt">
 							<img alt="DEL" src="images/delete.png" width="30px">
-							<s:param name="codeArt"><s:property value="idArticle" /></s:param>
+							<s:param name="codeArt">
+								<s:property value="idArticle" />
+							</s:param>
 						</s:a></td>
 					<td><s:a action="updateArt1">
 							<img alt="UPD" src="images/update.png" width="30px">
-							<s:param name="codeArt"><s:property value="idArticle" /></s:param>
+							<s:param name="codeArt">
+								<s:property value="idArticle" />
+							</s:param>
 						</s:a></td>
 				</tr>
 			</s:iterator>

@@ -16,7 +16,7 @@
 	<s:form> Prénom Client : <s:property
 			value="commande.client.prenom" />
 	</s:form>
-	<s:form> Prix : <s:property value="commande.prix" />&euro;</s:form>
+	<s:form> Prix : <s:property value="commande.prixHT" />&euro;</s:form>
 
 
 	<table>

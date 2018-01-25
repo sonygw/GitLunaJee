@@ -10,9 +10,14 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.formation.context.ConteneurSpring;
 import com.formation.model.Article;
+import com.formation.model.Client;
+import com.formation.model.Panier;
 import com.formation.service.ArticleService;
+import com.formation.service.PanierService;
 import com.formation.util.UserUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -25,19 +30,26 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Autowired
 	private ArticleService articleService;
 
-	//------------------------------------------------------------------ VARIABLES GLOBALES A L'APPLICATION -----
-		private Map<String, Object> sessionMap;
-		
-		@Override
-		public void setSession(Map<String, Object> map) {
-			// TODO Auto-generated method stub
-			this.sessionMap = map;
-		}
-		//------------------------------------------------------------------------------------------------------------
+	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
+
+	
+	@Autowired
+	private PanierService panierService;
+	// ------------------------------------------------------------------ VARIABLES
+	// GLOBALES A L'APPLICATION -----
+	private Map<String, Object> sessionMap;
+
+	@Override
+	public void setSession(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		this.sessionMap = map;
+	}
+	// ------------------------------------------------------------------------------------------------------------
 
 	private static final long serialVersionUID = 1L;
 
-	private Article article = new Article();
+	private Article article =  context.getBean(Article.class);
+
 	public Article getArticle() {
 		return article;
 	}
@@ -48,6 +60,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	private Article articleUpdate;
 	private int codeArt;
+	private int qte;
+
+
 	private List<Article> models = null;
 
 	@Override
@@ -64,12 +79,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return models;
 	}
 
-	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"), @Result(name = "rate", location = "/index.jsp") })
+	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"),
+			@Result(name = "rate", location = "/index.jsp") })
 	public String AffichTable() {
 
-//		if (UserUtil.verifUser())
-//			return "rate";
-//		else
+		// if (UserUtil.verifUser())
+		// return "rate";
+		// else
 		setModels();
 		return SUCCESS;
 	}
@@ -84,16 +100,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles") })
 	public String redirectionUpdate() {
 		article = articleService.SelectArticleById(codeArt);
-		
+
 		return SUCCESS;
 	}
-
 
 	@Action(value = "updateArt2", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
 	public String UpdateClient() {
 
-		
-		
 		article.setIdArticle(codeArt);
 
 		articleService.SaveOrUpdateArticle(article);
@@ -106,19 +119,37 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		article.setCode("ART" + article.getIdArticle());
 		article.setVisible(true);
-		
+
 		articleService.SaveOrUpdateArticle(article);
-		
+
 		return SUCCESS;
 
 	}
 
-	
 	@Action(value = "voirArt", results = { @Result(name = "success", location = "articleResume", type = "tiles") })
 	public String AffichArticle() {
 
 		article = articleService.SelectArticleById(codeArt);
+		sessionMap.put("article", article);
 		return SUCCESS;
+
+	}
+
+	@Action(value = "submitAjout", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
+	public String createPanierFromArticle() {
+
+		
+		Article arti = (Article) sessionMap.get("article");
+		Client cli = (Client) sessionMap.get("client");
+		Panier panier = context.getBean(Panier.class);
+		panier.setArticle(arti);
+		panier.setClient(cli);
+		panier.setQuantite(qte);
+		panier.setPrixHT( arti.getPrixHT() * qte);
+		panierService.SaveOrUpdatePanier(panier);
+
+		return SUCCESS;
+
 	}
 
 	public int getCodeArt() {
@@ -127,6 +158,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	public void setCodeArt(int codeArt) {
 		this.codeArt = codeArt;
+	}
+	
+	public int getQte() {
+		return qte;
+	}
+
+	public void setQte(int qte) {
+		this.qte = qte;
 	}
 
 	public Article getArticleUpdate() {

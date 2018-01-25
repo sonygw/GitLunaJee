@@ -42,9 +42,7 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	private Panier panier = new Panier();
 	private int codePan;
-	
-	
-
+	private int codeArt;
 
 	private List<Panier> models = null;
 
@@ -56,7 +54,7 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	public void setModels() {
 		Client cli = (Client) sessionMap.get("client");
-		 models = panierService.SelectPanierFromClient(cli);
+		models = panierService.SelectPanierFromClient(cli);
 	}
 
 	public List<Panier> getModels() {
@@ -66,7 +64,6 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 	@Action(value = "affTabPan", results = { @Result(name = "success", location = "panier", type = "tiles") })
 	public String AffichTablePanier() {
 
-		
 		setModels();
 		return SUCCESS;
 	}
@@ -97,13 +94,12 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	}
 
-	@Action(value = "createPan", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
-	public String createPanier() {
+	public int getCodeArt() {
+		return codeArt;
+	}
 
-		panierService.SaveOrUpdatePanier(panier);
-
-		return SUCCESS;
-
+	public void setCodeArt(int codeArt) {
+		this.codeArt = codeArt;
 	}
 
 }
