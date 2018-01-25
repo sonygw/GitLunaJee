@@ -42,7 +42,7 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	@Autowired
 	private CommandeService commandeService;
-	
+
 	@Autowired
 	private ArtComService artComService;
 
@@ -58,6 +58,19 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		this.sessionMap = map;
 	}
 	// ------------------------------------------------------------------------------------------------------------
+
+	public boolean verifUser() {
+		boolean b = false;
+		try {
+			b = (boolean) sessionMap.get("authentification");
+			System.out.println(b);
+
+		} catch (NullPointerException e) {
+			System.out.println(b);
+
+		}
+		return b;
+	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -83,15 +96,23 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		return models;
 	}
 
-	@Action(value = "affTabPan", results = { @Result(name = "success", location = "panier", type = "tiles") })
+	@Action(value = "affTabPan", results = { @Result(name = "success", location = "panier", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTablePanier() {
+
+		if (!verifUser())
+			return "inconnu";
 
 		setModels();
 		return SUCCESS;
 	}
 
-	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabPan", type = "redirect") })
+	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabPan", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeletePanier() {
+
+		if (!verifUser())
+			return "inconnu";
 
 		panier = panierService.SelectPanierById(codePan);
 
@@ -114,8 +135,12 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		this.codePan = codePan;
 	}
 
-	@Action(value = "validPanier", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
+	@Action(value = "validPanier", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String ValidPanierFromClient() {
+
+		if (!verifUser())
+			return "inconnu";
 
 		Commande commande = context.getBean(Commande.class);
 		Client cli = (Client) sessionMap.get("client");
@@ -137,11 +162,9 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 		commandeService.SaveOrUpdateCommande(commande);
 
-		
 		for (Panier p : listPan)
 			artComService.SaveOrUpdateArtCom(new ArtCom(p.getQuantite(), p.getArticle(), commande));
-		
-		
+
 		panierService.DeletePanierFromClient(cli);
 		return SUCCESS;
 

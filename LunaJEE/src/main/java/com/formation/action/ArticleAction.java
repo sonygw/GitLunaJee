@@ -47,14 +47,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private static final long serialVersionUID = 1L;
 
 	public boolean verifUser() {
-		boolean b = false ;
+		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
 			System.out.println(b);
-			
+
 		} catch (NullPointerException e) {
 			System.out.println(b);
-			
+
 		}
 		return b;
 	}
@@ -104,10 +104,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action(value = "deleteArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
-		
+
 		if (!verifUser())
 			return "inconnu";
-		
+
 		articleService.DeleteArticle(articleService.SelectArticleById(codeArt));
 		return SUCCESS;
 
@@ -118,7 +118,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public String redirectionUpdate() {
 		if (!verifUser())
 			return "inconnu";
-		
+
 		article = articleService.SelectArticleById(codeArt);
 
 		return SUCCESS;
@@ -130,7 +130,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		if (!verifUser())
 			return "inconnu";
-		
+
 		article.setIdArticle(codeArt);
 
 		articleService.SaveOrUpdateArticle(article);
@@ -144,7 +144,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		if (!verifUser())
 			return "inconnu";
-		
+
 		article.setCode("ART" + article.getIdArticle());
 		article.setVisible(true);
 
@@ -160,7 +160,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		if (!verifUser())
 			return "inconnu";
-		
+
 		article = articleService.SelectArticleById(codeArt);
 		sessionMap.put("article", article);
 		return SUCCESS;
@@ -173,7 +173,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 		if (!verifUser())
 			return "inconnu";
-		
+
 		Article arti = (Article) sessionMap.get("article");
 		Client cli = (Client) sessionMap.get("client");
 		Panier panier = context.getBean(Panier.class);

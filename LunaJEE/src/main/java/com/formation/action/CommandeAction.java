@@ -39,6 +39,19 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	}
 	// ------------------------------------------------------------------------------------------------------------
 
+	public boolean verifUser() {
+		boolean b = false;
+		try {
+			b = (boolean) sessionMap.get("authentification");
+			System.out.println(b);
+
+		} catch (NullPointerException e) {
+			System.out.println(b);
+
+		}
+		return b;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	private Commande commande = new Commande();
@@ -61,28 +74,42 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return models;
 	}
 
-	@Action(value = "affTabCom", results = { @Result(name = "success", location = "commandeAccueil", type = "tiles") })
+	@Action(value = "affTabCom", results = { @Result(name = "success", location = "commandeAccueil", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTable() {
-
+		if (!verifUser())
+			return "inconnu";
 		setModels();
 
 		return SUCCESS;
 	}
 
-	@Action(value = "deleteCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect") })
+	@Action(value = "deleteCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
+		if (!verifUser())
+			return "inconnu";
+
 		commandeService.DeleteCommande(commandeService.SelectCommande(codeCom));
 		return SUCCESS;
 
 	}
 
-	@Action(value = "updateCom1", results = { @Result(name = "success", location = "commandeModif", type = "tiles") })
+	@Action(value = "updateCom1", results = { @Result(name = "success", location = "commandeModif", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String redirectionUpdate() {
+
+		if (!verifUser())
+			return "inconnu";
+
 		return SUCCESS;
 	}
 
-	@Action(value = "updateCom2", results = { @Result(name = "success", location = "affTabCom", type = "redirect") })
+	@Action(value = "updateCom2", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String UpdateClient() {
+		if (!verifUser())
+			return "inconnu";
 
 		commandeUpdate.setIdCommande(codeCom);
 
@@ -91,8 +118,11 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
-	@Action(value = "createCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect") })
+	@Action(value = "createCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createClient() {
+		if (!verifUser())
+			return "inconnu";
 
 		commandeService.SaveOrUpdateCommande(commande);
 
@@ -100,8 +130,12 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
-	@Action(value = "voirCom", results = @Result(name = "success", location = "commandeResume", type = "tiles"))
+	@Action(value = "voirCom", results = { @Result(name = "success", location = "commandeResume", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String voirCom() {
+
+		if (!verifUser())
+			return "inconnu";
 
 		commande = commandeService.SelectCommande(codeCom);
 		artCom = artComService.SelectAllArtComFromCommande(codeCom);
