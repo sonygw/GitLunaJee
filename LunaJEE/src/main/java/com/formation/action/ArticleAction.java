@@ -18,7 +18,6 @@ import com.formation.model.Client;
 import com.formation.model.Panier;
 import com.formation.service.ArticleService;
 import com.formation.service.PanierService;
-import com.formation.util.UserUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -32,7 +31,6 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
-	
 	@Autowired
 	private PanierService panierService;
 	// ------------------------------------------------------------------ VARIABLES
@@ -48,7 +46,20 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	private static final long serialVersionUID = 1L;
 
-	private Article article =  context.getBean(Article.class);
+	public boolean verifUser() {
+		boolean b = false ;
+		try {
+			b = (boolean) sessionMap.get("authentification");
+			System.out.println(b);
+			
+		} catch (NullPointerException e) {
+			System.out.println(b);
+			
+		}
+		return b;
+	}
+
+	private Article article = context.getBean(Article.class);
 
 	public Article getArticle() {
 		return article;
@@ -61,7 +72,6 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private Article articleUpdate;
 	private int codeArt;
 	private int qte;
-
 
 	private List<Article> models = null;
 
@@ -80,33 +90,47 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	}
 
 	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"),
-			@Result(name = "rate", location = "/index.jsp") })
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTable() {
 
-		// if (UserUtil.verifUser())
-		// return "rate";
-		// else
+		if (!verifUser())
+			return "inconnu";
+
 		setModels();
 		return SUCCESS;
+
 	}
 
-	@Action(value = "deleteArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
+	@Action(value = "deleteArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
+		
+		if (!verifUser())
+			return "inconnu";
+		
 		articleService.DeleteArticle(articleService.SelectArticleById(codeArt));
 		return SUCCESS;
 
 	}
 
-	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles") })
+	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String redirectionUpdate() {
+		if (!verifUser())
+			return "inconnu";
+		
 		article = articleService.SelectArticleById(codeArt);
 
 		return SUCCESS;
 	}
 
-	@Action(value = "updateArt2", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
+	@Action(value = "updateArt2", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String UpdateClient() {
 
+		if (!verifUser())
+			return "inconnu";
+		
 		article.setIdArticle(codeArt);
 
 		articleService.SaveOrUpdateArticle(article);
@@ -114,9 +138,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
-	@Action(value = "createArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
+	@Action(value = "createArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createClient() {
 
+		if (!verifUser())
+			return "inconnu";
+		
 		article.setCode("ART" + article.getIdArticle());
 		article.setVisible(true);
 
@@ -126,31 +154,38 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
-	@Action(value = "voirArt", results = { @Result(name = "success", location = "articleResume", type = "tiles") })
+	@Action(value = "voirArt", results = { @Result(name = "success", location = "articleResume", type = "tiles"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichArticle() {
 
+		if (!verifUser())
+			return "inconnu";
+		
 		article = articleService.SelectArticleById(codeArt);
 		sessionMap.put("article", article);
 		return SUCCESS;
 
 	}
 
-	@Action(value = "submitAjout", results = { @Result(name = "success", location = "affTabArt", type = "redirect") })
+	@Action(value = "submitAjout", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createPanierFromArticle() {
 
+		if (!verifUser())
+			return "inconnu";
 		
 		Article arti = (Article) sessionMap.get("article");
 		Client cli = (Client) sessionMap.get("client");
 		Panier panier = context.getBean(Panier.class);
-		
+
 		arti.setQuantite((arti.getQuantite() - qte));
-		
+
 		articleService.SaveOrUpdateArticle(arti);
-		
+
 		panier.setArticle(arti);
 		panier.setClient(cli);
 		panier.setQuantite(qte);
-		panier.setPrixHT( arti.getPrixHT() * qte);
+		panier.setPrixHT(arti.getPrixHT() * qte);
 		panierService.SaveOrUpdatePanier(panier);
 
 		return SUCCESS;
@@ -164,7 +199,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public void setCodeArt(int codeArt) {
 		this.codeArt = codeArt;
 	}
-	
+
 	public int getQte() {
 		return qte;
 	}

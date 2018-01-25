@@ -11,7 +11,7 @@ public interface PanierService {
 	public ArrayList<Panier> SelectPanierFromClient(Client client);
 	public long SelectCountArticleFromPanier(Client obj);
 	public boolean DeletePanier(Panier obj);
-	public ArrayList<Panier> DeletePanierFromClient(Client client);	
+	public boolean DeletePanierFromClient(Client client);	
 	public Panier SelectPanierById(int id);
 	
 }

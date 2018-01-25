@@ -48,8 +48,8 @@ public class CommandeServiceTest {
 	@Test
 	@Transactional
 	public void testSelectLastCommande() {
-
-		assertTrue(commandeService.SelectLastCommande());
+		Commande com = commandeService.SelectLastCommande();
+		assertNotNull(com);
 
 	}
 

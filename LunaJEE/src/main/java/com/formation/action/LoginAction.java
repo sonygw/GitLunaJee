@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String username;
 	private String password;
 
-
+	
 	private Map<String, Object> sessionMap;
 
 	@Autowired
@@ -34,11 +34,29 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		this.sessionMap = map;
 
 	}
+	
+	public boolean verifUser() {
+		boolean b = false ;
+		try {
+			b = (boolean) sessionMap.get("authentification");
+			System.out.println(b);
+			
+		} catch (NullPointerException e) {
+			System.out.println(b);
+			
+		}
+		return b;
+	}
+	
 
 	@Action(value = "connecter", results = { @Result(name = "input", location = "/index.jsp"),
-			@Result(name="success", type = "redirect", location = "accueil") })
+			@Result(name = "success", type = "redirect", location = "accueil"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String connecter() {
 
+		if (!verifUser())
+			return "inconnu";
+		
 		if (!username.isEmpty() && !password.isEmpty()) {
 			Client client = clientService.SelectClientByLogNPwd(username, password);
 			if (client != null) {
@@ -50,11 +68,18 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return INPUT;
 	}
 
-	@Action(value = "deconnecter", results = @Result(name = "success", location = "affTabCli" , type="redirect"))
+	@Action(value = "deconnecter", results = {@Result(name = "success", location = "affTabCli", type = "redirect"),
+	@Result(name = "inconnu", location = "/403.jsp") })
 	public String deconnecter() {
+		
+		if (!verifUser())
+			return "inconnu";
+		
 		this.sessionMap.clear();
 		return SUCCESS;
 	}
+
+
 
 	public String getUsername() {
 		return username;

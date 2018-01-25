@@ -50,11 +50,11 @@ public class PanierDAOImpl implements PanierDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 
-	public ArrayList<Panier> DeletePanierFromClient(Client client) {
+	public boolean DeletePanierFromClient(Client client) {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("delete Panier where client = :cli");
+		Query query = sessionFactory.getCurrentSession().createQuery("delete Panier p where p.client = :cli");
 		query.setParameter("cli", client);
-		return (ArrayList<Panier>) query.getResultList();
+		return true;
 		
 	}
 

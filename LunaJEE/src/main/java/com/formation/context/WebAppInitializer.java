@@ -11,7 +11,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
-public class WebAppInitializer implements WebApplicationInitializer {
+public class WebAppInitializer implements WebApplicationInitializer{
 
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { ConteneurSpring.class };
@@ -32,8 +32,13 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		
 		CompleteAutoloadTilesListener listener = new CompleteAutoloadTilesListener();
 		servletContext.addListener(listener);
+		
+		
 
 	}
+
+	
+	
 	
 	
 }

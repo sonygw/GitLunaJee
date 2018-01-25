@@ -52,12 +52,10 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public boolean SelectLastCommande() {
+	public Commande SelectLastCommande() {
 
- 	if (commandeDao.SelectLastCommande().getIdCommande() != 0)
-			return true;
-		else
-			return false;
+ 	return commandeDao.SelectLastCommande();
+		
 	}
 
 

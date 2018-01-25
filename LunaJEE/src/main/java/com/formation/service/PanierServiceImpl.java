@@ -43,8 +43,14 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public ArrayList<Panier> DeletePanierFromClient(Client client) {
-		return panierDao.DeletePanierFromClient(client);
+	public boolean DeletePanierFromClient(Client client) {
+		
+		ArrayList<Panier> list = panierDao.SelectPanierFromClient(client);
+		
+		for(Panier p : list)
+			DeletePanier(p);
+		
+		return true;
 		
 	}
 

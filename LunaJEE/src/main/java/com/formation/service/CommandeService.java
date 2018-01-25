@@ -28,7 +28,7 @@ public interface CommandeService {
 	 * Selectionne la derni�re commande
 	 * @return un objet commande
 	 */
-	public boolean SelectLastCommande();
+	public Commande SelectLastCommande();
 	/**
 	 * Cr�er une commande 
 	 * @param commande Objet commande � cr�er

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -52,12 +52,18 @@
 					<td width="30%"><s:property value="prixHT" /></td>
 					<td><s:a action="deletePan">
 							<img alt="DEL" src="images/delete.png" width="30px">
-							<s:param name="codePan"><s:property value="idPanier" /></s:param>
+							<s:param name="codePan">
+								<s:property value="idPanier" />
+							</s:param>
 						</s:a></td>
-					
+
 				</tr>
 			</s:iterator>
 		</table>
+		<s:form action="validPanier">
+			<s:textfield name="regle" label="Reglement : "></s:textfield>
+			<s:submit value="Payer"></s:submit>
+		</s:form>
 	</s:if>
 	<s:else>
 	
