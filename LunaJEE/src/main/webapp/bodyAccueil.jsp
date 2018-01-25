@@ -17,11 +17,7 @@
 			style="margin-left:50%">Clients</s:submit>
 	</s:form>
 
-	<s:form action="checkUser">
 
-		<s:submit value="check"></s:submit>
-
-	</s:form>
 
 
 
