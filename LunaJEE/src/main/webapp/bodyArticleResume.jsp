@@ -13,28 +13,44 @@
 
 		Code : 
 		<s:property value="article.code" />
-<br>
-<br>	
+		<br>
+		<br>	
 		Description : 
 		<s:property value="article.description" />
-<br>
-<br>
+		<br>
+		<br>
 		Catégorie : 
 		<s:property value="article.categorie" />
-<br>
+		<br>
 		<br>
 		Prix : 
 		<s:property value="article.prixHT" />
 &euro;	
 
 <br>
-<%-- <s:property value="codeArt" /> --%>
-<br>
+		<%-- <s:property value="codeArt" /> --%>
+		<br>
+		<s:if test="article.quantite > 0">
+			<s:textfield label="Quantité" name="qte" required="true"
+				labelposition="left">
+			</s:textfield>
+			<s:submit class="submitAjout" value="Ajouter au panier !"
+				Style="align:right">
+				<s:param name="codeArt">
+					<s:property value="idArticle" />
+				</s:param>
+			</s:submit>
+		</s:if>
+		<s:else>
+			<s:submit disabled="1" class="submitAjout"
+				value="Article indisponible !" Style="align:right">
+				<s:param name="codeArt">
+					<s:property value="idArticle" />
+				</s:param>
+			</s:submit>
 
-<s:textfield label="Quantité" name="qte"
-					required="true" labelposition="left">
-				</s:textfield>
-<s:submit class="submitAjout" value="Ajouter au panier !" Style="align:right"><s:param name="codeArt"><s:property value="idArticle" /></s:param></s:submit>
+
+		</s:else>
 	</s:form>
 
 

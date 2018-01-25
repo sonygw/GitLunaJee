@@ -31,7 +31,7 @@
 
 	<h1>Liste des Articles dans le panier :</h1>
 
-	<s:if test="getModels()!=null">
+	<s:if test="getModels().size != 0">
 		<table>
 			<tr>
 				<td width="20%">Id</td>
@@ -59,6 +59,11 @@
 			</s:iterator>
 		</table>
 	</s:if>
+	<s:else>
+	
+	Panier vide !
+	
+	</s:else>
 
 
 </body>

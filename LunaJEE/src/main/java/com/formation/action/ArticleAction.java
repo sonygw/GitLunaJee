@@ -142,6 +142,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		Article arti = (Article) sessionMap.get("article");
 		Client cli = (Client) sessionMap.get("client");
 		Panier panier = context.getBean(Panier.class);
+		
+		arti.setQuantite((arti.getQuantite() - qte));
+		
+		articleService.SaveOrUpdateArticle(arti);
+		
 		panier.setArticle(arti);
 		panier.setClient(cli);
 		panier.setQuantite(qte);

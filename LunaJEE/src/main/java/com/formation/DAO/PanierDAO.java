@@ -12,7 +12,7 @@ public interface PanierDAO {
 	public long SelectCountArticleFromPanier(Client obj);
 	public Panier DeletePanier(Panier obj);
 	public ArrayList<Panier> DeletePanierFromClient(Client client);
-	
+	public Panier SelectPanierById(int id);
 	
 
 }

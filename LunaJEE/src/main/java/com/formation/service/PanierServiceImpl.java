@@ -48,4 +48,13 @@ public class PanierServiceImpl implements PanierService {
 		
 	}
 
+	@Override
+	public Panier SelectPanierById(int id) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return panierDao.SelectPanierById(id);
+	}
+
 }

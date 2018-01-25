@@ -2,6 +2,8 @@ package com.formation.DAO;
 
 import java.util.ArrayList;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +56,14 @@ public class PanierDAOImpl implements PanierDAO {
 		query.setParameter("cli", client);
 		return (ArrayList<Panier>) query.getResultList();
 		
+	}
+
+	@Override
+	public Panier SelectPanierById(int id) {
+		
+		@SuppressWarnings("unchecked")
+		TypedQuery<Panier> result = sessionFactory.getCurrentSession().createQuery("from Panier where idPanier =" + id);
+		return (Panier) result.getSingleResult();
 	}
 
 }

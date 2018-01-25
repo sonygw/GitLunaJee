@@ -12,22 +12,29 @@
 		<legend>Modification d'un Client</legend>
 		<s:form method="post" action="updateCli2">
 			<div>
-				<s:textfield label="Nom" name="client.nom"
+				<s:textfield label="Nom" name="client.nom" labelposition="left" />
+				<s:textfield label="Prenom" name="client.prenom" required="true"
 					labelposition="left" />
-				<s:textfield label="Prenom" name="client.prenom"
-					required="true" labelposition="left" />
 
 				<s:textfield label="Email" name="client.email" required="true"
 					labelposition="left" />
-					
+
 				<s:textfield label="remarques" name="client.remarques"
 					required="true" labelposition="left" />
-					
-					<s:textfield label="Telephone" name="client.numeroTelephone"
-								required="true" labelposition="left" />
 
-				<s:textfield label="Adresse" name="client.adresse" 
+				<s:textfield label="Telephone" name="client.numeroTelephone"
 					required="true" labelposition="left" />
+
+				<s:textfield label="Adresse" name="client.adresse" required="true"
+					labelposition="left" />
+
+				<s:textfield label="Login" name="client.login" required="true"
+					labelposition="left" />
+					
+				<s:password label="Mot de passe" name="client.motDePasse" required="true"
+					labelposition="left" />
+
+
 			</div>
 			<s:radio label="Carte de fidélité" labelposition="left"
 				id="radiobutton" name="client.carteFidelite"

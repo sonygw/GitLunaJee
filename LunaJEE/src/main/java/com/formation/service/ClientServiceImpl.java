@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.DAO.ClientDAO;
 import com.formation.model.Client;
+import com.formation.util.DateDuJour;
 
 /**
  * @author SDJ09
@@ -52,6 +53,8 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public boolean SaveOrUpdateClient(Client obj) {
 
+		obj.setDate(DateDuJour.getDateDuJour());
+		
 		if (clientDao.SaveOrUpdateClient(obj).getIdClient() != 0)
 			return true;
 		else

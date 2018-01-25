@@ -22,16 +22,17 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	@Autowired
 	private ClientService clientService;
 
-	
-	//------------------------------------------------------------------ VARIABLES GLOBALES A L'APPLICATION -----
+	// ------------------------------------------------------------------ VARIABLES
+	// GLOBALES A L'APPLICATION -----
 	private Map<String, Object> sessionMap;
-	
+
 	@Override
 	public void setSession(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		this.sessionMap = map;
 	}
-	//------------------------------------------------------------------------------------------------------------
+
+	// ------------------------------------------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
 
 	private Client client = new Client();
@@ -69,10 +70,9 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 
 	@Action(value = "updateCli1", results = { @Result(name = "success", location = "clientModif", type = "tiles") })
 	public String redirectionUpdate() {
-		client=clientService.SelectClient(codeCli);
+		client = clientService.SelectClient(codeCli);
 		return SUCCESS;
 	}
-
 
 	@Action(value = "updateCli2", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
 	public String UpdateClient() {
@@ -96,21 +96,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	public String createClient() {
 
 		clientService.SaveOrUpdateClient(client);
-		
+
 		return SUCCESS;
 
 	}
-	
-//	@Action(value = "testMap", results = { @Result(name = "success", location = "affTabCli", type = "redirect") })
-//	public String testMapClient() {
-//
-//		Client cli = (Client) sessionMap.get("client");
-//		
-//		System.out.println(cli.getNom());
-//		
-//		return SUCCESS;
-//
-//	}
 
 	public int getCodeCli() {
 		return codeCli;
@@ -127,6 +116,5 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	public void setClientUpdate(Client clientUpdate) {
 		this.clientUpdate = clientUpdate;
 	}
-
 
 }

@@ -13,8 +13,10 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.formation.model.Article;
 import com.formation.model.Client;
 import com.formation.model.Panier;
+import com.formation.service.ArticleService;
 import com.formation.service.ClientService;
 import com.formation.service.PanierService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +28,9 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	@Autowired
 	private PanierService panierService;
+
+	@Autowired
+	private ArticleService articleService;
 
 	// ------------------------------------------------------------------ VARIABLES
 	// GLOBALES A L'APPLICATION -----
@@ -70,9 +75,16 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabPan", type = "redirect") })
 	public String DeletePanier() {
-		System.out.println(codePan);
-		panier.setIdPanier(codePan);
+
+		panier = panierService.SelectPanierById(codePan);
+
+		Article arti = panier.getArticle();
+		arti.setQuantite((arti.getQuantite() + panier.getQuantite()));
+
+		articleService.SaveOrUpdateArticle(arti);
+
 		panierService.DeletePanier(panier);
+
 		return SUCCESS;
 
 	}
