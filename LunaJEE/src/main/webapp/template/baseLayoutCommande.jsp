@@ -25,7 +25,7 @@
 		<tr>
 			<td class="monmenu" width="10%" style="min-width: 75px"><tiles:insertAttribute
 					name="menuCommande"></tiles:insertAttribute></td>
-			<td class="monbody" height="80%" width="90%"><tiles:insertAttribute
+			<td class="monbodyCommande" height="80%" width="90%"><tiles:insertAttribute
 					name="body"></tiles:insertAttribute></td>
 		</tr>
 		<tr>

@@ -19,11 +19,11 @@
 		height="100%">
 		<tr>
 
-			<td class="monheader" height="15%" colspan="2"><tiles:insertAttribute
+			<td  class="monheader" height="15%" colspan="2"><tiles:insertAttribute
 					name="header"></tiles:insertAttribute></td>
 		</tr>
 		<tr>
-			<td class="monbody" height="80%" width="90%"><tiles:insertAttribute
+			<td  class="monbodyPanier" height="80%" width="90%"><tiles:insertAttribute
 					name="body"></tiles:insertAttribute></td>
 		</tr>
 		<tr>

@@ -9,17 +9,13 @@
 </head>
 <body>
 
-	<div style="height: 200px"></div>
+
 
 	<s:form action="affTabCli">
 		<s:submit value="Client" type="image"
 			src="images/accueil/customer.ico" theme="simple"
 			style="margin-left:50%">Clients</s:submit>
 	</s:form>
-
-
-
-
 
 	<br>
 	<s:form action="affTabArt">
