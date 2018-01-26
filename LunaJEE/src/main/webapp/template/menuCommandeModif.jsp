@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <title>Insert title here</title>
 </head>
 <body>
 
 	<div style="height: 6rem"></div>
-	<a href=pasEncore.jsp> <img src="images/export.ico"> Export
-	</a>
 
+ 
 </body>
 </html>

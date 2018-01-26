@@ -6,14 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="vertical-align: top">
 
-	<h1 style="text-align: center; margin-top:0px ; position:relative">BIENVENUE ${client.prenom}</h1>
+	<h1 style="text-align: center">BIENVENUE ${client.prenom}</h1>
 	<br>
 
-	<div style="overflow: auto">
+	<div style="overflow: auto ; vertical-align:middle">
+	
+	<div style="height:20vw"> </div>
 
 		<s:a action="affTabCli" theme="simple" style="margin-right:5rem"
 			title="Clients">

@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 <link rel='stylesheet prefetch'
@@ -17,7 +18,7 @@
 <body>
 	<table border="0" cellpadding="2" cellspacing="2" width="100%"
 		height="100%">
-		<tr>
+		<tr style="vertical-align:top">
 			<td class="monbody" height="95%" width="100%"><tiles:insertAttribute
 					name="body"></tiles:insertAttribute></td>
 		</tr>

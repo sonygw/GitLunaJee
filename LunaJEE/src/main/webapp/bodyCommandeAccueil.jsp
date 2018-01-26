@@ -72,5 +72,6 @@
 			</s:iterator>
 		</table>
 	</s:if>
+	
 </body>
 </html>

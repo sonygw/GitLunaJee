@@ -6,29 +6,11 @@
 <meta http-equiv="Refresh" content="4;url=index.jsp">
 <title>Insert title here</title>
 </head>
-<body style="background-image: url(images/denied.jpg)">
+<body>
 
 	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
 		AUTHENTIFIER !</div>
-	<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-		<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-		<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-		<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-		<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-		<br>
-	<div style="text-align: center">ACCES INTERDIT : VEUILLEZ VOUS
-		AUTHENTIFIER !</div>
-
+	
 
 </body>
 </html>

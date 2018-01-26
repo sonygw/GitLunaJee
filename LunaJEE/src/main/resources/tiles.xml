@@ -28,6 +28,8 @@
 		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
 		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
+	
+	
 
 	<definition name="baseLayoutAccueil" template="/template/baseLayoutAccueil.jsp">
 		<put-attribute name="title" value="Template"></put-attribute>
@@ -62,7 +64,9 @@
 
 	<definition name="articleModif" extends="baseLayoutArticle">
 		<put-attribute name="title" value="Modifier Article"></put-attribute>
+		<put-attribute name="menu" value="/template/menuClientModif"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleModif.jsp"></put-attribute>
+		
 	</definition>
 	
 	<definition name="articleResume" extends="baseLayoutArticle">
