@@ -9,11 +9,11 @@
 </head>
 <body>
 
-	<a href=articleCreer> <img src="images/add.ico"> <label>Créer</label>
+	<a href=articleCreer> <img src="images/add.ico"> Créer
 	</a>
 
 	<div style="height: 6rem"></div>
-	<s:a action="export">  <img src="images/export.ico"> <label>Export</label>
+	<s:a action="export">  <img src="images/export.ico"> Export
 	</s:a>
 
 </body>

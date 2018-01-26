@@ -10,11 +10,11 @@
 <body>
 
 
-	<a href=clientCreer> <img src="images/add.ico"> <label>Créer</label>
+	<a href=clientCreer> <img src="images/add.ico"> Créer
 	</a>
 
 	<div style="height: 6rem"></div>
-	<a href=pasEncore.jsp> <img src="images/export.ico"> <label>Export</label>
+	<a href=pasEncore.jsp> <img src="images/export.ico"> Export
 	</a>
 
 

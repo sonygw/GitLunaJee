@@ -20,8 +20,12 @@ public class Commande {
 	private double prixHT;
 	private String adresse;
 	
-	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
-	private Client client;
+//	@OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+//	private Client client;
+	
+	private String nomCli;
+	
+	private String prenomCli;
 	
 	
 	private String reglement;
@@ -53,14 +57,6 @@ public class Commande {
 		this.adresse = adresse;
 		this.date = date;
 		this.reglement = reglement;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
 	}
 
 	public String getRef() {
@@ -111,10 +107,28 @@ public class Commande {
 		this.date = date;
 	}
 
+
+	public String getNomCli() {
+		return nomCli;
+	}
+
+	public void setNomCli(String nomCli) {
+		this.nomCli = nomCli;
+	}
+
+	public String getPrenomCli() {
+		return prenomCli;
+	}
+
+	public void setPrenomCli(String prenomCli) {
+		this.prenomCli = prenomCli;
+	}
+
 	@Override
 	public String toString() {
 		return "Commande [idCommande=" + idCommande + ", ref=" + ref + ", prixHT=" + prixHT + ", adresse=" + adresse
-				+ ", client=" + client + ", reglement=" + reglement + ", date=" + date + "]";
+				+ ", nomCli=" + nomCli + ", prenomCli=" + prenomCli + ", reglement=" + reglement + ", date=" + date
+				+ "]";
 	}
 	
 	

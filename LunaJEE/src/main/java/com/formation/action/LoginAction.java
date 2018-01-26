@@ -2,7 +2,6 @@ package com.formation.action;
 
 import java.util.Map;
 
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -22,6 +21,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String password;
 
 	private Map<String, Object> sessionMap;
+
+	Client client;
 
 	@Autowired
 	private ClientService clientService;
@@ -50,34 +51,42 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	@Action(value = "connecter", results = { @Result(name = "input", location = "/index.jsp"),
 			@Result(name = "success", type = "redirect", location = "accueil")
-			//@Result(name = "inconnu", location = "/403.jsp")
-			})
+			// @Result(name = "inconnu", location = "/403.jsp")
+	})
 	public String connecter() {
 
 		try {
-		if (!username.isEmpty() && !password.isEmpty()) {
-			Client client = clientService.SelectClientByLogNPwd(username, password);
-			if (client != null) {
-				this.sessionMap.put("authentification", true);
-				this.sessionMap.put("client", client);
-				return SUCCESS;
+			if (!username.isEmpty() && !password.isEmpty()) {
+				client = clientService.SelectClientByLogNPwd(username, password);
+				if (client != null) {
+					this.sessionMap.put("authentification", true);
+					this.sessionMap.put("client", client);
+					return SUCCESS;
+				}
 			}
-		}
-		return INPUT;
-	}
-		catch(NoResultException e) {
 			return INPUT;
-		}}
+		} catch (NoResultException e) {
+			return INPUT;
+		}
+	}
 
-	@Action(value = "deconnecter", results = {@Result(name = "success", location = "/index.jsp"),
-	@Result(name = "inconnu", location = "/403.jsp") })
+	@Action(value = "deconnecter", results = { @Result(name = "success", location = "/index.jsp"),
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String deconnecter() {
-		
+
 		if (!verifUser())
 			return "inconnu";
-		
+
 		this.sessionMap.clear();
 		return SUCCESS;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public String getUsername() {

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<display:table id="exportArticle" name="session.Article.listArt" pagesize="10">
+	<display:table id="exportArticle" name="sessionScope.Article.listArt" pagesize="10">
 		<display:column property="idArticle" title="Id" sortable="true"
 			media="html" group="1" />
 		<display:column property="categorie" title="Categorie" sortable="true" />

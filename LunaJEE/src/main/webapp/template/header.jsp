@@ -11,24 +11,24 @@
 
 	<div style="overflow:auto">
 
-<s:a action="accueil" theme="simple" style="margin-right:5rem">
-<img src="images/accueil/home64.ico"> Accueil
+<s:a action="accueil" theme="simple" style="margin-right:5rem" title="Accueil">
+<img src="images/accueil/home64.ico"> 
 </s:a>
 
-<s:a action="affTabCli" theme="simple" style="margin-right:3rem">
-<img src="images/accueil/customer.ico"> Clients
+<s:a action="affTabCli" theme="simple" style="margin-right:3rem" title="Client">
+<img src="images/accueil/customer.ico"> 
 </s:a>
 
-<s:a action="affTabArt" theme="simple" style="margin-right:3rem">
-<img src="images/accueil/commandes.ico"> Articles
+<s:a action="affTabArt" theme="simple" style="margin-right:3rem" title="Article">
+<img src="images/accueil/commandes.ico"> 
 </s:a>
 
 
-<s:a action="affTabCom" theme="simple" style="margin-right:3rem">
-<img src="images/accueil/cart.ico"> Commandes
+<s:a action="affTabCom" theme="simple" style="margin-right:3rem" title="Commande">
+<img src="images/accueil/cart.ico"> 
 </s:a>
 
-<s:a action="affTabPan" theme="simple" style="float:right">
+<s:a action="affTabPan" theme="simple" style="float:right" title="Panier">
 <img src="images/panier.ico"> 
 </s:a>
 	</div>

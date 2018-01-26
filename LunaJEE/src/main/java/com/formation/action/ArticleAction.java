@@ -198,6 +198,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 
 	}
+
 	
 
 	public int getCodeArt() {

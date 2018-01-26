@@ -18,7 +18,7 @@
 	<table border="0" cellpadding="2" cellspacing="2" width="100%"
 		height="100%">
 		<tr>
-			<td class="monbody" height="80%" width="90%"><tiles:insertAttribute
+			<td class="monbody" height="95%" width="100%"><tiles:insertAttribute
 					name="body"></tiles:insertAttribute></td>
 		</tr>
 		<tr>

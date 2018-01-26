@@ -146,7 +146,8 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		Client cli = (Client) sessionMap.get("client");
 		commande.setAdresse(cli.getAdresse());
 
-		commande.setClient(cli);
+		commande.setNomCli(cli.getNom());	
+		commande.setPrenomCli(cli.getPrenom());
 		commande.setDate(DateDuJour.getDateDuJour());
 		commande.setRef("COM" + (commandeService.SelectLastCommande().getIdCommande() + 1));
 

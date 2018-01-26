@@ -51,8 +51,8 @@
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td width="20%"><s:property value="idCommande" /></td>
-					<td width="20%"><s:property value="client.nom" /></td>
-					<td width="20%"><s:property value="client.prenom" /></td>
+					<td width="20%"><s:property value="nomCli" /></td>
+					<td width="20%"><s:property value="prenomCli" /></td>
 					<td width="20%"><s:property value="ref" /></td>
 					<td width="20%"><s:property value="prixHT" /> &euro;</td>
 					<td><s:a action="voirCom">

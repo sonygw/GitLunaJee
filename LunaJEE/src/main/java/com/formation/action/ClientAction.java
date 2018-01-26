@@ -3,6 +3,8 @@ package com.formation.action;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.NoResultException;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.model.Client;
 import com.formation.service.ClientService;
+import com.formation.service.CommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -21,6 +24,9 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 
 	@Autowired
 	private ClientService clientService;
+
+	@Autowired
+	private CommandeService commandeService;
 
 	// ------------------------------------------------------------------ VARIABLES
 	// GLOBALES A L'APPLICATION -----
@@ -78,7 +84,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	}
 
 	@Action(value = "deleteCli", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
-			@Result(name = "inconnu", location = "/403.jsp") })
+			@Result(name = "inconnu", location = "/403.jsp")})
 	public String DeleteClient() {
 		if (!verifUser())
 			return "inconnu";

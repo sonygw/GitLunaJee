@@ -10,24 +10,31 @@
 </head>
 <body>
 
-
-
-	<s:form action="affTabCli">
-		<s:submit value="Client" type="image"
-			src="images/accueil/customer.ico" theme="simple"
-			style="margin-left:50%">Clients</s:submit>
-	</s:form>
-
+	<h1 style="text-align: center; margin-top:0px ; position:relative">BIENVENUE ${client.prenom}</h1>
 	<br>
-	<s:form action="affTabArt">
-		<s:submit value="Articles" type="image"
-			src="images/accueil/commandes.ico" theme="simple"
-			style="margin-left:50%">Articles</s:submit>
-	</s:form>
-	<br>
-	<s:form action="affTabCom">
-		<s:submit value="Commandes" type="image" src="images/accueil/cart.ico"
-			theme="simple" style="margin-left:50%">Commandes</s:submit>
-	</s:form>
+
+	<div style="overflow: auto">
+
+		<s:a action="affTabCli" theme="simple" style="margin-right:5rem"
+			title="Clients">
+			<img src="images/accueil/customer.ico">
+		</s:a>
+
+		<s:a action="affTabArt" theme="simple" style="margin-right:3rem"
+			title="Articles">
+			<img src="images/accueil/commandes.ico">
+		</s:a>
+
+		<s:a action="affTabCom" theme="simple" style="margin-right:3rem"
+			title="Commandes">
+			<img src="images/accueil/cart.ico">
+		</s:a>
+
+		<s:a action="affTabPan" theme="simple" style="float:right"
+			title="Panier">
+			<img src="images/panier.ico">
+		</s:a>
+	</div>
+
 </body>
 </html>
