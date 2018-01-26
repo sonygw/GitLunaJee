@@ -78,6 +78,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private Article articleUpdate;
 	private int codeArt;
 	private int qte;
+	private String design;
 
 	private List<Article> models = null;
 
@@ -199,6 +200,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	}
 
 	
+//	public String recherche() {
+//		if (!verifUser())
+//			return "inconnu";
+//		
+//		article = articleService.SelectArticleByDesign(design);
+//		
+//	}
 
 	public int getCodeArt() {
 		return codeArt;

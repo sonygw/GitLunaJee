@@ -20,22 +20,22 @@
 
 		<s:a action="affTabCli" theme="simple" style="margin-right:5rem"
 			title="Clients">
-			<img src="images/accueil/customer.ico">
+			<img src="images/people.ico">
 		</s:a>
 
 		<s:a action="affTabArt" theme="simple" style="margin-right:3rem"
 			title="Articles">
-			<img src="images/accueil/commandes.ico">
+			<img src="images/ship.ico">
 		</s:a>
 
 		<s:a action="affTabCom" theme="simple" style="margin-right:3rem"
 			title="Commandes">
-			<img src="images/accueil/cart.ico">
+			<img src="images/cart.ico">
 		</s:a>
 
-		<s:a action="affTabPan" theme="simple" style="float:right"
+		<s:a action="affTabPan" theme="simple" style="margin-right:3rem"
 			title="Panier">
-			<img src="images/panier.ico">
+			<img src="images/panier_accueil.ico">
 		</s:a>
 	</div>
 
