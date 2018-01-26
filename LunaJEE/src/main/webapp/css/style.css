@@ -36,44 +36,39 @@ html, body {
 
 .monbodyArticle {
 	font-size : 1.6rem;
-	background-color : #66ff33;
-	vertical-align:middle
+	background-color : transparent;
+	vertical-align:middle;
+	/*border: 3px solid #66ff33;*/
 }
 
 .monbodyCommande {
 	font-size : 1.6rem;
-	background-color : #ff6600;
-	vertical-align:middle
-	
+	background-color : transparent;
+	vertical-align:middle;
+	/*border: 3px solid #ff6600;*/
 }
 
 .monbodyClient {
 	font-size : 1.6rem;
-	background-color : #0066ff;
-	vertical-align:middle
+	background-color : transparent;
+	vertical-align:middle;
+	/*border: 3px solid #0066ff;*/
 }
 
 .monbodyPanier {
 	font-size : 1.6rem;
-	background-color : #993399;
-	vertical-align:middle
+	background-color : transparent;
+	vertical-align:middle;
+	/*border: 3px solid #993399;*/
 	
 }
 
 .monmenu {
 	font-size : 1.6rem;
 	background-color : transparent ;
+	
 }
 
-div{
-	
-	background-image: url("images/fond-background-bleu.jpg"); 
-}
-
-.background{
-	
-	/*background-size : cover ;*/
-}
 
 input, button {
 	outline: none;

@@ -12,7 +12,7 @@
 <style type="text/css">
 .errors {
 	background-color: #FFCCCC;
-	border: 1px solid #CC0000;
+	
 	width: 400px;
 	margin-bottom: 8px;
 }

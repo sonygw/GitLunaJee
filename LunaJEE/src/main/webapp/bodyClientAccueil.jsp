@@ -30,8 +30,6 @@
 <body>
 
 
-
-
 	<h1>Liste des clients :</h1>
 
 	<s:if test="getModels()!=null">
