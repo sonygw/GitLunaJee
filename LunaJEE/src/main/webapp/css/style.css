@@ -9,6 +9,7 @@ html, body {
 	font-size: 100%;
 	height: 100%;
 	overflow: hidden;
+	
 }
 
 .submitAjout {
@@ -23,8 +24,9 @@ html, body {
 
 .monheader {
 	font-size : 1.7rem;
-	background-color : #669999;
+	background-color : transparent;
 	text-align : left;
+	
 }
 
 .monfooter {
@@ -60,7 +62,7 @@ html, body {
 
 .monmenu {
 	font-size : 1.6rem;
-	background-color : #ddccff;
+	background-color : white ;
 }
 
 input, button {

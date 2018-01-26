@@ -8,9 +8,9 @@
 
 <title>Insert title here</title>
 </head>
-<body class="monheader">
+<body class="monheader" style="background-image: url(images/banner.bmp)">
 
-	<div style="overflow:auto">
+	<div style="overflow:auto" >
 
 <s:a action="accueil" theme="simple" style="margin-right:5rem" title="Accueil">
 <img src="images/accueil/home64.ico"> 

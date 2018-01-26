@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
-<body style="vertical-align: top">
+<body style="vertical-align: top; background-image: url(images/fond-background-bleu.jpg)">
 
 	<h1 style="text-align: center">BIENVENUE ${client.prenom}</h1>
 	<br>
