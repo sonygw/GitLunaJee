@@ -78,6 +78,10 @@ input, button {
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+.scroll{
+	overflow:scroll;
+}
+
 .demo {
 	position: absolute;
 	top: 50%;
