@@ -2,6 +2,9 @@ package com.formation.action;
 
 import java.util.Map;
 
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -18,7 +21,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String username;
 	private String password;
 
-	
 	private Map<String, Object> sessionMap;
 
 	@Autowired
@@ -34,30 +36,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		this.sessionMap = map;
 
 	}
-	
+
 	public boolean verifUser() {
-		boolean b = false ;
+		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-		
-			
+
 		} catch (NullPointerException e) {
-			
-			
+
 		}
 		return b;
 	}
-	
 
 	@Action(value = "connecter", results = { @Result(name = "input", location = "/index.jsp"),
-			@Result(name = "success", type = "redirect", location = "accueil"),
-//			@Result(name = "inconnu", location = "/403.jsp")
+			@Result(name = "success", type = "redirect", location = "accueil")
+			//@Result(name = "inconnu", location = "/403.jsp")
 			})
 	public String connecter() {
 
-//		if (!verifUser())
-//			return "inconnu";
-//		
+		try {
 		if (!username.isEmpty() && !password.isEmpty()) {
 			Client client = clientService.SelectClientByLogNPwd(username, password);
 			if (client != null) {
@@ -68,8 +65,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		}
 		return INPUT;
 	}
+		catch(NoResultException e) {
+			return INPUT;
+		}}
 
-	@Action(value = "deconnecter", results = {@Result(name = "success", location = "affTabCli", type = "redirect"),
+	@Action(value = "deconnecter", results = {@Result(name = "success", location = "/index.jsp"),
 	@Result(name = "inconnu", location = "/403.jsp") })
 	public String deconnecter() {
 		
@@ -79,8 +79,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		this.sessionMap.clear();
 		return SUCCESS;
 	}
-
-
 
 	public String getUsername() {
 		return username;
