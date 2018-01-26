@@ -9,11 +9,10 @@ html, body {
 	font-size: 100%;
 	height: 100%;
 	overflow: hidden;
-	
 }
 
 .submitAjout {
-	 float : right;
+	float : right;
 	height: 2rem;
 	width: 12rem;
 	color: rgba(255, 255, 255, 0.8);
@@ -27,11 +26,12 @@ html, body {
 	background-color : transparent;
 	text-align : left;
 	
+	
 }
 
 .monfooter {
 	font-size : 1.4rem;
-	background-color : #e6e6ff;
+	background-color : transparent;
 }
 
 .monbodyArticle {
@@ -40,20 +40,20 @@ html, body {
 	vertical-align:middle
 }
 
-.monbodyCommande{
+.monbodyCommande {
 	font-size : 1.6rem;
 	background-color : #ff6600;
 	vertical-align:middle
-	}
 	
-.monbodyClient{
+}
+
+.monbodyClient {
 	font-size : 1.6rem;
 	background-color : #0066ff;
 	vertical-align:middle
 }
 
-.monbodyPanier{
-	
+.monbodyPanier {
 	font-size : 1.6rem;
 	background-color : #993399;
 	vertical-align:middle
@@ -62,7 +62,17 @@ html, body {
 
 .monmenu {
 	font-size : 1.6rem;
-	background-color : white ;
+	background-color : transparent ;
+}
+
+div{
+	
+	background-image: url("images/fond-background-bleu.jpg"); 
+}
+
+.background{
+	
+	/*background-size : cover ;*/
 }
 
 input, button {
@@ -78,7 +88,7 @@ input, button {
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-.scroll{
+.scroll {
 	overflow:scroll;
 }
 
@@ -171,6 +181,4 @@ input, button {
 	-webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
 	transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
 }
-
-
 

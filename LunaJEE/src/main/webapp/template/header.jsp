@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Insert title here</title>
-</head>
-<body class="monheader" style="background-image: url(images/banner.bmp)">
-
-	<div style="overflow:auto" >
+</head>	
+<body class="monheader" >
+<!-- style="background-image: url(images/footer.bmp)" -->
+	<div style="overflow:auto" class="background">
 
 <s:a action="accueil" theme="simple" style="margin-right:5rem" title="Accueil">
 <img src="images/accueil/home64.ico"> 

@@ -14,7 +14,6 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
 import org.apache.struts2.interceptor.SessionAware;
-import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
 import org.hibernate.engine.spi.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
