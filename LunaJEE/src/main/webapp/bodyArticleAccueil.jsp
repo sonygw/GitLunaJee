@@ -32,10 +32,6 @@
 </head>
 <body>
 
-	<s:form action="deconnecter">
-		<s:submit>vider</s:submit>
-	</s:form>
-
 	<h1>Liste des Articles :</h1>
 
 	<s:if test="getModels()!=null">

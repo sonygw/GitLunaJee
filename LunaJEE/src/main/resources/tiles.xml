@@ -12,11 +12,27 @@
 		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
 		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
+	
+		<definition name="baseLayoutClientModif" template="/template/baseLayoutClientModif.jsp">
+		<put-attribute name="title" value="Template"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
+	</definition>
+	
+	
 
 	<definition name="baseLayoutCommande" template="/template/baseLayoutCommande.jsp">
 		<put-attribute name="title" value="Template"></put-attribute>
 		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
 		<put-attribute name="menuCommande" value="/template/menuCommande.jsp"></put-attribute>
+		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="baseLayoutCommandeModif" template="/template/baseLayoutCommandeModif.jsp">
+		<put-attribute name="title" value="Template"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
 		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
 		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
@@ -28,7 +44,13 @@
 		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
 		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
 	</definition>
-	
+
+	<definition name="baseLayoutArticleModif" template="/template/baseLayoutArticleModif.jsp">
+		<put-attribute name="title" value="Template"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/template/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
+	</definition>
 	
 
 	<definition name="baseLayoutAccueil" template="/template/baseLayoutAccueil.jsp">
@@ -57,14 +79,13 @@
 		<put-attribute name="body" value="/bodyArticleAccueil.jsp"></put-attribute>
 	</definition>
 
-	<definition name="articleCreer" extends="baseLayoutArticle">
+	<definition name="articleCreer" extends="baseLayoutArticleModif">
 		<put-attribute name="title" value="Créer Article"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleCreer.jsp"></put-attribute>
 	</definition>
 
-	<definition name="articleModif" extends="baseLayoutArticle">
+	<definition name="articleModif" extends="baseLayoutArticleModif">
 		<put-attribute name="title" value="Modifier Article"></put-attribute>
-		<put-attribute name="menu" value="/template/menuClientModif"></put-attribute>
 		<put-attribute name="body" value="/bodyArticleModif.jsp"></put-attribute>
 		
 	</definition>
@@ -79,12 +100,12 @@
 		<put-attribute name="body" value="/bodyClientAccueil.jsp"></put-attribute>
 	</definition>
 
-	<definition name="clientCreer" extends="baseLayoutClient">
+	<definition name="clientCreer" extends="baseLayoutClientModif">
 		<put-attribute name="title" value="Créer Client"></put-attribute>
 		<put-attribute name="body" value="/bodyClientCreer.jsp"></put-attribute>
 	</definition>
 
-	<definition name="clientModif" extends="baseLayoutClient">
+	<definition name="clientModif" extends="baseLayoutClientModif">
 		<put-attribute name="title" value="Modifier Client"></put-attribute>
 		<put-attribute name="body" value="/bodyClientModif.jsp"></put-attribute>
 	</definition>
@@ -94,12 +115,12 @@
 		<put-attribute name="body" value="/bodyCommandeAccueil.jsp"></put-attribute>
 	</definition>
 
-	<definition name="commandeCreer" extends="baseLayoutCommande">
+	<definition name="commandeCreer" extends="baseLayoutCommandeModif">
 		<put-attribute name="title" value="Créer Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeCreer.jsp"></put-attribute>
 	</definition>
 
-	<definition name="commandeModif" extends="baseLayoutCommande">
+	<definition name="commandeModif" extends="baseLayoutCommandeModif">
 		<put-attribute name="title" value="Modifier Commande"></put-attribute>
 		<put-attribute name="body" value="/bodyCommandeModif.jsp"></put-attribute>
 	</definition>

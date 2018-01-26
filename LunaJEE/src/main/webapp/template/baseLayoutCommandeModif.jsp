@@ -5,8 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 <link rel='stylesheet prefetch'
@@ -16,7 +16,7 @@
 
 </head>
 <body class="scroll">
-	<table border="0" cellpadding="0" cellspacing="2" width="100%"
+	<table border="0" cellpadding="2" cellspacing="2" width="100%"
 		height="100%">
 		<tr>
 
@@ -24,9 +24,7 @@
 					name="header"></tiles:insertAttribute></td>
 		</tr>
 		<tr>
-			<td class="monmenu" width="10%" style="min-width: 75px"><tiles:insertAttribute
-					name="menu"></tiles:insertAttribute></td>
-			<td class="monbodyClient" height="80%" width="90%"><tiles:insertAttribute
+			<td class="monbodyCommande" height="80%" width="90%"><tiles:insertAttribute
 					name="body"></tiles:insertAttribute></td>
 		</tr>
 		<tr>

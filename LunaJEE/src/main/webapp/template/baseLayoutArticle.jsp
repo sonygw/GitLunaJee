@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
+<body class="scroll">
 	<table border="0" cellpadding="2" cellspacing="2" width="100%"
 		height="100%">
 		<tr>
