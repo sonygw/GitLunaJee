@@ -35,10 +35,9 @@ public class TilesAction extends ActionSupport implements SessionAware {
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-			System.out.println(b);
-
+			
 		} catch (NullPointerException e) {
-			System.out.println(b);
+			
 
 		}
 		return b;

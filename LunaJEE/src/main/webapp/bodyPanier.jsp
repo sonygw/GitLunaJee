@@ -61,8 +61,8 @@
 			</s:iterator>
 		</table>
 		<s:form action="validPanier">
-			<s:textfield name="regle" label="Reglement : "></s:textfield>
-			<s:submit value="Payer"></s:submit>
+			<s:textfield class="textFieldPerso" name="regle" value = "" placeholder="Reglement " style="position: absolute; left:85% ; top: 70%;"></s:textfield>
+			<s:submit class="ButtPerso" value="Payer" style="position: absolute; top: 75%; width: 200px"></s:submit>
 		</s:form>
 	</s:if>
 	<s:else>

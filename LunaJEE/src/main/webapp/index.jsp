@@ -7,8 +7,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=yes">
 
-<link rel='stylesheet prefetch'
-	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<!-- <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">  -->
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"> 	
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -41,8 +41,7 @@
 
 	</div>
 
-	<script
-		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	
 
 
 

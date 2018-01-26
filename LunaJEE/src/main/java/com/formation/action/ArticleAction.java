@@ -39,7 +39,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	@Autowired
 	private PanierService panierService;
-	// ------------------------------------------------------------------ VARIABLES
+	// ----------------------------------------------- VARIABLES
 	// GLOBALES A L'APPLICATION -----
 	private Map<String, Object> sessionMap;
 
@@ -56,25 +56,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-			System.out.println(b);
-
+		
 		} catch (NullPointerException e) {
-			System.out.println(b);
-
+		
 		}
 		return b;
 	}
 
 	private Article article = context.getBean(Article.class);
-
-	public Article getArticle() {
-		return article;
-	}
-
-	public void setArticle(Article article) {
-		this.article = article;
-	}
-
 	private Article articleUpdate;
 	private int codeArt;
 	private int qte;
@@ -152,11 +141,18 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		if (!verifUser())
 			return "inconnu";
 
-		article.setCode("ART" + article.getIdArticle());
+		article.setIdArticle(0);
+	
 		article.setVisible(true);
 
 		articleService.SaveOrUpdateArticle(article);
-
+		// on save une première fois pour que l'objet soit persistant
+		
+		article.setCode("ART" + article.getIdArticle());
+		// on set son id
+		
+		articleService.SaveOrUpdateArticle(article);
+		// on l'update
 		return SUCCESS;
 
 	}
@@ -199,14 +195,6 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
-	
-//	public String recherche() {
-//		if (!verifUser())
-//			return "inconnu";
-//		
-//		article = articleService.SelectArticleByDesign(design);
-//		
-//	}
 
 	public int getCodeArt() {
 		return codeArt;
@@ -231,4 +219,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public void setArticleUpdate(Article articleUpdate) {
 		this.articleUpdate = articleUpdate;
 	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
 }

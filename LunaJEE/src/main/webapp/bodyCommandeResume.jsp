@@ -19,10 +19,10 @@
 	<s:form> Prix : <s:property value="commande.prixHT" />&euro;</s:form>
 
 
-	<table>
+	<table id="myTable">
 
 
-		<tr>
+		<tr style="background-color: silver;">
 			<td width="20%">Référence</td>
 			<td width="30%">Description</td>
 			<td width="30%">Quantité achetée</td>

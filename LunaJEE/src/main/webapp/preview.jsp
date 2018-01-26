@@ -120,7 +120,7 @@ border: 1px solid black;
 
 	</s:if>
 
-	<input type="button" onClick="print();" value="Imprimer cette page">
+	<input class="ButtPerso" type="button" onClick="print();" value="Imprimer cette page">
 
 
 </body>

@@ -21,7 +21,6 @@ public class Client {
 	private String numeroTelephone;
 	private String remarques;
 	private String date;
-	private String code;
 
 	@Column(unique = true)
 	private String login;
@@ -65,7 +64,7 @@ public class Client {
 	}
 
 	public Client(String nom, String prenom, String email, String adresse, boolean carteFidelite,
-			String numeroTelephone, String remarques, String date, String code, String login, String motDePasse,
+			String numeroTelephone, String remarques, String date, String login, String motDePasse,
 			boolean admin) {
 		super();
 		this.nom = nom;
@@ -76,19 +75,12 @@ public class Client {
 		this.numeroTelephone = numeroTelephone;
 		this.remarques = remarques;
 		this.date = date;
-		this.code = code;
 		this.login = login;
 		this.motDePasse = motDePasse;
 		this.admin = admin;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
+	
 
 	public long getIdClient() {
 		return idClient;

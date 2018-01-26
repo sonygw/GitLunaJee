@@ -11,7 +11,10 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.formation.context.ConteneurSpring;
+import com.formation.model.Article;
 import com.formation.model.Client;
 import com.formation.service.ClientService;
 import com.formation.service.CommandeService;
@@ -22,11 +25,13 @@ import com.opensymphony.xwork2.ModelDriven;
 @Namespace(value = "/")
 public class ClientAction extends ActionSupport implements ModelDriven<Client>, SessionAware {
 
+	
+	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
+
+	
 	@Autowired
 	private ClientService clientService;
 
-	@Autowired
-	private CommandeService commandeService;
 
 	// ------------------------------------------------------------------ VARIABLES
 	// GLOBALES A L'APPLICATION -----
@@ -41,7 +46,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	// ------------------------------------------------------------------------------------------------------------
 	private static final long serialVersionUID = 1L;
 
-	private Client client = new Client();
+	private Client client = context.getBean(Client.class);
 	private Client clientUpdate;
 	private int codeCli;
 	private List<Client> models = null;
@@ -50,11 +55,9 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-			System.out.println(b);
-
+		
 		} catch (NullPointerException e) {
-			System.out.println(b);
-
+		
 		}
 		return b;
 	}
@@ -84,7 +87,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	}
 
 	@Action(value = "deleteCli", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
-			@Result(name = "inconnu", location = "/403.jsp")})
+			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
 		if (!verifUser())
 			return "inconnu";
@@ -125,6 +128,8 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 
 		if (!verifUser())
 			return "inconnu";
+
+		client.setIdClient(0);
 
 		clientService.SaveOrUpdateClient(client);
 

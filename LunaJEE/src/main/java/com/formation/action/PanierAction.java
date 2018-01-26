@@ -63,18 +63,16 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-			System.out.println(b);
-
+		
 		} catch (NullPointerException e) {
-			System.out.println(b);
-
+		
 		}
 		return b;
 	}
 
 	private static final long serialVersionUID = 1L;
 
-	private Panier panier = new Panier();
+	private Panier panier = context.getBean(Panier.class);
 	private int codePan;
 	private int codeArt;
 	private String regle;
@@ -145,11 +143,10 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		Commande commande = context.getBean(Commande.class);
 		Client cli = (Client) sessionMap.get("client");
 		commande.setAdresse(cli.getAdresse());
-
-		commande.setNomCli(cli.getNom());	
+		commande.setIdCommande(0);
+		commande.setNomCli(cli.getNom());
 		commande.setPrenomCli(cli.getPrenom());
 		commande.setDate(DateDuJour.getDateDuJour());
-		commande.setRef("COM" + (commandeService.SelectLastCommande().getIdCommande() + 1));
 
 		commande.setReglement(regle);
 
@@ -161,6 +158,8 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 		commande.setPrixHT(prixtotal);
 
+		commandeService.SaveOrUpdateCommande(commande);
+		commande.setRef("COM" + commande.getIdCommande());
 		commandeService.SaveOrUpdateCommande(commande);
 
 		for (Panier p : listPan)

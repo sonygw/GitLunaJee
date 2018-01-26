@@ -29,11 +29,41 @@
 </head>
 <body>
 
+<div align=right style="margin-right: 50%">
+<%-- <s:form action="triCli"> --%>
+<%-- 	<s:textfield name="tri" tooltip="Nom du client..." ></s:textfield> --%>
+<%-- 	<s:submit visible="false" value="tri" label="Rechercher" /> --%>
+<%-- </s:form> --%>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche par nom" title="Type in a name">
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</div>
 
 	<h1>Liste des clients :</h1>
 
 	<s:if test="getModels()!=null">
-		<table>
+		<table id="myTable">
 			<tr>
 				<td width="20%">Id</td>
 				<td width="30%">Nom</td>

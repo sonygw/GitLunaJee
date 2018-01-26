@@ -13,35 +13,35 @@
 		<legend>Ajout d'un client</legend>
 		<s:form method="post" action="createCli">
 			<div>
-				<s:textfield label="Nom" name="nom" required="true"
+				<s:textfield class="textFieldPerso" label="Nom" name="nom" required="true"
 					labelposition="left" />
-				<s:textfield label="Prenom" name="prenom" required="true"
-					labelposition="left" />
-
-				<s:textfield label="Email" name="email" required="true"
+				<s:textfield class="textFieldPerso" label="Prenom" name="prenom" required="true"
 					labelposition="left" />
 
-				<s:textfield label="remarques" name="remarques" required="true"
+				<s:textfield class="textFieldPerso" label="Email" name="email" required="true"
 					labelposition="left" />
-
-				<s:textfield label="Telephone" name="numeroTelephone"
+				
+				<s:textfield class="textFieldPerso" label="Telephone" size="10" name="numeroTelephone"
 					required="true" labelposition="left" />
 
-				<s:textfield label="Adresse" name="adresse" required="true"
+				<s:textfield class="textFieldPerso" label="Adresse" name="adresse" required="true"
 					labelposition="left" />
 
-				<s:textfield label="Login" name="client.login" required="true"
+				<s:textfield class="textFieldPerso" label="Login" name="client.login" required="true"
 					labelposition="left" />
 
-				<s:password label="Mot de passe" name="client.motDePasse"
+				<s:password class="textFieldPerso" label="Mot de passe" name="client.motDePasse"
 					required="true" labelposition="left" />
+					
+					<s:textfield class="textFieldPerso" label="remarques" name="remarques" 
+					labelposition="left" />
 
 			</div>
 			<s:radio label="Carte de fidélité" labelposition="left"
 				id="radiobutton" name="carteFidelite"
 				list="#{'true' : 'oui', 'false' : 'non'}" />
 
-			<s:submit value="Enregistrer" label="Enregistrer" />
+			<s:submit class="ButtPerso" value="Enregistrer" label="Enregistrer" />
 		</s:form>
 	</fieldset>
 </body>

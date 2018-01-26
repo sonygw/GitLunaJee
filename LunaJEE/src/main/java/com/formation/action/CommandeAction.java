@@ -43,11 +43,9 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-			System.out.println(b);
-
+		
 		} catch (NullPointerException e) {
-			System.out.println(b);
-
+		
 		}
 		return b;
 	}
@@ -95,28 +93,9 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
-	@Action(value = "updateCom1", results = { @Result(name = "success", location = "commandeModif", type = "tiles"),
-			@Result(name = "inconnu", location = "/403.jsp") })
-	public String redirectionUpdate() {
+	
 
-		if (!verifUser())
-			return "inconnu";
-
-		return SUCCESS;
-	}
-
-	@Action(value = "updateCom2", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
-			@Result(name = "inconnu", location = "/403.jsp") })
-	public String UpdateClient() {
-		if (!verifUser())
-			return "inconnu";
-
-		commandeUpdate.setIdCommande(codeCom);
-
-		commandeService.SaveOrUpdateCommande(commandeUpdate);
-		return SUCCESS;
-
-	}
+	
 
 	@Action(value = "createCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })

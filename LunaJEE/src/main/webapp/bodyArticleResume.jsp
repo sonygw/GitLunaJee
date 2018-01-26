@@ -9,8 +9,12 @@
 </head>
 <body>
 
-	<s:form style="background-color:white" action="submitAjout">
+	<s:form action="submitAjout">
 
+Nom : 
+		<s:property value="article.nom" />
+		<br>
+		<br>	
 		Code : 
 		<s:property value="article.code" />
 		<br>
@@ -30,19 +34,16 @@
 <br>
 		<%-- <s:property value="codeArt" /> --%>
 		<br>
+
 		<s:if test="article.quantite > 0">
-			<s:textfield label="Quantité" name="qte" required="true"
-				labelposition="left">
+			<s:textfield class="textFieldPerso" placeholder="Quantité" name="qte" value="" style="position: absolute; left:85% ; top: 65%;"
+				required="true" labelposition="left">
 			</s:textfield>
-			<s:submit class="submitAjout" value="Ajouter au panier !"
-				Style="align:right">
-				<s:param name="codeArt">
-					<s:property value="idArticle" />
-				</s:param>
-			</s:submit>
+			<s:submit class="ButtPerso" value="Ajouter au panier !"	/>
+			
 		</s:if>
 		<s:else>
-			<s:submit disabled="1" class="submitAjout"
+			<s:submit disabled="1" class="ButtPerso"
 				value="Article indisponible !" Style="align:right">
 				<s:param name="codeArt">
 					<s:property value="idArticle" />
@@ -51,6 +52,7 @@
 
 
 		</s:else>
+
 	</s:form>
 
 

@@ -10,7 +10,7 @@
 <body>
 
 	<div align="center">
-		Louis Zybura et Daniel Arenas <a href="http://actif-solution.com"> <img src="images/logo32.ico"
+	2018 - 						Louis Zybura et Daniel Arenas - Actif Solutions <a href="http://actif-solution.com"> <img src="images/logo32.ico"
 			align="right">
 </a>
 	</div>

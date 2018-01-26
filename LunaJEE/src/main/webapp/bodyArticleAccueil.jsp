@@ -6,6 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -32,10 +34,33 @@
 </head>
 <body>
 
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche par description" title="Type in a name">
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
 	<h1>Liste des Articles :</h1>
 
 	<s:if test="getModels()!=null">
-		<table>
+		<table id="myTable">
 			<tr>
 				<td width="20%">Id</td>
 				<td width="30%">Cat</td>

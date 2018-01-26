@@ -18,7 +18,7 @@
 <body class="scroll">
 	<table border="0" cellpadding="0" cellspacing="2" width="100%"
 		height="100%">
-		<tr style="border: 3px solid black">
+		<tr>
 
 			<td class="monheader" height="15%" colspan="2"><tiles:insertAttribute
 					name="header"></tiles:insertAttribute></td>

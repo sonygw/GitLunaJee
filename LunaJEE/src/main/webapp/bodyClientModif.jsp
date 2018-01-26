@@ -12,26 +12,26 @@
 		<legend>Modification d'un Client</legend>
 		<s:form method="post" action="updateCli2">
 			<div>
-				<s:textfield label="Nom" name="client.nom" labelposition="left" />
-				<s:textfield label="Prenom" name="client.prenom" required="true"
+				<s:textfield class="textFieldPerso" label="Nom" name="client.nom" labelposition="left" />
+				<s:textfield class="textFieldPerso" label="Prenom" name="client.prenom" required="true"
 					labelposition="left" />
 
-				<s:textfield label="Email" name="client.email" required="true"
+				<s:textfield class="textFieldPerso" label="Email" name="client.email" required="true"
 					labelposition="left" />
 
-				<s:textfield label="remarques" name="client.remarques"
+				<s:textfield class="textFieldPerso" label="remarques" name="client.remarques"
 					required="true" labelposition="left" />
 
-				<s:textfield label="Telephone" name="client.numeroTelephone"
+				<s:textfield class="textFieldPerso" label="Telephone" name="client.numeroTelephone"
 					required="true" labelposition="left" />
 
-				<s:textfield label="Adresse" name="client.adresse" required="true"
+				<s:textfield class="textFieldPerso" label="Adresse" name="client.adresse" required="true"
 					labelposition="left" />
 
-				<s:textfield label="Login" name="client.login" required="true"
+				<s:textfield class="textFieldPerso" label="Login" name="client.login" required="true"
 					labelposition="left" />
 					
-				<s:password label="Mot de passe" name="client.motDePasse" required="true"
+				<s:password class="textFieldPerso" label="Mot de passe" name="client.motDePasse" required="true"
 					labelposition="left" />
 
 
@@ -43,7 +43,7 @@
 			<s:textfield type="hidden" name="codeCli">
 				<s:param name="codeCli">${codeCli}</s:param>
 			</s:textfield>
-			<s:submit value="Enregistrer" label="Enregistrer" />
+			<s:submit class="ButtPerso" value="Enregistrer" label="Enregistrer" />
 		</s:form>
 	</fieldset>
 </body>

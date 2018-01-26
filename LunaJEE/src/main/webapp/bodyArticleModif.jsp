@@ -16,31 +16,32 @@
 
 		<s:form method="post" action="updateArt2">
 			<div>
-				<s:textfield label="Catégorie" name="article.categorie"
-					required="true" labelposition="left" >
-				</s:textfield>
 
-				<s:textfield label="Description" name="article.description"
-					 required="true"
-					labelposition="left">
-				</s:textfield>
 
-			
+				<s:textfield class="textFieldPerso" label="Nom" name="article.nom"
+					required="true" labelposition="left" />
 
-				<s:textfield label="Prix HT" name="article.prixHT"
-					 required="true" labelposition="left">
-				</s:textfield>
+				<s:textfield class="textFieldPerso" label="Description"
+					name="article.description" required="true" labelposition="left" />
 
-				<s:textfield label="Quantité" name="article.quantite"
-					required="true" labelposition="left">
-				</s:textfield>
+
+				<s:textfield class="textFieldPerso" label="Catégorie"
+					name="article.categorie" required="true" labelposition="left" />
+
+
+				<s:textfield class="textFieldPerso" label="Prix HT"
+					name="article.prixHT" required="true" labelposition="left" />
+
+
+				<s:textfield class="textFieldPerso" label="Quantité"
+					name="article.quantite" required="true" labelposition="left" />
 
 			</div>
 
 			<s:textfield type="hidden" name="codeArt">
 				<s:param name="codeArt">${codeArt}</s:param>
 			</s:textfield>
-			<s:submit value="Enregistrer" label="Enregistrer" />
+			<s:submit class="ButtPerso" value="Enregistrer" label="Enregistrer" />
 		</s:form>
 	</fieldset>
 </body>
