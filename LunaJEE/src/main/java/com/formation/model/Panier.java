@@ -17,10 +17,10 @@ public class Panier {
 	@GeneratedValue
 	private long idPanier;
 
-	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	private Article article;
 	
-	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Client client;
 	private int quantite;
 	private double prixHT;

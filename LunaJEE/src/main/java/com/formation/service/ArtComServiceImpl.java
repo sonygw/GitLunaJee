@@ -24,13 +24,7 @@ public class ArtComServiceImpl implements ArtComService {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * constructeur avec la connection
-	 * 
-	 * @param conn
-	 *            connexionJDBC
-	 */
-
+	
 	@Override
 	public ArrayList<ArtCom> SelectAllArtComFromCommande(int idCommande) {
 

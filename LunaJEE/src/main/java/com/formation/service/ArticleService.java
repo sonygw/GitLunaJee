@@ -20,7 +20,7 @@ public interface ArticleService {
 	/**
 	 * Supprimer l'article en fonction de l'id
 	 * @param article a supprimer
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un bool de v�rif. false = reussi
 	 */
 	boolean DeleteArticle(Article obj);
 	/**
@@ -38,7 +38,7 @@ public interface ArticleService {
 	public Article SelectLastArticle();
 	
 	/**
-	 * Selectionne les Article qui contiennent la chaine de caract�re pass�e en param�tre
+	 * Selectionne les Articles qui contiennent la chaine de caract�re pass�e en param�tre
 	 * @param design chaine de recherche
 	 * @return ArrayList d'article
 	 */

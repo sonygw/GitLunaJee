@@ -56,9 +56,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		boolean b = false;
 		try {
 			b = (boolean) sessionMap.get("authentification");
-		
+
 		} catch (NullPointerException e) {
-		
+
 		}
 		return b;
 	}
@@ -73,6 +73,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	@Override
 	public Article getModel() {
+
 		// TODO Auto-generated method stub
 		return article;
 	}
@@ -85,6 +86,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return models;
 	}
 
+	/**
+	 * Affiche tous les clients de la base
+	 * 
+	 * @return liste d'article
+	 */
 	@Action(value = "affTabArt", results = { @Result(name = "success", location = "articleAccueil", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTable() {
@@ -97,6 +103,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
+	/**
+	 * Suppression d'un article
+	 * 
+	 * @return
+	 */
 	@Action(value = "deleteArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
@@ -109,6 +120,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
+	/**
+	 * Selection d'un article par son id
+	 * 
+	 * @return
+	 */
 	@Action(value = "updateArt1", results = { @Result(name = "success", location = "articleModif", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String redirectionUpdate() {
@@ -120,6 +136,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 	}
 
+	/**
+	 * Modification d'un article
+	 * @return
+	 */
 	@Action(value = "updateArt2", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String UpdateClient() {
@@ -134,6 +154,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	}
 
+	/**
+	 * Creation d'un article
+	 * @return
+	 */
 	@Action(value = "createArt", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createClient() {
@@ -142,21 +166,25 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			return "inconnu";
 
 		article.setIdArticle(0);
-	
+
 		article.setVisible(true);
 
 		articleService.SaveOrUpdateArticle(article);
 		// on save une première fois pour que l'objet soit persistant
-		
+
 		article.setCode("ART" + article.getIdArticle());
 		// on set son id
-		
+
 		articleService.SaveOrUpdateArticle(article);
 		// on l'update
 		return SUCCESS;
 
 	}
 
+	/**
+	 * Affiche les détails d'un article
+	 * @return
+	 */
 	@Action(value = "voirArt", results = { @Result(name = "success", location = "articleResume", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichArticle() {
@@ -169,6 +197,11 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 
 	}
+	
+	/**
+	 * Creation d'un panier 
+	 * @return
+	 */
 
 	@Action(value = "submitAjout", results = { @Result(name = "success", location = "affTabArt", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
@@ -194,7 +227,6 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 
 	}
-
 
 	public int getCodeArt() {
 		return codeArt;

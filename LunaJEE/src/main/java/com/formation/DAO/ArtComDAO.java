@@ -20,14 +20,19 @@ public interface ArtComDAO {
 	public ArrayList<ArtCom> SelectAllArtComFromCommande(int idCommande);
 
 	/**
-	 * Cr�er un ArtCom en base
+	 * Cr�er ou modifier un ArtCom en base
 	 * 
 	 * @param obj
 	 *            objet commande
-	 * @return bool�en de verif
+	 * @return un artCom
 	 */
 
 	ArtCom SaveOrUpdateArtCom(ArtCom obj);
 
+	/**
+	 * Suppression d'un ArtCom
+	 * @param obj ArtCom
+	 * @return un artcom
+	 */
 	ArtCom DeleteArtCom(ArtCom obj);
 }

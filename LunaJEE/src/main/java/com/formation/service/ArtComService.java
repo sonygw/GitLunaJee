@@ -27,9 +27,14 @@ public interface ArtComService {
 	 *            objet commande
 	 * @return bool�en de verif
 	 */
-
 	boolean SaveOrUpdateArtCom(ArtCom obj);
 
 
+	/**
+	 * Supprimer un ArtCom en base
+	 * 
+	 * @param obj
+	 * @return booleen de verification false si reussi
+	 */
 	boolean DeleteArtCom(ArtCom obj);
 }

@@ -28,6 +28,10 @@ public class ConteneurSpring {
 	@Autowired
 	private Environment env;
 
+	/**
+	 * Creation d'une datasource 
+	 * @return datasoruce
+	 */
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -40,6 +44,10 @@ public class ConteneurSpring {
 	
 
 
+	/**
+	 * Configuration de Hibernate 5 par approche Java
+	 * @return factoryBean
+	 */
 	@Bean
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
@@ -61,6 +69,10 @@ public class ConteneurSpring {
 		return factoryBean;
 	}
 			
+	/**
+	 * Configuration de la SessionFactory de Hibernate
+	 * @return transactionManager de la sessionFactory
+	 */
 	@Bean	
 		public HibernateTransactionManager getTransactionManager() {
 			HibernateTransactionManager transactionManager = new HibernateTransactionManager();

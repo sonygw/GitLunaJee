@@ -14,13 +14,13 @@ public interface CommandeService {
 	/**
 	 * Selectionne les Commandes d'un client
 	 * @param idclient id du client
-	 * @return
+	 * @return liste de toutes les commandes d'un client (arrayList)
 	 */
 	public ArrayList<Commande> SelectCommandesClient(int idclient);
 	
 	/**
 	 * selectionne une commande gr�ce � son ID
-	 * @param id id de la commande
+	 * @param id  de la commande
 	 * @return un objet Commande
 	 */
 	public Commande SelectCommande(int id);
@@ -35,11 +35,16 @@ public interface CommandeService {
 	 * @return un bool de v�rif. vrai = reussi
 	 */
 
+	/**
+	 * Ajout ou modification d'une commande
+	 * @param un objet commande à modifier
+	 * @return un booleen de verification (true = reussi)
+	 */
 	public boolean SaveOrUpdateCommande(Commande commande);
 	/**
 	 * Supprime la commande
 	 * @param id id de la commande � supprimer
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un bool de v�rif. false = reussi
 	 */
 	
 	public boolean DeleteCommande(Commande commande);

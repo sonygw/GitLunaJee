@@ -20,20 +20,20 @@ public interface ArticleDAO {
 	/**
 	 * Supprimer l'article en fonction de l'id
 	 * @param article a supprimer
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un article
 	 */
 	Article DeleteArticle(Article art);
 	/**
 	 * Update un article en fonction d'un Objet Article 
 	 * @param obj Obj a inserer en base
 	 * @param id id de l'objet � update
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un article
 	 */
 	public Article SaveOrUpdateArticle(Article obj);
 	
 	/**
 	 * Selectionne le dernier article
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un article
 	 */
 	public Article SelectLastArticle();
 	

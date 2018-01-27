@@ -2,7 +2,10 @@ package com.formation.util;
 
 public class DateDuJour {
 
-	
+	/**
+	 * 
+	 * @return La date du jour en format yyyy/MM/dd
+	 */
 	public final static String getDateDuJour() {
 		String format = "yyyy/MM/dd";
 

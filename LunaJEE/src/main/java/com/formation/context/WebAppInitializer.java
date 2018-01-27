@@ -11,12 +11,21 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
+
+
 public class WebAppInitializer implements WebApplicationInitializer{
 
+	/**
+	 * Configuration du Conteneur Spring dans le fichier de configuration du conteneur Web : approche Java
+	 * @return
+	 */
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { ConteneurSpring.class };
 	}
 
+	/**
+	 * Configuration du conteneur Web
+	 */
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 

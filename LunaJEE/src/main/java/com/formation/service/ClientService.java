@@ -12,6 +12,13 @@ public interface ClientService {
 	 * @return un client suivant son id
 	 */
 	public Client SelectClient(int id);
+	
+	/**
+	 * Selection d'un client par son login ET son mot de passe
+	 * @param log = login
+	 * @param mdp = mot de passe
+	 * @return un objet Client
+	 */
 	public Client SelectClientByLogNPwd(String log, String mdp);
 	/**
 	 * S�lection de tous les clients de la base de donn�es sous forme d'ArrayList.
@@ -28,13 +35,13 @@ public interface ClientService {
 	/**
 	 * Suppression d'un objet Client.
 	 * @param obj client
-	 * @return bool�en de v�rification : vrai si r�ussi
+	 * @return bool�en de v�rification : false si r�ussi
 	 */
 	public boolean DeleteClient(Client obj);
 	
 
 	/**
-	 * Modification d'un objet Client dans la base de donn�es.
+	 * Ajout et modification d'un objet Client dans la base de donn�es.
 	 * @param obj client
 	 * @param id du client
 	 * @return bool�en de v�rification : vrai si r�ussi
@@ -42,9 +49,6 @@ public interface ClientService {
 	public boolean SaveOrUpdateClient(Client obj);
 	
 
-
-	
-	
 	/**
 	 * S�lection du dernier client de la base de donn�es.
 	 * @return le dernier client de la base de donn�es

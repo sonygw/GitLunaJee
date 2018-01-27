@@ -14,7 +14,7 @@ public interface CommandeDAO {
 	/**
 	 * Selectionne les Commandes d'un client
 	 * @param idclient id du client
-	 * @return
+	 * @return une arrayList des commandes du client
 	 */
 	public ArrayList<Commande> SelectCommandesClient(int idclient);
 
@@ -32,14 +32,14 @@ public interface CommandeDAO {
 	/**
 	 * Cr�er une commande 
 	 * @param commande Objet commande � cr�er
-	 * @return un bool de v�rif. vrai = reussi
+	 * @return un objet commande
 	 */
 	
 	public Commande SaveOrUpdateCommande(Commande commande);
 	/**
 	 * Supprime la commande
-	 * @param id id de la commande � supprimer
-	 * @return un bool de v�rif. vrai = reussi
+	 * @param commande a supprimer
+	 * @return un objet commande
 	 */
 	
 	public Commande DeleteCommande(Commande commande);

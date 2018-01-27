@@ -12,6 +12,13 @@ public interface ClientDAO {
 	 * @return un client suivant son id
 	 */
 	public Client SelectClient(int id);
+	
+	/**
+	 * Selection d'un client par son login ET son mot de passe
+	 * @param log = login
+	 * @param mdp = mot de passe
+	 * @return un objet Client
+	 */
 	public Client SelectClientByLogNPwd(String log, String mdp);
 	/**
 	 * S�lection de tous les clients de la base de donn�es sous forme d'ArrayList.
@@ -28,7 +35,7 @@ public interface ClientDAO {
 	/**
 	 * Suppression d'un objet Client.
 	 * @param obj client
-	 * @return bool�en de v�rification : vrai si r�ussi
+	 * @return objet Client
 	 */
 	public Client DeleteClient(Client obj);
 	
@@ -37,7 +44,7 @@ public interface ClientDAO {
 	 * Modification d'un objet Client dans la base de donn�es.
 	 * @param obj client
 	 * @param id du client
-	 * @return bool�en de v�rification : vrai si r�ussi
+	 * @return un objet Client
 	 */
 	public Client SaveOrUpdateClient(Client obj);
 	
