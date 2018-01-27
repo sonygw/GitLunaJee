@@ -26,6 +26,10 @@ public class ArtComServiceTest {
 	private ArtComService artComService;
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
+	/**
+	 * Test de creation/modification d'un artCom dans la base
+	 * Le resultat attendu doit etre true
+	 */
 	@Test
 	@Transactional
 
@@ -36,6 +40,10 @@ public class ArtComServiceTest {
 		assertTrue(artComService.SaveOrUpdateArtCom(artCom));
 	}
 
+	/**
+	 * Test de selection d'un artCom dans la base
+	 * Le resultat attendu ne doit pas etre nul
+	 */
 	@Test
 	@Transactional
 
@@ -46,6 +54,10 @@ public class ArtComServiceTest {
 		assertNotNull(artComService.SelectAllArtComFromCommande(500));
 	}
 
+	/**
+	 * Test de creation/modification d'un artCom dans la base
+	 * Le resultat attendu doit etre false
+	 */
 	@Test
 	@Transactional
 

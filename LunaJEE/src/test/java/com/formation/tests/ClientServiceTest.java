@@ -39,18 +39,27 @@ public class ClientServiceTest {
 		assertTrue(clientService.SaveOrUpdateClient(client));
 	}
 
+	/**
+	 * Test de selection de tous les clients
+	 */
 	@Test
 	@Transactional
 	public void testSelectAllClient() {
 		assertNotNull(clientService.SelectAllClients());
 	}
 
+	/**
+	 * Test de selection du dernier client
+	 */
 	@Test
 	@Transactional
 	public void testSelectLastClient() {
 		assertNotNull(clientService.SelectLastClient());
 	}
 
+	/**
+	 * Test de selection d'un client par son Id
+	 */
 	@Test
 	@Transactional
 	public void testSelectClientById() {
@@ -58,12 +67,18 @@ public class ClientServiceTest {
 		assertEquals(client.getIdClient(), clientService.SelectClient((int) client.getIdClient()).getIdClient());
 	}
 
+	/**
+	 * Test de selection d'un client par son nom
+	 */
 	@Test
 	@Transactional
 	public void testSelectClientByName() {
 		assertNotNull(clientService.SelectAllClientsByName("Daniel"));
 	}
 
+	/**
+	 * Test de selection d'un client par son login et son mot de passe
+	 */
 	@Test
 	@Transactional
 	public void testSelectClientByLogNPwd() {
@@ -71,6 +86,9 @@ public class ClientServiceTest {
 		assertNotNull(clientService.SelectClientByLogNPwd("lou", "lou"));
 	}
 
+	/**
+	 * Test de suppression d'un client
+	 */
 	@Test
 	@Transactional
 	public void testDeleteClient() {

@@ -27,6 +27,10 @@ public class ArticleServiceTest {
 	
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
+	/**
+	 * Test de creation d'un article
+	 * Resultat doit etre true
+	 */
 	 @Test
 	 public void CreateArticleTest() {
 	
@@ -40,6 +44,10 @@ public class ArticleServiceTest {
 	 assertTrue(AS.SaveOrUpdateArticle(art));
 	 }
 	
+	 /**
+		 * Test de creation d'un article
+		 * Id de l'article selectionne doit etre a l'id de l'article obtenu
+		 */
 	 @Test
 	 public void SelectArticleTest() {
 	
@@ -49,6 +57,10 @@ public class ArticleServiceTest {
 	 assertEquals((int) AS.SelectAllArticles().get(1).getIdArticle(), art.getIdArticle());
 	 }
 	
+	 /**
+		 * Test de selection des articles
+		 * La liste ne doit pas etre nulle.
+		 */
 	 @Test
 	 public void SelectAllArticlesTest()
 	 {
@@ -62,6 +74,10 @@ public class ArticleServiceTest {
 	
 	 }
 	
+	 /**
+		 * Test de creation d'un article par un design
+		 * 
+		 */
 	 @Test
 	 public void SelectAllArticlesbyDesignTest()
 	 {
@@ -75,6 +91,10 @@ public class ArticleServiceTest {
 	
 	 }
 	
+	 /**
+		 * Test de selection du dernier article
+		 * 
+		 */
 	 @Test
 	 public void SelectLastArticleTest() {
 	
@@ -85,6 +105,10 @@ public class ArticleServiceTest {
 	 }	
 	
 
+	 /**
+		 * Test de suppression d'un article
+		 * 
+		 */
 	@Test
 	public void DeleteArticleTest() {
 

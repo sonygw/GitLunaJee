@@ -29,6 +29,10 @@ public class PanierTest {
 	private PanierService panierService;
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
+
+	/**
+	 * Test de creation d'une ligne de panier
+	 */
 	@Test
 	@Transactional
 	public void testSaveOrUpdatePanier() {
@@ -42,7 +46,9 @@ public class PanierTest {
 		assertTrue(panierService.SaveOrUpdatePanier(panier));
 	}
 	
-	
+	/**
+	 * Test de selection d'un panier d'un client
+	 */
 	@Test
 	@Transactional
 	public void testSelectPanierFromClient() {
@@ -52,6 +58,9 @@ public class PanierTest {
 		assertNotNull(panierService.SelectPanierFromClient(cli));
 	}
 	
+	/**
+	 * Test du compte du nombre article d'un panier client
+	 */
 	@Test
 	@Transactional
 	public void testCountArticleFromPanier() {
@@ -62,6 +71,9 @@ public class PanierTest {
 	}
 	
 
+	/**
+	 * Test de suppression d'un panier
+	 */
 	@Test
 	@Transactional
 	public void testDeletePanier() {
@@ -71,6 +83,9 @@ public class PanierTest {
 		assertFalse(panierService.DeletePanier(panier.get(0)));
 	}
 	
+	/**
+	 * Test de suppression du panier d'un client
+	 */
 	@Test
 	@Transactional
 	public void testDeletePanierFromClient() {

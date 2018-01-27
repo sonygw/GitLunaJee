@@ -1,6 +1,7 @@
 package com.formation.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -15,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.formation.context.ConteneurSpring;
 import com.formation.model.Commande;
+import com.formation.service.ClientService;
 import com.formation.service.CommandeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,6 +28,9 @@ public class CommandeServiceTest {
 
 	private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConteneurSpring.class);
 
+	/**
+	 * Test de selection de toutes les commandes
+	 */
 	@Test
 	@Transactional
 	public void testSelectAllCommandes() {
@@ -33,6 +38,9 @@ public class CommandeServiceTest {
 		assertNotNull(commandeService.SelectAllCommandes());
 	}
 
+	/**
+	 * Test de modification/creation
+	 */
 	@Test
 	@Transactional
 	public void testSaveOrUpdateCommande() {
@@ -45,6 +53,9 @@ public class CommandeServiceTest {
 
 	}
 
+	/**
+	 * Test de selection de la derniere commandes
+	 */
 	@Test
 	@Transactional
 	public void testSelectLastCommande() {
@@ -53,31 +64,40 @@ public class CommandeServiceTest {
 
 	}
 
+	/**
+	 * Test de selection d'une commande
+	 */
 	@Test
 	@Transactional
 	public void testSelectCommande() {
 
-		assertEquals(40, commandeService.SelectCommande(40).getIdCommande());
+		assertEquals(commandeService.SelectLastCommande().getIdCommande(), commandeService.SelectCommande((int) commandeService.SelectLastCommande().getIdCommande()).getIdCommande());
 
 	}
 
+	/**
+	 * Test de selection d'une commande d'un client
+	 */
 	@Test
 	@Transactional
 	public void testSelectCommandeClient() {
-
-		assertNotNull(commandeService.SelectCommandesClient(500));
+		
+		ClientService clientSer = context.getBean(ClientService.class);
+		assertNotNull(commandeService.SelectCommandesClient((int) clientSer.SelectLastClient().getIdClient()));
 
 	}
 
+	/**
+	 * Test de selection de suppression d'une commande
+	 */
 	@Test
 	@Transactional
 	public void testDeleteCommande() {
 
 		commandeService = context.getBean(CommandeService.class);
 
-		Commande commande = new Commande();
 
-		assertTrue(commandeService.DeleteCommande(commande));
+		assertFalse(commandeService.DeleteCommande(commandeService.SelectLastCommande()));
 
 	}
 }
