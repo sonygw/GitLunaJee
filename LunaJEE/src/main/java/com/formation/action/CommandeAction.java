@@ -39,6 +39,10 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	}
 	// ------------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
@@ -72,6 +76,10 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return models;
 	}
 
+	/**
+	 * Affiche toutes les commandes de la base
+	 * @return
+	 */
 	@Action(value = "affTabCom", results = { @Result(name = "success", location = "commandeAccueil", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTable() {
@@ -82,6 +90,10 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return SUCCESS;
 	}
 
+	/**
+	 * Supprime une commande
+	 * @return
+	 */
 	@Action(value = "deleteCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
@@ -93,10 +105,11 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
-	
 
-	
-
+	/**
+	 * Creation d'une commande
+	 * @return
+	 */
 	@Action(value = "createCom", results = { @Result(name = "success", location = "affTabCom", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createClient() {
@@ -109,6 +122,10 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	}
 
+	/**
+	 * Affiche les détails d'une commande
+	 * @return
+	 */
 	@Action(value = "voirCom", results = { @Result(name = "success", location = "commandeResume", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String voirCom() {

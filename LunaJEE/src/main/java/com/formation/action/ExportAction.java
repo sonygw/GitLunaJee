@@ -40,6 +40,10 @@ public class ExportAction extends ActionSupport implements SessionAware {
 	}
 	// ------------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
@@ -63,6 +67,10 @@ public class ExportAction extends ActionSupport implements SessionAware {
 
 	private String preview;
 
+	/**
+	 * Apercu avant impression d'un client
+	 * @return
+	 */
 	@Action(value = "previewClient", results = { @Result(name = "success", location = "/preview.jsp"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String previewCli() {
@@ -77,6 +85,10 @@ public class ExportAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * Apercu avant impression d'un article
+	 * @return
+	 */
 	@Action(value = "previewArticle", results = { @Result(name = "success", location = "/preview.jsp"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String previewArt() {
@@ -91,6 +103,10 @@ public class ExportAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * Apercu avant impression d'une commande
+	 * @return
+	 */
 	@Action(value = "previewCommande", results = { @Result(name = "success", location = "/preview.jsp"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String previewCom() {

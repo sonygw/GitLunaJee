@@ -1,11 +1,9 @@
 package com.formation.action;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -23,7 +21,6 @@ import com.formation.model.Commande;
 import com.formation.model.Panier;
 import com.formation.service.ArtComService;
 import com.formation.service.ArticleService;
-import com.formation.service.ClientService;
 import com.formation.service.CommandeService;
 import com.formation.service.PanierService;
 import com.formation.util.DateDuJour;
@@ -59,6 +56,10 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 	}
 	// ------------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
@@ -94,6 +95,10 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		return models;
 	}
 
+	/**
+	 * Affichage du panier
+	 * @return
+	 */
 	@Action(value = "affTabPan", results = { @Result(name = "success", location = "panier", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTablePanier() {
@@ -105,6 +110,10 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		return SUCCESS;
 	}
 
+	/**
+	 * Suppression du panier
+	 * @return
+	 */
 	@Action(value = "deletePan", results = { @Result(name = "success", location = "affTabPan", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeletePanier() {
@@ -125,14 +134,10 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 
 	}
 
-	public int getCodePan() {
-		return codePan;
-	}
-
-	public void setCodePan(int codePan) {
-		this.codePan = codePan;
-	}
-
+	/**
+	 * Validation d'un panier
+	 * @return
+	 */
 	@Action(value = "validPanier", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String ValidPanierFromClient() {
@@ -168,6 +173,14 @@ public class PanierAction extends ActionSupport implements ModelDriven<Panier>, 
 		panierService.DeletePanierFromClient(cli);
 		return SUCCESS;
 
+	}
+	
+	public int getCodePan() {
+		return codePan;
+	}
+
+	public void setCodePan(int codePan) {
+		this.codePan = codePan;
 	}
 
 	public int getCodeArt() {

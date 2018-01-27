@@ -1,9 +1,8 @@
 package com.formation.action;
 
 import java.util.List;
-import java.util.Map;
 
-import javax.persistence.NoResultException;
+import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -14,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.formation.context.ConteneurSpring;
-import com.formation.model.Article;
 import com.formation.model.Client;
 import com.formation.service.ClientService;
-import com.formation.service.CommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -51,6 +48,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 	private int codeCli;
 	private List<Client> models = null;
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
@@ -76,6 +77,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 		return models;
 	}
 
+	/**
+	 * Affiche tous les clients de la base
+	 * @return
+	 */
 	@Action(value = "affTabCli", results = { @Result(name = "success", location = "clientAccueil", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String AffichTable() {
@@ -85,7 +90,12 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 		setModels();
 		return SUCCESS;
 	}
-
+	
+	
+	/**
+	 * Supprime un client
+	 * @return
+	 */
 	@Action(value = "deleteCli", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String DeleteClient() {
@@ -97,6 +107,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 
 	}
 
+	/**
+	 * Selection d'un client par son id pour modification
+	 * @return
+	 */
 	@Action(value = "updateCli1", results = { @Result(name = "success", location = "clientModif", type = "tiles"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String redirectionUpdate() {
@@ -108,6 +122,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 		return SUCCESS;
 	}
 
+	/**
+	 * Modification d'un client
+	 * @return
+	 */
 	@Action(value = "updateCli2", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String UpdateClient() {
@@ -122,6 +140,10 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>, 
 
 	}
 
+	/**
+	 * Creation d'un client
+	 * @return
+	 */
 	@Action(value = "createCli", results = { @Result(name = "success", location = "affTabCli", type = "redirect"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String createClient() {

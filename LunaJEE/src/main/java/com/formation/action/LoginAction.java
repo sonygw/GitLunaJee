@@ -38,6 +38,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	}
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
@@ -49,6 +53,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return b;
 	}
 
+	/**
+	 * Verification login et mot de passe d'un client
+	 * @return
+	 */
 	@Action(value = "connecter", results = { @Result(name = "input", location = "/index.jsp"),
 			@Result(name = "success", type = "redirect", location = "accueil")
 			// @Result(name = "inconnu", location = "/403.jsp")
@@ -69,7 +77,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			return INPUT;
 		}
 	}
-
+	
+	/**
+	 * Deconnexion 
+	 * @return
+	 */
 	@Action(value = "deconnecter", results = { @Result(name = "success", location = "/index.jsp"),
 			@Result(name = "inconnu", location = "/403.jsp") })
 	public String deconnecter() {

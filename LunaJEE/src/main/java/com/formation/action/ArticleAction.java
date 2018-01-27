@@ -52,6 +52,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Verification d'authentification
+	 * @return
+	 */
 	public boolean verifUser() {
 		boolean b = false;
 		try {
