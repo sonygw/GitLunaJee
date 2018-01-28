@@ -41,7 +41,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[3];
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -59,7 +59,6 @@ function myFunction() {
 	<s:if test="getModels()!=null">
 		<table id="myTable">
 			<tr>
-				<td width="20%">Id</td>
 				<td width="30%">Nom</td>
 				<td width="30%">Prenom</td>
 				<td width="30%">Code Commande</td>
@@ -71,7 +70,6 @@ function myFunction() {
 			<s:iterator value="getModels()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="20%"><s:property value="idCommande" /></td>
 					<td width="20%"><s:property value="nomCli" /></td>
 					<td width="20%"><s:property value="prenomCli" /></td>
 					<td width="20%"><s:property value="ref" /></td>

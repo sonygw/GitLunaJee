@@ -10,7 +10,7 @@
 <body>
 
 	<s:form action="submitAjout">
-
+<!-- <fieldset> -->
 Nom : 
 		<s:property value="article.nom" />
 		<br>
@@ -28,19 +28,24 @@ Nom :
 		<br>
 		<br>
 		Prix : 
-		<s:property value="article.prixHT" />
-&euro;	
+		<s:property value="article.prixHT" />  &euro;	
+		
+		<br>
+		<br>
+		Quantité restante : 
+		<s:property value="article.quantite" />
 
-<br>
+		<br>
 		<%-- <s:property value="codeArt" /> --%>
 		<br>
-
+<!-- </fieldset> -->
 		<s:if test="article.quantite > 0">
-			<s:textfield class="textFieldPerso" placeholder="Quantité" name="qte" value="" style="position: absolute; left:85% ; top: 65%;"
+			<s:textfield class="textFieldPerso" placeholder="Quantité" name="qte"
+				value="" style="position: absolute; left:85% ; top: 65%;"
 				required="true" labelposition="left">
 			</s:textfield>
-			<s:submit class="ButtPerso" value="Ajouter au panier !"	/>
-			
+			<s:submit class="ButtPerso" value="Ajouter" />
+
 		</s:if>
 		<s:else>
 			<s:submit disabled="1" class="ButtPerso"

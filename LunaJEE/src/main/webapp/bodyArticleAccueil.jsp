@@ -34,7 +34,7 @@
 </head>
 <body>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche par description" title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherche par nom" title="Type in a name">
 
 
 <script>
@@ -45,7 +45,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -62,7 +62,8 @@ function myFunction() {
 	<s:if test="getModels()!=null">
 		<table id="myTable">
 			<tr>
-				<td width="20%">Id</td>
+				
+				<td width="30%">Nom</td>
 				<td width="30%">Cat</td>
 				<td width="30%">Description</td>
 				<td>Voir Article</td>
@@ -73,7 +74,7 @@ function myFunction() {
 			<s:iterator value="getModels()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="20%"><s:property value="idArticle" /></td>
+					<td width="20%"><s:property value="nom" /></td>
 					<td width="30%"><s:property value="categorie" /></td>
 					<td width="30%"><s:property value="description" /></td>
 					<td><s:a action="voirArt">

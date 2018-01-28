@@ -34,7 +34,7 @@
 	<s:if test="getModels().size != 0">
 		<table>
 			<tr>
-				<td width="20%">Id</td>
+<!-- 				<td width="20%">Id</td> -->
 				<td width="30%">Cat</td>
 				<td width="30%">Description</td>
 				<td width="30%">Qte</td>
@@ -45,7 +45,7 @@
 			<s:iterator value="getModels()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="20%"><s:property value="article.idArticle" /></td>
+<%-- 					<td width="20%"><s:property value="article.idArticle" /></td> --%>
 					<td width="30%"><s:property value="article.categorie" /></td>
 					<td width="30%"><s:property value="article.description" /></td>
 					<td width="30%"><s:property value="quantite" /></td>

@@ -65,7 +65,7 @@ function myFunction() {
 	<s:if test="getModels()!=null">
 		<table id="myTable">
 			<tr>
-				<td width="20%">Id</td>
+				
 				<td width="30%">Nom</td>
 				<td width="30%">Prenom</td>
 				<td>Supprimer</td>
@@ -75,7 +75,7 @@ function myFunction() {
 			<s:iterator value="getModels()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="20%"><s:property value="idClient" /></td>
+<%-- 					<td width="20%"><s:property value="idClient" /></td> --%>
 					<td width="30%"><s:property value="nom" /></td>
 					<td width="30%"><s:property value="prenom" /></td>
 					<td><s:a action="deleteCli">
