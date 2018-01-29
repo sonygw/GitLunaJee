@@ -18,10 +18,10 @@
 				<s:textfield class="textFieldPerso" label="Prenom" name="prenom" required="true"
 					labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="Email" name="email" required="true"
+				<s:textfield class="textFieldPerso" label="Email" name="email" type="email" required="true"
 					labelposition="left" />
 				
-				<s:textfield class="textFieldPerso" label="Telephone" size="10" name="numeroTelephone"
+				<s:textfield class="textFieldPerso" label="Telephone" size="10" name="numeroTelephone" type="number"
 					required="true" labelposition="left" />
 
 				<s:textfield class="textFieldPerso" label="Adresse" name="adresse" required="true"

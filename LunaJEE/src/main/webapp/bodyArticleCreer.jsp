@@ -24,10 +24,10 @@
 				<s:textfield class="textFieldPerso" label="Catégorie"
 					name="categorie" required="true" labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="Prix HT" name="prixHT"
+				<s:textfield class="textFieldPerso" label="Prix HT" name="prixHT" type="number"
 					required="true" labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="Quantité" name="quantite"
+				<s:textfield class="textFieldPerso" label="Quantité" name="quantite" type="number"
 					required="true" labelposition="left" />
 
 			</div>

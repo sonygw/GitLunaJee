@@ -65,7 +65,6 @@ function myFunction() {
 				
 				<td width="30%">Nom</td>
 				<td width="30%">Cat</td>
-				<td width="30%">Description</td>
 				<td>Voir Article</td>
 				<td>Supprimer</td>
 				<td>Modifier</td>
@@ -76,7 +75,6 @@ function myFunction() {
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td width="20%"><s:property value="nom" /></td>
 					<td width="30%"><s:property value="categorie" /></td>
-					<td width="30%"><s:property value="description" /></td>
 					<td><s:a action="voirArt">
 							<img alt="VIEW" src="images/loupe.ico" width="30px">
 							<s:param name="codeArt">

@@ -32,10 +32,22 @@ public class ClientServiceTest {
 	public void testSaveOrUpdateClient() {
 		clientService = context.getBean(ClientService.class);
 
-		Client client = new Client();
+		Client client = context.getBean(Client.class);
 		client.setLogin("lou");
 		client.setMotDePasse("lou");
 		client.setNom("Daniel");
+		assertTrue(clientService.SaveOrUpdateClient(client));
+	}
+	
+	@Test
+	@Transactional
+	public void testSaveOrUpdateClient2() {
+		clientService = context.getBean(ClientService.class);
+
+		Client client = context.getBean(Client.class);
+		client.setLogin("test");
+		client.setMotDePasse("test");
+		client.setNom("Louis");
 		assertTrue(clientService.SaveOrUpdateClient(client));
 	}
 

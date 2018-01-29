@@ -29,11 +29,11 @@
 					name="article.categorie" required="true" labelposition="left" />
 
 
-				<s:textfield class="textFieldPerso" label="Prix HT"
+				<s:textfield class="textFieldPerso" label="Prix HT" type="number"
 					name="article.prixHT" required="true" labelposition="left" />
 
 
-				<s:textfield class="textFieldPerso" label="Quantité"
+				<s:textfield class="textFieldPerso" label="Quantité" type="number"
 					name="article.quantite" required="true" labelposition="left" />
 
 			</div>

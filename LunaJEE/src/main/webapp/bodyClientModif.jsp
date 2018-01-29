@@ -16,13 +16,13 @@
 				<s:textfield class="textFieldPerso" label="Prenom" name="client.prenom" required="true"
 					labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="Email" name="client.email" required="true"
+				<s:textfield class="textFieldPerso" label="Email" name="client.email" required="true" type="email"
 					labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="remarques" name="client.remarques"
+				<s:textfield class="textFieldPerso" label="Remarques" name="client.remarques"
 					required="true" labelposition="left" />
 
-				<s:textfield class="textFieldPerso" label="Telephone" name="client.numeroTelephone"
+				<s:textfield class="textFieldPerso" label="Telephone" name="client.numeroTelephone" type="number"
 					required="true" labelposition="left" />
 
 				<s:textfield class="textFieldPerso" label="Adresse" name="client.adresse" required="true"
