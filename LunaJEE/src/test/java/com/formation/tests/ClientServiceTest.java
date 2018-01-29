@@ -33,7 +33,9 @@ public class ClientServiceTest {
 		clientService = context.getBean(ClientService.class);
 
 		Client client = context.getBean(Client.class);
-		client.setLogin("lou");
+		
+		client.setIdClient(0);
+		client.setLogin("Grosse");
 		client.setMotDePasse("lou");
 		client.setNom("Daniel");
 		assertTrue(clientService.SaveOrUpdateClient(client));
@@ -45,7 +47,7 @@ public class ClientServiceTest {
 		clientService = context.getBean(ClientService.class);
 
 		Client client = context.getBean(Client.class);
-		client.setLogin("test");
+		client.setLogin("Vache");
 		client.setMotDePasse("test");
 		client.setNom("Louis");
 		assertTrue(clientService.SaveOrUpdateClient(client));

@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.formation.context.ConteneurSpring;
 import com.formation.model.ArtCom;
 import com.formation.service.ArtComService;
+import com.formation.service.CommandeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ConteneurSpring.class)
@@ -63,7 +64,9 @@ public class ArtComServiceTest {
 
 	public void testDeleteArtCom() {
 
-		ArtCom artCom = artComService.SelectAllArtComFromCommande(500).get(1);
+		CommandeService comSer = context.getBean(CommandeService.class);
+	
+		ArtCom artCom = artComService.SelectAllArtComFromCommande((int) comSer.SelectLastCommande().getIdCommande()).get(0);
 		assertFalse(artComService.DeleteArtCom(artCom));
 	}
 }

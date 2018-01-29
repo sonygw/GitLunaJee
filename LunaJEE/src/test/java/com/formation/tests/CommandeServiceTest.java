@@ -75,17 +75,7 @@ public class CommandeServiceTest {
 
 	}
 
-	/**
-	 * Test de selection d'une commande d'un client
-	 */
-	@Test
-	@Transactional
-	public void testSelectCommandeClient() {
-		
-		ClientService clientSer = context.getBean(ClientService.class);
-		assertNotNull(commandeService.SelectCommandesClient((int) clientSer.SelectLastClient().getIdClient()));
-
-	}
+	
 
 	/**
 	 * Test de selection de suppression d'une commande

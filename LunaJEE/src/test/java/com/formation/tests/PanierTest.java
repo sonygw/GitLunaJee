@@ -92,7 +92,7 @@ public class PanierTest {
 		Client client = new Client();
 		client.setIdClient(500);
 		
-		assertNull(panierService.DeletePanierFromClient(client));
+		assertTrue(panierService.DeletePanierFromClient(client));
 	}
 	
 

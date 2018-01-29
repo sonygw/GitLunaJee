@@ -36,6 +36,7 @@ public class ArticleServiceTest {
 	
 	 Article art = context.getBean(Article.class);
 	
+	 art.setIdArticle(0);
 	 art.setDescription("ok");
 	 art.setPrixHT(50);
 	 art.setQuantite(150);
