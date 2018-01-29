@@ -14,7 +14,7 @@
 	</a>
 
 	<div style="height: 6rem"></div>
-	<s:a action="export">  <img src="images/export.ico"> Export
+	<s:a action="previewArticle">  <img src="images/export.ico"> Export
 	</s:a>
 
 </body>

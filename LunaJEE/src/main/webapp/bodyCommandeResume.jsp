@@ -11,13 +11,13 @@
 
 	<s:form> Référence Commande : <s:property value="commande.ref" />
 	</s:form>
-	<s:form> Nom Client : <s:property value="commande.client.nom" />
+	<s:form> Nom Client : <s:property value="commande.nomCli" />
 	</s:form>
 	<s:form> Prénom Client : <s:property
-			value="commande.client.prenom" />
+			value="commande.prenomCli" />
 	</s:form>
 	<s:form> Prix : <s:property value="commande.prixHT" />&euro;</s:form>
-
+	<s:form> Date : <s:property value="commande.date" /></s:form>
 
 	<table id="myTable">
 
@@ -28,14 +28,14 @@
 			<td width="30%">Quantité achetée</td>
 		</tr>
 
-<s:iterator value="getArtCom()" status = "modelsStatus">
-		<tr style="border-width: 1px; border-style: solid">
-			<td><s:property value="article.code" /></td>
-			<td><s:property value="article.description" /></td>
-			<td><s:property value="quantite" /></td>
+		<s:iterator value="getArtCom()" status="modelsStatus">
+			<tr style="border-width: 1px; border-style: solid">
+				<td><s:property value="article.code" /></td>
+				<td><s:property value="article.description" /></td>
+				<td><s:property value="quantite" /></td>
 
-		</tr>
-</s:iterator>
+			</tr>
+		</s:iterator>
 	</table>
 
 

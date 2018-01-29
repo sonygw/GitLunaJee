@@ -10,7 +10,7 @@
 <body>
 
 	<div style="height: 6rem"></div>
-	<a href=pasEncore.jsp> <img src="images/export.ico"> Export
+	<a href=previewCommande> <img src="images/export.ico"> Export
 	</a>
 
 </body>

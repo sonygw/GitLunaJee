@@ -15,7 +15,7 @@
 	</a>
 
 	<div style="height: 6rem"></div>
-	<a href=pasEncore.jsp> <img src="images/export.ico"> Export
+	<a href=previewClient> <img src="images/export.ico"> Export
 	</a>
 
 

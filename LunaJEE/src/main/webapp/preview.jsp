@@ -78,9 +78,10 @@ border: 1px solid black;
 			<s:iterator value="getCommandes()" status="modelsStatus">
 				<tr
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="20%"><s:property value="client.nom" /></td>
-					<td width="20%"><s:property value="client.prenom" /></td>
+					<td width="20%"><s:property value="nomCli" /></td>
+					<td width="20%"><s:property value="prenomCli" /></td>
 					<td width="20%"><s:property value="ref" /></td>
+					<td width="20%"><s:property value="date" /></td>
 					<td width="20%"><s:property value="prixHT" /> &euro;</td>
 
 
@@ -108,8 +109,8 @@ border: 1px solid black;
 					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 					<td width="30%"><s:property value="categorie" /></td>
 					<td width="30%"><s:property value="description" /></td>
-					<td width="30%"><s:property value="prix" /></td>
-					<td width="30%"><s:property value="prix" /></td>
+					<td width="30%"><s:property value="prixHT" /></td>
+					<td width="30%"><s:property value="quantite" /></td>
 
 				</tr>
 			</s:iterator>
